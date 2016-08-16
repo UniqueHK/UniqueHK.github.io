@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>redis vs memcached | 宽视角</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="redis和memcached都是极好的缓存工具，什么时候该用redis，什么时候该用memcached呢？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="redis vs memcached">
+<meta property="og:url" content="http://yoursite.com/2016/08/16/redis2/index.html">
+<meta property="og:site_name" content="宽视角">
+<meta property="og:description" content="redis和memcached都是极好的缓存工具，什么时候该用redis，什么时候该用memcached呢？">
+<meta property="og:updated_time" content="2016-08-16T13:59:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="redis vs memcached">
+<meta name="twitter:description" content="redis和memcached都是极好的缓存工具，什么时候该用redis，什么时候该用memcached呢？">
+  
+    <link rel="alternative" href="/atom.xml" title="宽视角" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	
+		<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+			<label>Search</label>
+			<input type="text" id="st-search-input" class="st-default-search-input st-search-input_my" maxlength="30" placeholder="Search" />
+		</form>
+	
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://avatars1.githubusercontent.com/u/4168558?v=3&amp;s=460" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">listen</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">年轻是什么？就是越挫越勇！</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/listen-lavender" title="github">github</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/" style="font-size: 10px;">==</a> <a href="/tags/Newton-iteration/" style="font-size: 10px;">Newton iteration</a> <a href="/tags/async-task/" style="font-size: 10px;">async task</a> <a href="/tags/asynchronous/" style="font-size: 10px;">asynchronous</a> <a href="/tags/asyncio/" style="font-size: 10px;">asyncio</a> <a href="/tags/beanstalkd/" style="font-size: 10px;">beanstalkd</a> <a href="/tags/binary-search/" style="font-size: 10px;">binary search</a> <a href="/tags/bitmap/" style="font-size: 10px;">bitmap</a> <a href="/tags/brpop/" style="font-size: 10px;">brpop</a> <a href="/tags/cache-algorithm/" style="font-size: 10px;">cache algorithm</a> <a href="/tags/coroutine/" style="font-size: 10px;">coroutine</a> <a href="/tags/gen-coroutine/" style="font-size: 10px;">gen.coroutine</a> <a href="/tags/greenlet/" style="font-size: 10px;">greenlet</a> <a href="/tags/gunicorn/" style="font-size: 10px;">gunicorn</a> <a href="/tags/hashtable/" style="font-size: 10px;">hashtable</a> <a href="/tags/hash优化/" style="font-size: 10px;">hash优化</a> <a href="/tags/hash制度/" style="font-size: 10px;">hash制度</a> <a href="/tags/ioloop/" style="font-size: 10px;">ioloop</a> <a href="/tags/is/" style="font-size: 10px;">is</a> <a href="/tags/level/" style="font-size: 20px;">level</a> <a href="/tags/lpush/" style="font-size: 10px;">lpush</a> <a href="/tags/lxml/" style="font-size: 10px;">lxml</a> <a href="/tags/method/" style="font-size: 10px;">method</a> <a href="/tags/mongo/" style="font-size: 10px;">mongo</a> <a href="/tags/mongo-id/" style="font-size: 10px;">mongo_id</a> <a href="/tags/monitor/" style="font-size: 10px;">monitor</a> <a href="/tags/nosql/" style="font-size: 10px;">nosql</a> <a href="/tags/object-oriented/" style="font-size: 10px;">object-oriented</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/phantomjs/" style="font-size: 10px;">phantomjs</a> <a href="/tags/pointerarray/" style="font-size: 10px;">pointerarray</a> <a href="/tags/powerful/" style="font-size: 10px;">powerful</a> <a href="/tags/priority/" style="font-size: 20px;">priority</a> <a href="/tags/procedure-oriented/" style="font-size: 10px;">procedure-oriented</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/sqrt/" style="font-size: 10px;">sqrt</a> <a href="/tags/threading/" style="font-size: 10px;">threading</a> <a href="/tags/weight/" style="font-size: 10px;">weight</a> <a href="/tags/两小无猜/" style="font-size: 10px;">两小无猜</a> <a href="/tags/乌托邦/" style="font-size: 10px;">乌托邦</a> <a href="/tags/优先级/" style="font-size: 10px;">优先级</a> <a href="/tags/使用场景/" style="font-size: 10px;">使用场景</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/分布式/" style="font-size: 10px;">分布式</a> <a href="/tags/分类/" style="font-size: 10px;">分类</a> <a href="/tags/匿名变量/" style="font-size: 10px;">匿名变量</a> <a href="/tags/单线程/" style="font-size: 10px;">单线程</a> <a href="/tags/周星驰/" style="font-size: 10px;">周星驰</a> <a href="/tags/哈希/" style="font-size: 10px;">哈希</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/富类hash/" style="font-size: 10px;">富类hash</a> <a href="/tags/小巧/" style="font-size: 10px;">小巧</a> <a href="/tags/异步IO/" style="font-size: 10px;">异步IO</a> <a href="/tags/张小凡/" style="font-size: 10px;">张小凡</a> <a href="/tags/性能/" style="font-size: 10px;">性能</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/条件查询/" style="font-size: 10px;">条件查询</a> <a href="/tags/浮夸/" style="font-size: 10px;">浮夸</a> <a href="/tags/混沌hash/" style="font-size: 10px;">混沌hash</a> <a href="/tags/状态/" style="font-size: 10px;">状态</a> <a href="/tags/田灵儿/" style="font-size: 10px;">田灵儿</a> <a href="/tags/自虐/" style="font-size: 10px;">自虐</a> <a href="/tags/阻塞完成/" style="font-size: 10px;">阻塞完成</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://braavos.me/">落在深海</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://sanyuesha.com/">三月沙</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">listen</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="https://avatars1.githubusercontent.com/u/4168558?v=3&amp;s=460" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">listen</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">年轻是什么？就是越挫越勇！</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/listen-lavender" title="github">github</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-redis2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/16/redis2/" class="article-date">
+  	<time datetime="2016-08-16T10:32:13.000Z" itemprop="datePublished">2016-08-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      redis vs memcached
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cache-algorithm/">cache algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nosql/">nosql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/threading/">threading</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/backend-tool/">backend-tool</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>redis&#x548C;memcached&#x90FD;&#x5C5E;&#x4E8E;nosql&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x6570;&#x636E;&#x90FD;&#x5728;&#x5185;&#x5B58;&#xFF0C;&#x90FD;&#x662F;key-value&#x7684;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x5F53;&#x7136;&#xFF0C;redis&#x80FD;&#x5B58;&#x50A8;&#x590D;&#x6742;&#x7684;struct&#x7C7B;&#x578B;&#x7684;value&#xFF0C;&#x5404;&#x79CD;&#x5F00;&#x53D1;&#x8BED;&#x8A00;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x90FD;&#x652F;&#x6301;&#x7684;&#x5F88;&#x597D;&#x3002;redis&#x548C;memcached&#x90FD;&#x662F;&#x6781;&#x597D;&#x7684;&#x7F13;&#x5B58;&#x5DE5;&#x5177;&#xFF0C;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x8BE5;&#x7528;redis&#xFF0C;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x8BE5;&#x7528;memcached&#x5462;&#xFF1F;<br>&#x610F;&#x8BD1;<a href="http://www.infoworld.com/article/3063161/application-development/why-redis-beats-memcached-for-caching.html" target="_blank" rel="external">redis vs memcached</a></p>
+<h2 id="Memcached&#x7684;&#x4F18;&#x52BF;"><a href="#Memcached&#x7684;&#x4F18;&#x52BF;" class="headerlink" title="Memcached&#x7684;&#x4F18;&#x52BF;"></a>Memcached&#x7684;&#x4F18;&#x52BF;</h2><ul>
+<li><p>Memcached&#x91C7;&#x7528;LRU&#x7B56;&#x7565;&#x6DD8;&#x6C70;&#x65E7;&#x6570;&#x636E;&#xFF0C;&#x9002;&#x5408;&#x5B58;&#x653E;&#x5C0F;&#x4F53;&#x79EF;&#x7684;&#x6570;&#x636E;&#x6216;&#x8005;&#x9759;&#x6001;&#x6570;&#x636E;&#xFF0C;&#x540C;&#x6837;&#x7684;&#x57FA;&#x672C;&#x6570;&#x636E;&#x5728;Memcached&#x91CC;&#x9762;&#x7684;&#x5185;&#x5B58;&#x6D88;&#x8017;&#x8981;&#x5C11;&#xFF0C;&#x5BF9;&#x4E8E;&#x52A8;&#x6001;&#x6570;&#x636E;&#x3001;&#x5E8F;&#x5217;&#x5316;&#x5927;&#x4F53;&#x79EF;&#x6570;&#x636E;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x4F18;&#x52BF;&#xFF0C;&#x5BB9;&#x6613;&#x4EA7;&#x751F;&#x5185;&#x5B58;&#x788E;&#x7247;&#x3002;</p>
+</li>
+<li><p>Memcached&#x652F;&#x6301;&#x591A;&#x7EBF;&#x7A0B;&#xFF0C;&#x53EF;&#x4EE5;&#x5E94;&#x5BF9;&#x6027;&#x80FD;&#x7684;&#x538B;&#x529B;&#xFF0C;&#x4E00;&#x81F4;&#x6027;hash&#x53EF;&#x4EE5;&#x51CF;&#x5C11;&#x6570;&#x636E;&#x4E22;&#x5931;&#x3002;redis&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x96C6;&#x7FA4;&#x6765;&#x6297;&#x538B;&#xFF0C;&#x4F46;&#x662F;&#x90E8;&#x7F72;&#x7EF4;&#x62A4;&#x76F8;&#x5BF9;&#x590D;&#x6742;&#x3002;</p>
+</li>
+</ul>
+<h2 id="Redis&#x7684;&#x4F18;&#x52BF;"><a href="#Redis&#x7684;&#x4F18;&#x52BF;" class="headerlink" title="Redis&#x7684;&#x4F18;&#x52BF;"></a>Redis&#x7684;&#x4F18;&#x52BF;</h2><ul>
+<li>Redis&#x662F;&#x5355;&#x7EBF;&#x7A0B;&#x7684;&#xFF0C;&#x9002;&#x5408;&#x5B58;&#x50A8;&#x5404;&#x79CD;&#x590D;&#x6742;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF0C;&#x63D0;&#x4F9B;&#x4E86;string&#x3001;list&#x3001;set&#x3001;hash&#x3001;sortedset&#x7B49;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF0C;&#x4E0D;&#x4F1A;&#x4E22;&#x6570;&#x636E;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;aof&#x6216;&#x8005;&#x5FEB;&#x7167;&#x6765;&#x6301;&#x4E45;&#x5316;&#xFF0C;&#x751A;&#x81F3;&#x53EF;&#x4EE5;&#x66FF;&#x4EE3;mongo&#x3002;</li>
+<li><p>Redis&#x7684;&#x6DD8;&#x6C70;&#x7B56;&#x7565;&#x4F18;&#x4E8E;Memcached&#xFF0C;&#x63D0;&#x4F9B;&#x4E86;6&#x4E2D;&#x6DD8;&#x6C70;&#x7B97;&#x6CD5;&#xFF0C;&#x800C;&#x4E14;&#x6DD8;&#x6C70;&#x673A;&#x5236;&#x6709;&#x4E09;&#x5C42;&#x3002;</p>
+<ul>
+<li>&#x5F53;&#x8BFB;/&#x5199;&#x4E00;&#x4E2A;&#x5DF2;&#x7ECF;&#x8FC7;&#x671F;&#x7684;key&#x65F6;&#xFF0C;&#x4F1A;&#x89E6;&#x53D1;&#x60F0;&#x6027;&#x5220;&#x9664;&#x7B56;&#x7565;&#xFF0C;&#x76F4;&#x63A5;&#x5220;&#x9664;&#x6389;&#x8FD9;&#x4E2A;&#x8FC7;&#x671F;key</li>
+<li>&#x60F0;&#x6027;&#x5220;&#x9664;&#x7B56;&#x7565;&#x65E0;&#x6CD5;&#x4FDD;&#x8BC1;&#x51B7;&#x6570;&#x636E;&#x88AB;&#x53CA;&#x65F6;&#x5220;&#x6389;&#xFF0C;Redis&#x4F1A;&#x6839;&#x636E;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;hz&#x53C2;&#x6570;&#xFF0C;&#x8C03;&#x7528;databasesCron()&#x51FD;&#x6570;&#x89E6;&#x53D1;&#x6E05;&#x7406;&#x7B56;&#x7565;&#xFF0C;&#x5B9A;&#x671F;&#x4E3B;&#x52A8;&#x6DD8;&#x6C70;&#x4E00;&#x6279;&#x5DF2;&#x8FC7;&#x671F;&#x7684;key&#xFF0C;&#x6BCF;&#x6B21;&#x6DD8;&#x6C70;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x7684;&#x6700;&#x5927;&#x65F6;&#x957F;timelimit&#x6839;&#x636E;hz&#x53C2;&#x6570;&#x8BA1;&#x7B97;&#x800C;&#x6765;&#xFF0C;&#x548C;hz&#x662F;&#x5012;&#x6570;&#x5173;&#x7CFB;&#xFF0C;&#x4E3B;&#x52A8;&#x6DD8;&#x6C70;&#x9891;&#x7387;&#x8D8A;&#x9AD8;&#xFF0C;&#x5219;&#x6BCF;&#x6B21;&#x6DD8;&#x6C70;&#x6700;&#x957F;&#x5360;&#x7528;&#x65F6;&#x95F4;&#x5C31;&#x8D8A;&#x77ED;&#xFF0C;&#x907F;&#x514D;&#x6BCF;&#x6B21;&#x4E3B;&#x52A8;&#x6DD8;&#x6C70;&#x963B;&#x585E;&#x5E94;&#x7528;&#x8BF7;&#x6C42;</li>
+<li>&#x5F53;&#x524D;&#x5DF2;&#x7528;&#x5185;&#x5B58;&#x8D85;&#x8FC7;maxmemory&#x9650;&#x5B9A;&#x65F6;&#xFF0C;&#x6839;&#x636E;&#x7528;&#x6237;&#x914D;&#x7F6E;&#x7684;maxmemory-policy&#x53C2;&#x6570;(&#x4E00;&#x822C;&#x4E3A;LRU/TTL)&#xFF0C;&#x9009;&#x53D6;&#x7B97;&#x6CD5;&#x5BF9;redis&#x91CC;&#x9762;&#x7684;maxmemory-samples&#x4E2A;key&#x8FDB;&#x884C;&#x62BD;&#x6837;&#x6E05;&#x7406;(maxmemory-samples&#x7684;&#x589E;&#x52A0;&#xFF0C;&#x4F1A;&#x63D0;&#x9AD8;LRU&#x6216;TTL&#x7684;&#x7CBE;&#x51C6;&#x5EA6;&#xFF0C;&#x540C;&#x65F6;&#x4F1A;&#x5BFC;&#x81F4;&#x6E05;&#x7406;&#x65F6;&#x6D88;&#x8017;&#x66F4;&#x591A;&#x7684;CPU&#x65F6;&#x95F4;&#xFF1B;&#x6700;&#x597D;&#x4E0D;&#x8981;&#x89E6;&#x53D1;&#x8FD9;&#x4E2A;&#x6E05;&#x7406;)</li>
+</ul>
+</li>
+<li><p>Redis&#x7684;key&#x957F;&#x5EA6;&#x662F;512MB&#xFF0C;Memcached&#x9650;&#x5236;key&#x957F;&#x5EA6;&#x5728;250 bytes&#x4EE5;&#x5185;&#x3002;</p>
+</li>
+<li>Redis&#x53EF;&#x4EE5;&#x642D;&#x8F7D;lua&#x811A;&#x672C;&#x3002;</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/16/pylds/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          c struct of python list and dict
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/13/hashcountry/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">哈希国度</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="redis2" data-title="redis vs memcached" data-url="http://yoursite.com/2016/08/16/redis2/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"fangjueci"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 listen
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+    <script type="text/javascript">
+      (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+      (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+      e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+      })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+      
+      _st('install','hPJFSMYvMX8XnCRm-L2e','2.0.0');
+    </script>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
