@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>go 无数据抽象设计 | 宽视角</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="golang的stuct空间是封闭的，如何做到父子类通信调用？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="go 无数据抽象设计">
+<meta property="og:url" content="http://yoursite.com/2017/04/21/gotest3/index.html">
+<meta property="og:site_name" content="宽视角">
+<meta property="og:description" content="golang的stuct空间是封闭的，如何做到父子类通信调用？">
+<meta property="og:updated_time" content="2017-04-23T14:59:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="go 无数据抽象设计">
+<meta name="twitter:description" content="golang的stuct空间是封闭的，如何做到父子类通信调用？">
+  
+    <link rel="alternative" href="/atom.xml" title="宽视角" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	
+		<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+			<label>Search</label>
+			<input type="text" id="st-search-input" class="st-default-search-input st-search-input_my" maxlength="30" placeholder="Search" />
+		</form>
+	
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://avatars1.githubusercontent.com/u/4168558?v=3&amp;s=460" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">宽视角</a></h1>
+		</hgroup>
+
+		
+        <h3 style="font-weight:bold;font-style:italic;" class="header-subtitle">listen</h3>
+        
+
+		
+		<p class="header-subtitle">年轻是什么？就是越挫越勇！</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/listen-lavender" title="github">github</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/" style="font-size: 10px;">==</a> <a href="/tags/DAG/" style="font-size: 10px;">DAG</a> <a href="/tags/FP/" style="font-size: 10px;">FP</a> <a href="/tags/Newton-iteration/" style="font-size: 10px;">Newton iteration</a> <a href="/tags/OOP/" style="font-size: 10px;">OOP</a> <a href="/tags/async-task/" style="font-size: 10px;">async task</a> <a href="/tags/asynchronous/" style="font-size: 10px;">asynchronous</a> <a href="/tags/asyncio/" style="font-size: 10px;">asyncio</a> <a href="/tags/authority/" style="font-size: 10px;">authority</a> <a href="/tags/background/" style="font-size: 10px;">background</a> <a href="/tags/beanstalkd/" style="font-size: 10px;">beanstalkd</a> <a href="/tags/binary-search/" style="font-size: 10px;">binary search</a> <a href="/tags/bit/" style="font-size: 10px;">bit</a> <a href="/tags/bitmap/" style="font-size: 10px;">bitmap</a> <a href="/tags/brpop/" style="font-size: 10px;">brpop</a> <a href="/tags/cache-algorithm/" style="font-size: 10px;">cache algorithm</a> <a href="/tags/comet-streaming/" style="font-size: 10px;">comet streaming</a> <a href="/tags/coroutine/" style="font-size: 10px;">coroutine</a> <a href="/tags/csrf/" style="font-size: 10px;">csrf</a> <a href="/tags/data-pipeline/" style="font-size: 10px;">data pipeline</a> <a href="/tags/extract/" style="font-size: 10px;">extract</a> <a href="/tags/gen-coroutine/" style="font-size: 10px;">gen.coroutine</a> <a href="/tags/greenlet/" style="font-size: 10px;">greenlet</a> <a href="/tags/gunicorn/" style="font-size: 10px;">gunicorn</a> <a href="/tags/hashtable/" style="font-size: 10px;">hashtable</a> <a href="/tags/hash优化/" style="font-size: 10px;">hash优化</a> <a href="/tags/hash制度/" style="font-size: 10px;">hash制度</a> <a href="/tags/header/" style="font-size: 10px;">header</a> <a href="/tags/http1-0/" style="font-size: 10px;">http1.0</a> <a href="/tags/http1-1/" style="font-size: 10px;">http1.1</a> <a href="/tags/http2-0/" style="font-size: 10px;">http2.0</a> <a href="/tags/include/" style="font-size: 10px;">include</a> <a href="/tags/interface/" style="font-size: 10px;">interface</a> <a href="/tags/ioloop/" style="font-size: 10px;">ioloop</a> <a href="/tags/is/" style="font-size: 10px;">is</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/judge/" style="font-size: 10px;">judge</a> <a href="/tags/keyexpired/" style="font-size: 10px;">keyexpired</a> <a href="/tags/learning/" style="font-size: 10px;">learning</a> <a href="/tags/level/" style="font-size: 20px;">level</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/long-polling/" style="font-size: 10px;">long polling</a> <a href="/tags/lpush/" style="font-size: 10px;">lpush</a> <a href="/tags/lxml/" style="font-size: 10px;">lxml</a> <a href="/tags/mergelist/" style="font-size: 10px;">mergelist</a> <a href="/tags/method/" style="font-size: 10px;">method</a> <a href="/tags/mongo/" style="font-size: 10px;">mongo</a> <a href="/tags/mongo-id/" style="font-size: 10px;">mongo_id</a> <a href="/tags/monitor/" style="font-size: 10px;">monitor</a> <a href="/tags/multi-process/" style="font-size: 10px;">multi process</a> <a href="/tags/nosql/" style="font-size: 10px;">nosql</a> <a href="/tags/object-oriented/" style="font-size: 10px;">object-oriented</a> <a href="/tags/package/" style="font-size: 10px;">package</a> <a href="/tags/parallel/" style="font-size: 10px;">parallel</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/phantomjs/" style="font-size: 10px;">phantomjs</a> <a href="/tags/pointer/" style="font-size: 10px;">pointer</a> <a href="/tags/pointerarray/" style="font-size: 10px;">pointerarray</a> <a href="/tags/powerful/" style="font-size: 10px;">powerful</a> <a href="/tags/priority/" style="font-size: 20px;">priority</a> <a href="/tags/procedure-oriented/" style="font-size: 10px;">procedure-oriented</a> <a href="/tags/property/" style="font-size: 10px;">property</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/recursive-struct/" style="font-size: 10px;">recursive struct</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/rwx/" style="font-size: 10px;">rwx</a> <a href="/tags/setter-getter/" style="font-size: 10px;">setter/getter</a> <a href="/tags/shell-script/" style="font-size: 10px;">shell script</a> <a href="/tags/signatures/" style="font-size: 10px;">signatures</a> <a href="/tags/specific-type/" style="font-size: 10px;">specific type</a> <a href="/tags/sqrt/" style="font-size: 10px;">sqrt</a> <a href="/tags/task-flow/" style="font-size: 10px;">task flow</a> <a href="/tags/threading/" style="font-size: 10px;">threading</a> <a href="/tags/type-assert/" style="font-size: 10px;">type assert</a> <a href="/tags/urlparameter/" style="font-size: 10px;">urlparameter</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/weight/" style="font-size: 10px;">weight</a> <a href="/tags/worthy/" style="font-size: 10px;">worthy</a> <a href="/tags/两小无猜/" style="font-size: 10px;">两小无猜</a> <a href="/tags/乌托邦/" style="font-size: 10px;">乌托邦</a> <a href="/tags/优先级/" style="font-size: 10px;">优先级</a> <a href="/tags/使用场景/" style="font-size: 10px;">使用场景</a> <a href="/tags/先验概率/" style="font-size: 10px;">先验概率</a> <a href="/tags/全概率/" style="font-size: 10px;">全概率</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/分布式/" style="font-size: 10px;">分布式</a> <a href="/tags/分支限界/" style="font-size: 10px;">分支限界</a> <a href="/tags/分治/" style="font-size: 10px;">分治</a> <a href="/tags/分类/" style="font-size: 10px;">分类</a> <a href="/tags/动态规划/" style="font-size: 10px;">动态规划</a> <a href="/tags/匿名变量/" style="font-size: 10px;">匿名变量</a> <a href="/tags/单线程/" style="font-size: 10px;">单线程</a> <a href="/tags/后验概率/" style="font-size: 10px;">后验概率</a> <a href="/tags/周星驰/" style="font-size: 10px;">周星驰</a> <a href="/tags/哈希/" style="font-size: 10px;">哈希</a> <a href="/tags/回溯/" style="font-size: 10px;">回溯</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/富类hash/" style="font-size: 10px;">富类hash</a> <a href="/tags/小巧/" style="font-size: 10px;">小巧</a> <a href="/tags/异步IO/" style="font-size: 10px;">异步IO</a> <a href="/tags/张小凡/" style="font-size: 10px;">张小凡</a> <a href="/tags/性能/" style="font-size: 10px;">性能</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/新年快乐/" style="font-size: 10px;">新年快乐</a> <a href="/tags/条件查询/" style="font-size: 10px;">条件查询</a> <a href="/tags/条件概率/" style="font-size: 10px;">条件概率</a> <a href="/tags/浮夸/" style="font-size: 10px;">浮夸</a> <a href="/tags/混沌hash/" style="font-size: 10px;">混沌hash</a> <a href="/tags/父类方法调用子类方法/" style="font-size: 10px;">父类方法调用子类方法</a> <a href="/tags/状态/" style="font-size: 10px;">状态</a> <a href="/tags/田灵儿/" style="font-size: 10px;">田灵儿</a> <a href="/tags/自虐/" style="font-size: 10px;">自虐</a> <a href="/tags/贪心/" style="font-size: 10px;">贪心</a> <a href="/tags/转码/" style="font-size: 10px;">转码</a> <a href="/tags/阻塞完成/" style="font-size: 10px;">阻塞完成</a> <a href="/tags/随心随性/" style="font-size: 10px;">随心随性</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://braavos.me/">落在深海</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://sanyuesha.com/">三月沙</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">listen</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="https://avatars1.githubusercontent.com/u/4168558?v=3&amp;s=460" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">listen</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">年轻是什么？就是越挫越勇！</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/listen-lavender" title="github">github</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-gotest3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/21/gotest3/" class="article-date">
+  	<time datetime="2017-04-21T04:21:48.000Z" itemprop="datePublished">2017-04-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      go 无数据抽象设计
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/interface/">interface</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pointer/">pointer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/property/">property</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/setter-getter/">setter/getter</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/父类方法调用子类方法/">父类方法调用子类方法</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/go/">go</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>interface&#x662F;golang&#x7684;&#x62BD;&#x8C61;&#x8BBE;&#x8BA1;&#x7684;&#x6839;&#x57FA;&#xFF0C;&#x662F;&#x65B9;&#x6CD5;&#x96C6;&#x5408;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x5F3A;&#x5927;&#x7684;&#x5E76;&#x4E14;&#x89C4;&#x8303;&#x7684;&#x6307;&#x9488;&#xFF0C;&#x53EF;&#x4EE5;&#x5F15;&#x7528;&#x4EFB;&#x610F;&#x5B9E;&#x73B0;&#x4E86;&#x8BE5;&#x63A5;&#x53E3;&#x7684;&#x65B9;&#x6CD5;&#x96C6;&#x5408;&#x7684;struct&#xFF0C;&#x4E0D;&#x80FD;&#x5B9A;&#x4E49;&#x5C5E;&#x6027;&#xFF0C;&#x610F;&#x5473;&#x7740;&#x5728;&#x62BD;&#x8C61;&#x8BBE;&#x8BA1;&#x91CC;&#x662F;&#x4E0D;&#x5141;&#x8BB8;&#x6709;&#x6570;&#x636E;&#x7684;&#xFF0C;&#x4F7F;&#x8BED;&#x8A00;&#x7684;&#x7F16;&#x8BD1;&#x8FD0;&#x884C;&#x7BA1;&#x7406;&#x66F4;&#x7EAF;&#x7CB9;&#x65B9;&#x4FBF;&#x3002;</p>
+<h2 id="&#x4E00;&#x5207;&#x5C5E;&#x6027;&#x90FD;&#x662F;setter-getter"><a href="#&#x4E00;&#x5207;&#x5C5E;&#x6027;&#x90FD;&#x662F;setter-getter" class="headerlink" title="&#x4E00;&#x5207;&#x5C5E;&#x6027;&#x90FD;&#x662F;setter/getter"></a>&#x4E00;&#x5207;&#x5C5E;&#x6027;&#x90FD;&#x662F;setter/getter</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> main</div><div class="line"></div><div class="line"><span class="keyword">type</span> Surface <span class="keyword">struct</span>{</div><div class="line">    skin <span class="keyword">string</span></div><div class="line">}</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="params">(s *Surface)</span> <span class="title">Skin</span><span class="params">()</span> <span class="title">string</span></span>{</div><div class="line">    <span class="keyword">return</span> <span class="string">&quot;My skin is &quot;</span> + s.skin</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">type</span> Men <span class="keyword">interface</span> {</div><div class="line">    GetSurface() Surface</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">type</span> European <span class="keyword">struct</span> {</div><div class="line">    surface Surface</div><div class="line">}</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="params">(p *European)</span> <span class="title">GetSurface</span><span class="params">()</span> <span class="title">Surface</span></span>{</div><div class="line">    <span class="keyword">return</span> p.surface</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">type</span> African <span class="keyword">struct</span> {</div><div class="line">    surface Surface</div><div class="line">}</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="params">(p *African)</span> <span class="title">GetSurface</span><span class="params">()</span> <span class="title">Surface</span></span>{</div><div class="line">    <span class="keyword">return</span> p.surface</div><div class="line">}</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">Introduce</span><span class="params">(men Men)</span></span>{</div><div class="line">    s := men.GetSurface()</div><div class="line">    <span class="built_in">println</span>(s.Skin())</div><div class="line">}</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</div><div class="line">    <span class="keyword">var</span> s Surface</div><div class="line">    s = Surface{<span class="string">&quot;white&quot;</span>}</div><div class="line">    e := European{s}</div><div class="line">    Introduce(&amp;e)</div><div class="line">    s = Surface{<span class="string">&quot;black&quot;</span>}</div><div class="line">    a := African{s}</div><div class="line">    Introduce(&amp;a)</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x4E0A;&#x4F8B;&#x4E2D;&#x7684;&#x591A;&#x6001;&#xFF0C;&#x901A;&#x8FC7;setter/getter&#x53D8;&#x76F8;&#x5B8C;&#x6210;&#x4E86;property&#x5728;interface&#x5B9A;&#x4E49;&#xFF0C;&#x7528;&#x65B9;&#x6CD5;&#x591A;&#x6001;&#x6765;&#x5B9E;&#x73B0;&#x5C5E;&#x6027;&#x591A;&#x6001;&#x3002;</p>
+<h2 id="&#x7236;&#x7C7B;&#x65B9;&#x6CD5;A&#x8C03;&#x7528;&#x5B50;&#x7C7B;&#x65B9;&#x6CD5;B"><a href="#&#x7236;&#x7C7B;&#x65B9;&#x6CD5;A&#x8C03;&#x7528;&#x5B50;&#x7C7B;&#x65B9;&#x6CD5;B" class="headerlink" title="&#x7236;&#x7C7B;&#x65B9;&#x6CD5;A&#x8C03;&#x7528;&#x5B50;&#x7C7B;&#x65B9;&#x6CD5;B"></a>&#x7236;&#x7C7B;&#x65B9;&#x6CD5;A&#x8C03;&#x7528;&#x5B50;&#x7C7B;&#x65B9;&#x6CD5;B</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> main</div><div class="line"></div><div class="line"><span class="keyword">type</span> Men <span class="keyword">interface</span> {</div><div class="line">    Age() <span class="keyword">int</span></div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">type</span> Parent <span class="keyword">struct</span> {</div><div class="line">    Men <span class="comment">//&#x9690;&#x5F0F;</span></div><div class="line">    m Men <span class="comment">//&#x663E;&#x5F0F;</span></div><div class="line">}</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="params">(p *Parent)</span> <span class="title">Age</span><span class="params">()</span> <span class="title">int</span></span>{</div><div class="line">    <span class="keyword">return</span> <span class="number">80</span></div><div class="line">}</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="params">(p *Parent)</span> <span class="title">Display1</span><span class="params">()</span></span> {</div><div class="line">    <span class="built_in">println</span>(p.Men.Age())</div><div class="line">}</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="params">(p *Parent)</span> <span class="title">Display2</span><span class="params">()</span></span> {</div><div class="line">    <span class="built_in">println</span>(p.m.Age())</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">type</span> Child <span class="keyword">struct</span> {</div><div class="line">    Parent</div><div class="line">}</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c *Child)</span> <span class="title">Age</span><span class="params">()</span> <span class="title">int</span></span>{</div><div class="line">    <span class="keyword">return</span> <span class="number">40</span></div><div class="line">}</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</div><div class="line">    <span class="keyword">var</span> child *Child</div><div class="line">    <span class="keyword">var</span> parent *Parent</div><div class="line"></div><div class="line">    parent = &amp;Parent{parent, <span class="literal">nil</span>}</div><div class="line">    child = &amp;Child{Parent: *parent}</div><div class="line">    <span class="built_in">println</span>(<span class="string">&quot;====parent&quot;</span>)</div><div class="line">    child.Display1()</div><div class="line"></div><div class="line">    parent = &amp;Parent{child, <span class="literal">nil</span>}</div><div class="line">    child = &amp;Child{Parent: *parent}</div><div class="line">    <span class="built_in">println</span>(<span class="string">&quot;====child&quot;</span>)</div><div class="line">    child.Display1()</div><div class="line"></div><div class="line">    child.m = parent</div><div class="line">    <span class="built_in">println</span>(<span class="string">&quot;====parent&quot;</span>)</div><div class="line">    child.Display2()</div><div class="line"></div><div class="line">    child.m = child</div><div class="line">    <span class="built_in">println</span>(<span class="string">&quot;====child&quot;</span>)</div><div class="line">    child.Display2()</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x4E0A;&#x4F8B;&#x4E2D;&#x7684;&#x5B9E;&#x73B0;&#x4E86;&#x5728;&#x7236;&#x7C7B;&#x7684;A&#x65B9;&#x6CD5;&#x4E2D;&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x6216;&#x8005;&#x5B50;&#x7C7B;&#x7684;B&#x65B9;&#x6CD5;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#x3002;&#x56E0;&#x4E3A;go&#x662F;&#x9759;&#x6001;&#x8BED;&#x8A00;&#xFF0C;&#x6CA1;&#x6709;&#x52A8;&#x6001;&#x8BED;&#x8A00;&#x5F3A;&#x5927;&#x7684;&#x67E5;&#x627E;&#x673A;&#x5236;&#xFF0C;&#x4E5F;&#x6CA1;&#x6709;&#x865A;&#x51FD;&#x6570;(virtural method)&#x548C;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;(abstract method)&#x4E4B;&#x7C7B;&#x7684;&#x8F85;&#x52A9;&#x9AD8;&#x7EA7;&#x522B;&#x7684;&#x591A;&#x6001;&#x3002;</p>
+<p>&#x5E78;&#x597D;&#xFF0C;golang&#x6709;&#x6307;&#x9488;&#xFF0C;&#x5373;interface&#xFF0C;&#x53C8;&#x540D;&#x63A5;&#x53E3;&#xFF0C;&#x901A;&#x8FC7;&#x5728;&#x7236;&#x7C7B;&#x5B9A;&#x4E49;&#x63A5;&#x53E3;&#x7C7B;&#x578B;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x5E76;&#x5728;&#x5B9E;&#x4F8B;&#x5316;&#x7684;&#x65F6;&#x5019;&#x52A8;&#x6001;&#x7ED1;&#x5B9A;&#x8BE5;&#x5C5E;&#x6027;&#x7684;&#x771F;&#x6B63;&#x7C7B;&#x578B;&#xFF0C;&#x6765;&#x5B8C;&#x6210;&#x7236;&#x7C7B;&#x65B9;&#x6CD5;&#x4E2D;&#x4E00;&#x4E9B;&#x591A;&#x6001;&#x65B9;&#x6CD5;&#x7684;&#x7075;&#x6D3B;&#x8C03;&#x7528;&#xFF0C;&#x589E;&#x52A0;&#x4E86;&#x516C;&#x5171;&#x90E8;&#x5206;&#x7684;&#x590D;&#x7528;&#x6027;&#x3002;</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/03/13/bayes1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">贝叶斯断癌</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="gotest3" data-title="go 无数据抽象设计" data-url="http://yoursite.com/2017/04/21/gotest3/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"fangjueci"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 listen
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+    <script type="text/javascript">
+      (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+      (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+      e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+      })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+      
+      _st('install','hPJFSMYvMX8XnCRm-L2e','2.0.0');
+    </script>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
