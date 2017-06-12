@@ -179,6 +179,67 @@
 
       <div class="body-wrap">
   
+    <article id="post-pilosa2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/12/pilosa2/" class="article-date">
+  	<time datetime="2017-06-12T01:44:55.000Z" itemprop="datePublished">2017-06-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/12/pilosa2/">pilosa分布式位图数据库-再探数据结构</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&#x6B63;&#x5728;&#x52AA;&#x529B;&#x64B0;&#x7A3F;&#x4E2D;&#x3002;</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LRU-cache/">LRU cache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Slice分布式/">Slice分布式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Time-Quantum/">Time Quantum</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cell/">cell</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/column/">column</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/datamodel/">datamodel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frame/">frame</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/index/">index</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/row/">row</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/数据库/">数据库</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-pilosa1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -209,7 +270,7 @@
 <li>&#x80FD;&#x591F;&#x8F7B;&#x677E;&#x6A2A;&#x5411;&#x6269;&#x5C55;&#xFF0C;&#x5E76;&#x4E14;&#x4FDD;&#x8BC1;&#x901F;&#x5EA6;&#x7684;&#x4F4D;&#x56FE;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x652F;&#x6301;&#x6570;&#x636E;&#x7248;&#x672C;&#x7684;&#x65F6;&#x95F4;&#x5E8F;&#x5217;</li>
 <li>&#x9002;&#x5408;&#x9AD8;&#x9891;&#x6B21;&#x7684;&#x6D41;&#x6570;&#x636E;&#x5904;&#x7406;&#xFF0C;&#x4F7F;&#x7528;&#x573A;&#x666F;&#x4F8B;&#x5982;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x7684;&#x4E1A;&#x52A1;&#x4E3B;&#x4F53;&#x6570;&#x636E;&#x8FBE;&#x5230;10&#x4EBF;&#x91CF;&#x7EA7;&#xFF0C;&#x5E76;&#x4E14;&#x8BE5;&#x6570;&#x636E;&#x7684;&#x9644;&#x52A0;&#x5C5E;&#x6027;&#x6570;&#x91CF;&#x8FBE;&#x5230;&#x767E;&#x4E07;&#x7EA7;&#x522B;&#xFF0C;&#x5F53;&#x4F60;&#x9700;&#x8981;&#x5B9E;&#x65F6;&#x7684;&#x7B5B;&#x9009;&#x7B26;&#x5408;&#x5404;&#x79CD;&#x5C5E;&#x6027;&#x7EC4;&#x5408;&#x6761;&#x4EF6;&#x7684;&#x4E1A;&#x52A1;&#x4E3B;&#x4F53;&#x6570;&#x636E;&#xFF0C;Pilosa&#x4F1A;&#x662F;&#x4E2A;&#x597D;&#x5E2E;&#x624B;</li>
 <li>Pilosa&#x7684;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x4E0D;&#x50CF;&#x73B0;&#x6709;&#x7684;&#x5173;&#x7CFB;&#x578B;&#x6570;&#x636E;mysql&#x3001;oracle&#x7684;&#x884C;&#x5F0F;&#x5B58;&#x50A8;&#xFF08;&#x4E00;&#x884C;&#x662F;&#x4E00;&#x4E2A;&#x4E1A;&#x52A1;&#x5B9E;&#x4F53;&#xFF0C;&#x4E00;&#x5217;&#x662F;&#x540C;&#x4E00;&#x79CD;&#x6570;&#x636E;&#x5B9E;&#x4F53;&#x540C;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#xFF09;&#xFF0C;&#x5305;&#x62EC;column&#x3001;frame&#x3001;row&#x3001;cell&#xFF0C;&#x662F;&#x5217;&#x5F0F;&#x5B58;&#x50A8;</li>
-<li>&#x4E00;&#x4E2A;column&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x4E1A;&#x52A1;&#x5B9E;&#x4F53;&#xFF0C;&#x6709;&#x4E1A;&#x52A1;&#x610F;&#x4E49;&#xFF0C;&#x5305;&#x62EC;&#x591A;&#x4E2A;frame&#xFF0C;&#x591A;&#x4E2A;row&#xFF0C;&#x4ECE;&#x5E73;&#x9762;&#x5F62;&#x8C61;&#x4E0A;&#x770B;&#x662F;&#x7EB5;&#x5411;&#x7684;</li>
+<li>&#x4E00;&#x4E2A;column&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x4E1A;&#x52A1;&#x5B9E;&#x4F53;&#xFF0C;&#x6709;&#x4E1A;&#x52A1;&#x610F;&#x4E49;&#xFF0C;&#x5305;&#x62EC;&#x591A;&#x4E2A;frame&#x4E00;&#x884C;row&#x7684;&#x7EC4;&#x5408;&#xFF0C;&#x4ECE;&#x5E73;&#x9762;&#x5F62;&#x8C61;&#x4E0A;&#x770B;&#x662F;&#x7EB5;&#x5411;&#x7684;</li>
 <li>&#x4E00;&#x4E2A;frame&#xFF0C;&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x4E1A;&#x52A1;&#x5B9E;&#x4F53;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x6709;&#x4E1A;&#x52A1;&#x610F;&#x4E49;&#xFF0C;&#x662F;row&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x4ECE;&#x5E73;&#x9762;&#x5F62;&#x8C61;&#x4E0A;&#x770B;&#x662F;&#x6A2A;&#x5411;&#x7684;</li>
 <li>&#x4E00;&#x4E2A;row&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x7684;&#x4E00;&#x884C;&#x6570;&#x636E;&#x5B58;&#x50A8;&#xFF0C;&#x662F;cell&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x4ECE;&#x5E73;&#x9762;&#x5F62;&#x8C61;&#x4E0A;&#x770B;&#x662F;&#x6A2A;&#x5411;&#x7684;</li>
 <li>&#x4E00;&#x4E2A;cell&#x5C31;&#x662F;0/1&#xFF0C;&#x662F;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x7684;&#x903B;&#x8F91;&#x6700;&#x5C0F;&#x5355;&#x5143;</li>
@@ -260,67 +321,6 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bitmap/">bitmap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/distributed/">distributed</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/index/">index</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/数据库/">数据库</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-pilosa2" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/06/12/pilosa2/" class="article-date">
-  	<time datetime="2017-06-12T01:44:55.000Z" itemprop="datePublished">2017-06-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/12/pilosa2/">pilosa分布式位图数据库-再探数据结构</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&#x6B63;&#x5728;&#x52AA;&#x529B;&#x64B0;&#x7A3F;&#x4E2D;&#x3002;</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LRU-cache/">LRU cache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Slice分布式/">Slice分布式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Time-Quantum/">Time Quantum</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cell/">cell</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/column/">column</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/datamodel/">datamodel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frame/">frame</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/index/">index</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/row/">row</a></li></ul>
 	</div>
 
       
