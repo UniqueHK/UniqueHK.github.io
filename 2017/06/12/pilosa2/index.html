@@ -14,9 +14,10 @@
 <meta property="og:description" content="我来告诉你pilosa的数据结构是怎样的">
 <meta property="og:image" content="http://yoursite.com/2017/06/12/pilosa2/pilosa1.png">
 <meta property="og:image" content="http://yoursite.com/2017/06/12/pilosa2/pilosa2.png">
+<meta property="og:image" content="http://yoursite.com/2017/06/12/pilosa2/pilosa3.png">
 <meta property="og:image" content="http://yoursite.com/2017/06/12/pilosa2/pilosa4.png">
 <meta property="og:image" content="http://yoursite.com/2017/06/12/pilosa2/pilosa5.png">
-<meta property="og:updated_time" content="2017-06-13T05:12:39.000Z">
+<meta property="og:updated_time" content="2017-06-13T06:11:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pilosa分布式位图数据库（2）">
 <meta name="twitter:description" content="我来告诉你pilosa的数据结构是怎样的">
@@ -238,7 +239,7 @@
 <ul>
 <li><p>ranked cache of a frame<br><img src="/2017/06/12/pilosa2/pilosa2.png" alt="pilosa"><br>&#x6709;&#x5E8F;frame&#x662F;&#x901A;&#x8FC7;&#x884C;ID&#x7EF4;&#x62A4;&#x5217;&#x8BA1;&#x6570;&#x7684;&#x9AD8;&#x901F;&#x7F13;&#x5B58;&#xFF0C;&#x8BE5;&#x7F13;&#x5B58;&#x4FBF;&#x4E8E;TopN&#x67E5;&#x8BE2;&#xFF0C;&#x7F13;&#x5B58;&#x5927;&#x5C0F;&#x9ED8;&#x8BA4;&#x4E3A;50,000</p>
 </li>
-<li><p>LRU cache of a frame<br><style><br>  p{text-indent: 2em;}<br>  img[title=”pilosa3”] {width: 45%;}<br></style><br>LRU&#x7F13;&#x5B58;&#x7EF4;&#x62A4;frame&#x6700;&#x8FD1;&#x8BBF;&#x95EE;&#x7684;&#x884C;</p>
+<li><p>LRU cache of a frame<br><img src="/2017/06/12/pilosa2/pilosa3.png" alt="pilosa"><br>LRU&#x7F13;&#x5B58;&#x7EF4;&#x62A4;frame&#x6700;&#x8FD1;&#x8BBF;&#x95EE;&#x7684;&#x884C;</p>
 </li>
 </ul>
 <h4 id="Slice-&#x4E0E;&#x5206;&#x5E03;&#x5F0F;&#x6709;&#x5173;"><a href="#Slice-&#x4E0E;&#x5206;&#x5E03;&#x5F0F;&#x6709;&#x5173;" class="headerlink" title="Slice &#x4E0E;&#x5206;&#x5E03;&#x5F0F;&#x6709;&#x5173;"></a>Slice &#x4E0E;&#x5206;&#x5E03;&#x5F0F;&#x6709;&#x5173;</h4><p>&#x5207;&#x7247;&#x662F;&#x5217;&#x7EC4;&#xFF0C;&#x662F;pilosa&#x7684;column&#x7684;&#x9AD8;&#x7EF4;&#x7ED3;&#x6784;&#xFF0C;&#x5305;&#x542B;&#x591A;&#x4E2A;column&#xFF0C;&#x6BCF;&#x4E2A;&#x5207;&#x7247;&#x5305;&#x542B;&#x56FA;&#x5B9A;&#x6570;&#x91CF;&#x7684;&#x5217;&#xFF0C;&#x6709;SliceWidth&#x3002;&#x548C;column&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x4ECE;&#x5E73;&#x9762;&#x5F62;&#x8C61;&#x4E0A;&#x770B;&#x7C7B;&#x4F3C;&#x4E8E;frame&#x548C;row&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x4F46;&#x662F;frame&#x662F;&#x6709;&#x4E1A;&#x52A1;&#x610F;&#x4E49;&#x7684;&#xFF0C;slice&#x662F;&#x4E3A;&#x4E86;&#x5206;&#x5E03;&#x5F0F;&#x8BBE;&#x8BA1;&#xFF0C;&#x901A;&#x8FC7;&#x9884;&#x8BBE;&#x5BBD;&#x5EA6;&#x5212;&#x5206;column&#x6210;&#x5207;&#x7247;&#xFF0C;&#x7528;&#x4E00;&#x81F4;&#x6027;&#x54C8;&#x5E0C;&#x7B97;&#x6CD5;&#x5C06;&#x5207;&#x7247;&#x5206;&#x5E03;&#x5230;&#x5404;cluster</p>
