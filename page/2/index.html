@@ -179,97 +179,6 @@
 
       <div class="body-wrap">
   
-    <article id="post-bitauth" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/10/25/bitauth/" class="article-date">
-  	<time datetime="2016-10-25T06:04:54.000Z" itemprop="datePublished">2016-10-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/25/bitauth/">Linux的文件权限设计思想</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[lavenderuni@~]<span class="comment"># ls -l bitauth.md</span></div><div class="line">-rw-r--r--  1 lavenderuni  staff  1137 10 25 14:43 bitauth.md</div></pre></td></tr></table></figure>
-<ul>
-<li>0 &#x2014;  &#x8868;&#x793A;&#x6CA1;&#x6709;&#x6743;&#x9650;&#xFF0C;&#x4E8C;&#x8FDB;&#x5236;&#x4E3A;000</li>
-<li>1 &#x2013;x  &#x8868;&#x793A;&#x6709;&#x6267;&#x884C;&#x6743;&#x9650;&#xFF0C;&#x4E8C;&#x8FDB;&#x5236;&#x4E3A;001</li>
-<li>2 -w-  &#x8868;&#x793A;&#x6709;&#x5199;&#x6743;&#x9650;&#xFF0C;&#x4E8C;&#x8FDB;&#x5236;&#x4E3A;010</li>
-<li>3 -wx  &#x8868;&#x793A;&#x6709;&#x5199;&#x548C;&#x6267;&#x884C;&#x6743;&#x9650;&#xFF0C;&#x4E8C;&#x8FDB;&#x5236;&#x4E3A;011</li>
-<li>4 r&#x2013;  &#x8868;&#x793A;&#x6709;&#x8BFB;&#x6743;&#x9650;&#xFF0C;&#x4E8C;&#x8FDB;&#x5236;&#x4E3A;100</li>
-<li>5 r-x  &#x8868;&#x793A;&#x6709;&#x8BFB;&#x548C;&#x6267;&#x884C;&#x6743;&#x9650;&#xFF0C;&#x4E8C;&#x8FDB;&#x5236;&#x4E3A;101</li>
-<li>6 rw-  &#x8868;&#x793A;&#x6709;&#x8BFB;&#x548C;&#x5199;&#x6743;&#x9650;&#xFF0C;&#x4E8C;&#x8FDB;&#x5236;&#x4E3A;110</li>
-<li>7 rwx  &#x8868;&#x793A;&#x6709;&#x8BFB;&#x3001;&#x5199;&#x548C;&#x6267;&#x884C;&#x6743;&#x9650;&#xFF0C;&#x4E8C;&#x8FDB;&#x5236;&#x4E3A;111</li>
-</ul>
-<p>&#x5047;&#x5982;&#x7ED9;&#x5B9A;&#x4E00;&#x4E2A;&#x6570;&#x5B57;6&#xFF0C;3&#xFF0C;4&#xFF0C;&#x5982;&#x4F55;&#x5224;&#x5B9A;&#x5728;&#x8FD9;&#x4E2A;&#x6570;&#x5B57;&#x91CC;&#x9762;&#x5305;&#x542B;&#x67D0;&#x4E00;&#x79CD;&#x6743;&#x9650;&#x5462;&#xFF1F;</p>
-<h2 id="bit&#x8FD0;&#x7B97;"><a href="#bit&#x8FD0;&#x7B97;" class="headerlink" title="bit&#x8FD0;&#x7B97;"></a>bit&#x8FD0;&#x7B97;</h2><ul>
-<li>&#x8BFB;&#x6743;&#x9650; r=4&#xFF0C;&#x4E8C;&#x8FDB;&#x5236;&#x8868;&#x793A;&#x4E3A;100</li>
-<li>&#x5199;&#x6743;&#x9650; w=2&#xFF0C;&#x4E8C;&#x8FDB;&#x5236;&#x8868;&#x793A;&#x4E3A;010</li>
-<li>&#x6267;&#x884C;&#x6743;&#x9650;x=1&#xFF0C;&#x4E8C;&#x8FDB;&#x5236;&#x8868;&#x793A;&#x4E3A;001</li>
-</ul>
-<p>6&#x8868;&#x793A;&#x4E3A;110<br>110 &amp; 100 = 100 = 4 !=0 &#x6709;&#x8BFB;&#x6743;&#x9650;<br>110 &amp; 010 = 010 = 2 !=0 &#x6709;&#x5199;&#x6743;&#x9650;<br>110 &amp; 001 = 000 = 0 ==0 &#x6CA1;&#x6709;&#x6267;&#x884C;&#x6743;&#x9650;</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># coding:utf-8</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">bit_judge</span><span class="params">(auth_num)</span>:</span></div><div class="line">    auth_r = <span class="number">4</span></div><div class="line">    auth_w = <span class="number">2</span></div><div class="line">    auth_x = <span class="number">1</span></div><div class="line">    </div><div class="line">    auth_str = <span class="string">&apos;&apos;</span></div><div class="line"></div><div class="line">    <span class="keyword">if</span> auth_num &amp; auth_r == <span class="number">0</span>:</div><div class="line">        auth_str += <span class="string">&apos;-&apos;</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        auth_str += <span class="string">&apos;r&apos;</span></div><div class="line"></div><div class="line">    <span class="keyword">if</span> auth_num &amp; auth_w == <span class="number">0</span>:</div><div class="line">        auth_str += <span class="string">&apos;-&apos;</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        auth_str += <span class="string">&apos;w&apos;</span></div><div class="line">    </div><div class="line">    <span class="keyword">if</span> auth_num &amp; auth_x == <span class="number">0</span>:</div><div class="line">        auth_str += <span class="string">&apos;-&apos;</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        auth_str += <span class="string">&apos;x&apos;</span></div><div class="line"></div><div class="line">    <span class="keyword">return</span> auth_str</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">&apos;__main__&apos;</span>:</div><div class="line">    <span class="keyword">print</span> bit_judge(<span class="number">4</span>)</div><div class="line">    <span class="keyword">print</span> bit_judge(<span class="number">6</span>)</div></pre></td></tr></table></figure>
-<h2 id="&#x76F8;&#x9664;&#x6C42;&#x4F59;"><a href="#&#x76F8;&#x9664;&#x6C42;&#x4F59;" class="headerlink" title="&#x76F8;&#x9664;&#x6C42;&#x4F59;"></a>&#x76F8;&#x9664;&#x6C42;&#x4F59;</h2><p>6&#x8868;&#x793A;&#x4E3A;110<br>(6 / 4) % 2 ==1 &#x6709;&#x8BFB;&#x6743;&#x9650;<br>(6 / 2) % 2 ==1 &#x6709;&#x5199;&#x6743;&#x9650;<br>(6 / 1) % 2 ==0 &#x6CA1;&#x6709;&#x6267;&#x884C;&#x6743;&#x9650;</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># coding:utf-8</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">dividemod_judge</span><span class="params">(auth_num)</span>:</span></div><div class="line">    auth_r = <span class="number">4</span></div><div class="line">    auth_w = <span class="number">2</span></div><div class="line">    auth_x = <span class="number">1</span></div><div class="line">    </div><div class="line">    auth_str = <span class="string">&apos;&apos;</span></div><div class="line"></div><div class="line">    <span class="keyword">if</span> (auth_num / auth_r) % <span class="number">2</span> == <span class="number">1</span>:</div><div class="line">        auth_str += <span class="string">&apos;r&apos;</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        auth_str += <span class="string">&apos;-&apos;</span></div><div class="line"></div><div class="line">    <span class="keyword">if</span> (auth_num / auth_w) % <span class="number">2</span> == <span class="number">1</span>:</div><div class="line">        auth_str += <span class="string">&apos;w&apos;</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        auth_str += <span class="string">&apos;-&apos;</span></div><div class="line">    </div><div class="line">    <span class="keyword">if</span> (auth_num / auth_x) % <span class="number">2</span> == <span class="number">1</span>:</div><div class="line">        auth_str += <span class="string">&apos;x&apos;</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        auth_str += <span class="string">&apos;-&apos;</span></div><div class="line"></div><div class="line">    <span class="keyword">return</span> auth_str</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">&apos;__main__&apos;</span>:</div><div class="line">    <span class="keyword">print</span> dividemod_judge(<span class="number">6</span>)</div><div class="line">    <span class="keyword">print</span> dividemod_judge(<span class="number">4</span>)</div></pre></td></tr></table></figure>
-<h1 id="&#x601D;&#x8003;"><a href="#&#x601D;&#x8003;" class="headerlink" title="&#x601D;&#x8003;"></a>&#x601D;&#x8003;</h1><p>mysql&#x4E2D;&#x6570;&#x636E;&#x8BBE;&#x8BA1;&#x7C7B;&#x4F3C;&#x6743;&#x9650;&#x6570;&#x636E;&#xFF0C;&#x6216;&#x8005;&#x52A8;&#x6001;tag&#x6570;&#x636E;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x7528;&#x591A;&#x4E2A;bit&#x4F4D;&#x8868;&#x793A;&#xFF0C;&#x662F;&#x4E0D;&#x662F;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x5173;&#x8054;&#x8868;&#xFF0C;&#x5C06;&#x6570;&#x636E;&#x964D;&#x7EF4;&#xFF0C;&#x653E;&#x5728;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#x5B58;&#x50A8;&#x5462;</p>
-<p>&#x516C;&#x5F00; = 1<br>&#x52A0;&#x5BC6; = 2<br>&#x5C01;&#x9501; = 4<br>&#x7F6E;&#x9876; = 8</p>
-<ul>
-<li>&#x516C;&#x5F00;blog  &#x7ED9;status&#x8FDB;&#x884C;&#x6216;&#x8FD0;&#x7B97;<br>update blog set status = status | 1; </li>
-<li>&#x52A0;&#x5BC6;blog &#x7ED9;status&#x8FDB;&#x884C;&#x6216;&#x8FD0;&#x7B97;<br>update blog set status = status | 2;</li>
-<li>&#x5C01;&#x9501;blog<br>update blog set status = status | 4;</li>
-<li>&#x89E3;&#x9501;blog<br>update blog set status = status ^ 4;</li>
-<li>&#x67E5;&#x8BE2;&#x6240;&#x6709;&#x88AB;&#x7F6E;&#x9876;&#x7684;blog<br>select <em> from blog where status &amp; 8;<br>&#x7B49;&#x4EF7;&#x4E8E;select </em> from blog where (status &amp; 8) != 0;</li>
-</ul>
-<p>&#x7F3A;&#x70B9;&#x662F;&#x67E5;&#x8BE2;&#x7684;&#x65F6;&#x5019;&#x6CA1;&#x6709;&#x529E;&#x6CD5;&#x4F7F;&#x7528;&#x7D22;&#x5F15;&#xFF0C;&#x56E0;&#x4E3A;&#x4F4D;&#x8FD0;&#x7B97;&#x65E0;&#x6CD5;&#x79FB;&#x52A8;&#x5230;=&#x53F7;&#x7684;&#x53F3;&#x8FB9;&#x3002;</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/authority/">authority</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bit/">bit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/include/">include</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/judge/">judge</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rwx/">rwx</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/algorithm/">algorithm</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-linux1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -967,6 +876,82 @@
 	<a class="article-category-link" href="/categories/python/">python</a>
 	</div>
 
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-tornado1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/13/tornado1/" class="article-date">
+  	<time datetime="2016-08-12T16:46:15.000Z" itemprop="datePublished">2016-08-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/13/tornado1/">tornado</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>tornado&#x662F;&#x5F02;&#x6B65;IO&#x670D;&#x52A1;&#x6846;&#x67B6;&#xFF0C;&#x5F53;&#x7136;&#x5E76;&#x4E0D;&#x662F;&#x4E25;&#x683C;&#x7684;&#x5F02;&#x6B65;IO&#x3002;IOCP&#x624D;&#x662F;&#x771F;&#x6B63;&#x7684;&#x5F02;&#x6B65;IO&#xFF0C;&#x4E3B;&#x8981;&#x5728;windows&#x7CFB;&#x7EDF;&#x91CC;&#x9762;&#x3002;<br>tornado&#x7684;&#x5F02;&#x6B65;&#x5728;&#x4E8E;&#x901A;&#x8FC7;Python select&#x6A21;&#x5757;&#x7684;epoll/kqueue&#x5B9E;&#x73B0;&#x4E86;&#x975E;&#x963B;&#x585E;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;&#x6C34;&#x5E73;&#x89E6;&#x53D1;(Level Triggered)&#xFF0C;&#x5728;&#x627F;&#x8F7D;&#x4E00;&#x5B9A;&#x7684;&#x8BBF;&#x95EE;&#x538B;&#x529B;&#x4E0B;&#x4FDD;&#x8BC1;&#x6027;&#x80FD;&#x548C;&#x7A33;&#x5B9A;&#x3002;nginx&#x5E38;&#x7528;&#x6765;&#x505A;&#x53CD;&#x5411;&#x4EE3;&#x7406;&#xFF0C;&#x8981;&#x627F;&#x62C5;&#x5927;&#x91CF;&#x7684;&#x5916;&#x90E8;&#x8BBF;&#x95EE;&#x8BF7;&#x6C42;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;&#x8FB9;&#x7F18;&#x51FA;&#x53D1;&#x7684;(Edge Triggered)&#x3002;</p>
+<p>&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x5728;&#x4E8E;IOLoop&#xFF0C;IOStream&#xFF0C;asynchronous&#x548C;gen.coroutine&#x3002;</p>
+<h2 id="IOLoop"><a href="#IOLoop" class="headerlink" title="IOLoop"></a>IOLoop</h2><p>IOLoop&#x521D;&#x59CB;&#x5316;&#x65F6;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Waker&#x5BF9;&#x8C61;&#xFF0C;&#x5C06;Waker&#x5BF9;&#x8C61;fd&#x7684;&#x8BFB;&#x7AEF;&#x6CE8;&#x518C;&#x5230;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x4E2D;&#x5E76;&#x8BBE;&#x5B9A;&#x76F8;&#x5E94;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x5F53;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x963B;&#x585E;&#x800C;&#x6CA1;&#x6709;&#x54CD;&#x5E94;&#x63CF;&#x8FF0;&#x7B26;&#x51FA;&#x73B0;&#xFF0C;&#x4F1A;&#x5728;&#x6700;&#x5927;timeout&#x65F6;&#x95F4;&#x4E4B;&#x524D;&#x8FD4;&#x56DE;&#xFF0C;&#x5411;&#x7BA1;&#x9053;&#x5199;&#x5165;&#x5B57;&#x7B26;&#x2019;x&#x2019;&#x5524;&#x9192;&#x963B;&#x585E;&#xFF0C;&#x540C;&#x65F6;&#x5728;IOLoop&#x7684;stop&#x51FD;&#x6570;&#x4E2D;&#x8C03;&#x7528;self._waker.wake()&#xFF0C;&#x505C;&#x6B62;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x3002;</p>
+<p>add_handler&#x65B9;&#x6CD5;&#x4F7F;&#x7528;stack_context&#x63D0;&#x4F9B;&#x7684;wrap&#x65B9;&#x6CD5;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x7684;&#x5BF9;&#x8C61;&#x5E76;&#x4E14;&#x4FDD;&#x5B58;&#x4F20;&#x5165;&#x4E4B;&#x524D;&#x7684;&#x5806;&#x6808;&#x4FE1;&#x606F;&#xFF0C;&#x5728;&#x6267;&#x884C;&#x65F6;&#x6062;&#x590D;&#xFF0C;&#x4FDD;&#x8BC1;&#x4E86;&#x51FD;&#x6570;&#x7684;&#x5F02;&#x6B65;&#x8C03;&#x7528;&#x5728;&#x6B63;&#x786E;&#x7684;&#x8FD0;&#x884C;&#x73AF;&#x5883;&#x3002;</p>
+<p>IOLoop&#x7684;&#x6838;&#x5FC3;&#x8C03;&#x5EA6;start&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;IOLoop&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x8C03;&#x7528;start&#x540E;&#x5F00;&#x59CB;epoll&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x673A;&#x5236;&#xFF0C;&#x4E00;&#x76F4;&#x8FD0;&#x884C;&#x76F4;&#x5230; IOLoop&#x5BF9;&#x8C61;&#x8C03;&#x7528;stop&#x51FD;&#x6570;&#x3002;<br>start&#x65B9;&#x6CD5;&#x4E2D;&#x4E3B;&#x8981;&#x5206;&#x4E09;&#x4E2A;&#x90E8;&#x5206;&#xFF1A;&#x5BF9;&#x8D85;&#x65F6;&#x7684;&#x76F8;&#x5173;&#x5904;&#x7406;&#xFF1B;epoll&#x4E8B;&#x4EF6;&#x901A;&#x77E5;&#x963B;&#x585E;&#x3001;&#x63A5;&#x6536;&#xFF1B;&#x5BF9;epoll&#x8FD4;&#x56DE;I/O&#x4E8B;&#x4EF6;&#x7684;&#x5904;&#x7406;&#x3002;</p>
+<ul>
+<li>&#x4E3A;&#x4E86;&#x5B9E;&#x73B0;&#x5F02;&#x6B65;&#xFF0C;&#x5C06;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x5EF6;&#x8FDF;&#x5230;&#x4E0B;&#x4E00;&#x8F6E;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x4E2D;&#x6267;&#x884C;&#x3002;</li>
+<li>&#x8D85;&#x65F6;&#x7684;&#x5904;&#x7406;&#x4F7F;&#x7528;heapq&#xFF0C;&#x8BB0;&#x5F55;&#x6BCF;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x8D85;&#x65F6;&#x65F6;&#x95F4;(deadline)&#xFF0C;&#x6BCF;&#x6B21;&#x5F39;&#x51FA;deadline&#x6700;&#x5C0F;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x5982;&#x679C;callback&#x6807;&#x5FD7;&#x4F4D;&#x4E3A;True&#x4E14;&#x5DF2;&#x8D85;&#x65F6;&#xFF0C;&#x901A;&#x8FC7;_run_callback&#x8C03;&#x7528;&#x51FD;&#x6570;&#xFF1B;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x8D85;&#x65F6;&#x91CD;&#x65B0;&#x8BBE;&#x5B9A;poll_timeout&#x7684;&#x503C;&#x3002;</li>
+<li>&#x901A;&#x8FC7;self._impl.poll(poll_timeout)&#x8FDB;&#x884C;&#x4E8B;&#x4EF6;&#x963B;&#x585E;&#xFF0C;&#x5F53;&#x6709;&#x4E8B;&#x4EF6;&#x901A;&#x77E5;&#x6216;&#x8D85;&#x65F6;&#xFF0C;poll&#x8FD4;&#x56DE;&#x7279;&#x5B9A;&#x7684;event_pairs&#x3002;</li>
+<li>epoll&#x8FD4;&#x56DE;&#x901A;&#x77E5;&#x4E8B;&#x4EF6;&#x540E;&#x5C06;&#x65B0;&#x4E8B;&#x4EF6;&#x52A0;&#x5165;&#x5F85;&#x5904;&#x7406;&#x961F;&#x5217;&#xFF0C;&#x5C06;&#x5C31;&#x7EEA;&#x4E8B;&#x4EF6;&#x9010;&#x4E2A;&#x5F39;&#x51FA;&#xFF0C;&#x901A;&#x8FC7;stack_context.wrap(handler)&#x4FDD;&#x5B58;&#x7684;&#x53EF;&#x6267;&#x884C;&#x5BF9;&#x8C61;&#x4EE5;&#x53CA;&#x6267;&#x884C;&#x4E0A;&#x4E0B;&#x6587;&#x8C03;&#x7528;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x3002;</li>
+</ul>
+<h2 id="IOStream"><a href="#IOStream" class="headerlink" title="IOStream"></a>IOStream</h2><p>IOStream&#x4F7F;&#x7528;deque&#x5BB9;&#x5668;&#x548C;_merge_prefix(deque, size)&#x51FD;&#x6570;&#x5C01;&#x88C5;socket&#x7684;&#x975E;&#x963B;&#x585E;IO&#x7684;&#x8BFB;&#x5199;&#x64CD;&#x4F5C;&#xFF0C;&#x5305;&#x62EC;&#x6570;&#x636E;&#x7684;&#x7F13;&#x5B58;&#x548C;&#x91CD;&#x7EC4;&#xFF0C;read_util()&#x63A5;&#x53E3;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x6807;&#x5FD7;&#x5B57;&#x7B26;&#x4E32;&#x548C;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x5F53;IOStream&#x8BFB;&#x5230;&#x6807;&#x5FD7;&#x5B57;&#x7B26;&#x4E32;&#x65F6;&#x81EA;&#x52A8;&#x8C03;&#x7528;&#x8BE5;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x505A;&#x6570;&#x636E;&#x7684;&#x5206;&#x7247;&#x5904;&#x7406;&#x3002;</p>
+<p>tornado&#x7684;tcpserver&#x4F7F;&#x7528;IOStream&#xFF0C;httpserver&#x901A;&#x8FC7;tcpserver&#x5B9E;&#x73B0;&#xFF0C;&#x540C;&#x7406;httpclient&#x4E5F;&#x662F;&#x5982;&#x6B64;&#x3002;</p>
+<h2 id="asynchronous"><a href="#asynchronous" class="headerlink" title="asynchronous"></a>asynchronous</h2><p>&#x88AB;@asynchronous&#x88C5;&#x9970;&#x7684;handler&#xFF0C;&#x4F1A;&#x4F7F;http&#x8BF7;&#x6C42;&#x6210;&#x4E3A;&#x957F;&#x8FDE;&#x63A5;(tcp&#x957F;&#x8FDE;&#x63A5;&#x8981;&#x6CE8;&#x610F;&#x7C98;&#x5305;&#x95EE;&#x9898;&#xFF0C;http&#x957F;&#x8FDE;&#x63A5;&#x53EF;&#x80FD;&#x81EA;&#x5E26;&#x89E3;&#x51B3;&#x65B9;&#x6848;)&#xFF0C;&#x4E00;&#x76F4;&#x5904;&#x4E8E;&#x7B49;&#x5F85;&#x72B6;&#x6001;&#xFF0C;&#x76F4;&#x5230;&#x8C03;&#x7528;self.finish()&#x7ED3;&#x675F;&#x8BF7;&#x6C42;&#xFF0C;&#x4F18;&#x52BF;&#x5728;&#x4E8E;&#x4E0D;&#x4F1A;&#x963B;&#x585E;&#x5176;&#x4ED6;&#x7684;http&#x8BF7;&#x6C42;&#x7684;&#x8BBF;&#x95EE;&#x3002;<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">DebugHandler</span><span class="params">(RequestHandler)</span>:</span></div><div class="line"><span class="meta">    @asynchronous</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self)</span>:</span></div><div class="line">        http_client = AsyncHTTPClient()</div><div class="line">        http_client.fetch(<span class="string">&quot;http://example.com&quot;</span>, callback=self.on_fetch)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">on_fetch</span><span class="params">(self, response)</span>:</span></div><div class="line">        do_something_with_response(response)</div><div class="line">        self.render(<span class="string">&quot;template.html&quot;</span>)</div></pre></td></tr></table></figure></p>
+<p>&#x6CE8;&#x610F;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;self.render&#x65B9;&#x6CD5;&#x7684;&#x5B9E;&#x73B0;&#x6700;&#x540E;&#x8C03;&#x7528;&#x4E86;self.finish&#x3002;</p>
+<h2 id="gen-coroutine"><a href="#gen-coroutine" class="headerlink" title="gen.coroutine"></a>gen.coroutine</h2><p>&#x88AB;@asynchronous&#x88C5;&#x9970;&#x7684;handler&#x662F;&#x540C;&#x6B65;&#x7684;&#x4EE3;&#x7801;&#x5F02;&#x6B65;&#x6267;&#x884C;&#xFF0C;tornado3&#x4EE5;&#x540E;&#xFF0C;&#x5F3A;&#x5316;coroutine&#xFF0C;&#x66FF;&#x4EE3;&#x4E86;gen.engine+asynchronous&#xFF0C;&#x7B80;&#x5316;&#x5728;handler&#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#xFF0C;&#x907F;&#x514D;&#x5199;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">DebugHandler</span><span class="params">(RequestHandler)</span>:</span></div><div class="line"><span class="meta">    @gen.coroutine</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self)</span>:</span></div><div class="line">        http_client = AsyncHTTPClient()</div><div class="line">        response = <span class="keyword">yield</span> http_client.fetch(<span class="string">&quot;http://example.com&quot;</span>)</div><div class="line">        do_something_with_response(response)</div><div class="line">        self.render(<span class="string">&quot;template.html&quot;</span>)</div></pre></td></tr></table></figure></p>
+<p>&#x6CE8;&#x610F;&#x4E0A;&#x9762;&#x4E24;&#x4E2A;&#x4F8B;&#x5B50;&#x662F;&#x7B49;&#x4EF7;&#x7684;&#x3002;<br>tornado&#x7684;coroutine&#x9760;python&#x4E2D;generator&#x7684;send&#x548C;yield&#x6302;&#x8D77;&#x5B9E;&#x73B0;&#x3002;&#x7B2C;&#x4E00;&#x6B21;next()&#x8FD4;&#x56DE;yield&#x7ED3;&#x679C;&#xFF0C;&#x5E76;&#x5C06;&#x7A0B;&#x5E8F;&#x6302;&#x8D77;&#xFF0C;&#x7B49;&#x5F85;send&#x6216;&#x8005;next&#x65B9;&#x6CD5;&#x5524;&#x9192;&#xFF0C;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#xFF0C;send&#x53EF;&#x4EE5;&#x5728;function&#x7684;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x505A;&#x5916;&#x90E8;&#x8F93;&#x5165;&#x540C;&#x662F;&#x89E6;&#x53D1;yield&#xFF0C;next&#x53EA;&#x80FD;&#x89E6;&#x53D1;yield&#x53D6;&#x8FD4;&#x56DE;&#x503C;&#x3002;<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">Generator</span><span class="params">()</span>:</span></div><div class="line">    i = <span class="number">0</span></div><div class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">        m = <span class="keyword">yield</span> i</div><div class="line">        <span class="keyword">print</span> <span class="string">&apos;receive m&apos;</span>, m</div><div class="line">        i += m</div><div class="line">        <span class="keyword">if</span> i &gt; <span class="number">3</span>:</div><div class="line">            <span class="keyword">break</span></div><div class="line"></div><div class="line">g = Generator()</div><div class="line">result = g.next()</div><div class="line"><span class="keyword">print</span> <span class="string">&apos;yield i&apos;</span>, result</div><div class="line">result = g.send(<span class="number">1</span>)</div><div class="line"><span class="keyword">print</span> <span class="string">&apos;yield i&apos;</span>, result</div><div class="line">result = g.send(<span class="number">2</span>)</div><div class="line"><span class="keyword">print</span> <span class="string">&apos;yield i&apos;</span>, result</div><div class="line">result = g.send(<span class="number">3</span>)</div><div class="line"><span class="keyword">print</span> <span class="string">&apos;yield i&apos;</span>, result</div></pre></td></tr></table></figure></p>
+<p>&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4F53;&#x73B0;yield&#x7684;&#x795E;&#x5947;&#x3002;</p>
+<p>asynchronous&#x548C;gen.coroutine&#x6DF7;&#x7528;&#x8981;&#x6CE8;&#x610F;Callback&#x548C;Wait/WaitAll&#x91CC;&#x9762;&#x7684;key&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;Callback&#x5728;&#x4E0D;&#x540C;&#x7684;&#x65F6;&#x5019;&#x542F;&#x52A8;&#x591A;&#x4E2A;&#x5E76;&#x884C;&#x7684;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#xFF0C;&#x5E76;&#x4E14;&#x6267;&#x884C;key&#x5173;&#x8054;&#x7684;&#x7B49;&#x5F85;&#x64CD;&#x4F5C;&#x3002;&#x5982;&#x679C;Callback&#x6CA1;&#x6709;&#x53C2;&#x6570;&#xFF0C;&#x5BF9;&#x5E94;&#x7684;Wait&#x5C31;&#x6CA1;&#x6709;&#x8FD4;&#x56DE;&#x503C;&#xFF1B;&#x5982;&#x679C;Callback&#x6709;&#x56FA;&#x5B9A;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x5BF9;&#x5E94;&#x7684;Wait&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x5C31;&#x662F;&#x53C2;&#x6570;&#xFF0C;&#x7C7B;&#x4F3C;C#&#x7684;out&#x53C2;&#x6570;&#xFF1B;&#x5982;&#x679C;Callback&#x4F20;&#x5165;&#x53D8;&#x957F;&#x53C2;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;&#x503C;&#x5C31;&#x662F;&#x5143;&#x7EC4;(args, kwargs)&#x3002;</p>
+<p>asynchronous&#x548C;gen.coroutine&#x6DF7;&#x7528;&#x8FD8;&#x53EF;&#x4EE5;&#x7ED9;IOLoop&#x91CC;&#x7684;callback&#x5B89;&#x6392;&#x4F18;&#x5148;&#x7EA7;&#x3002;</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/asynchronous/">asynchronous</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gen-coroutine/">gen.coroutine</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/object-oriented/">object-oriented</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/单线程/">单线程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/异步IO/">异步IO</a></li></ul>
+	</div>
+
+      
 
       
       <div class="clearfix"></div>

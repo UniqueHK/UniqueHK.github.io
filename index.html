@@ -286,62 +286,6 @@
 
 
   
-    <article id="post-mysql" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/09/13/mysql/" class="article-date">
-  	<time datetime="2017-09-13T03:25:05.000Z" itemprop="datePublished">2017-09-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>MySQL&#x5728;&#x8FDB;&#x884C;alter table&#x7B49;DDL&#x64CD;&#x4F5C;&#x65F6;&#xFF0C;&#x6709;&#x65F6;&#x4F1A;&#x51FA;&#x73B0;Waiting for table metadata lock&#x7684;&#x7B49;&#x5F85;&#x573A;&#x666F;&#x3002;&#x800C;&#x4E14;&#xFF0C;&#x4E00;&#x65E6;alter table TableA&#x7684;&#x64CD;&#x4F5C;&#x505C;&#x6EDE;&#x5728;Waiting for table metadata lock&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x540E;&#x7EED;&#x5BF9;TableA&#x7684;&#x4EFB;&#x4F55;&#x64CD;&#x4F5C;&#xFF08;&#x5305;&#x62EC;&#x8BFB;&#xFF09;&#x90FD;&#x65E0;&#x6CD5;&#x8FDB;&#x884C;&#xFF0C;&#x56E0;&#x4E3A;&#x4ED6;&#x4EEC;&#x4E5F;&#x4F1A;&#x5728;Opening tables&#x7684;&#x9636;&#x6BB5;&#x8FDB;&#x5165;&#x5230;Waiting for table metadata lock&#x7684;&#x9501;&#x7B49;&#x5F85;&#x961F;&#x5217;&#x3002;&#x5982;&#x679C;&#x662F;&#x4EA7;&#x54C1;&#x73AF;&#x5883;&#x7684;&#x6838;&#x5FC3;&#x8868;&#x51FA;&#x73B0;&#x4E86;&#x8FD9;&#x6837;&#x7684;&#x9501;&#x7B49;&#x5F85;&#x961F;&#x5217;&#xFF0C;&#x5C31;&#x4F1A;&#x9020;&#x6210;&#x707E;&#x96BE;&#x6027;&#x7684;&#x540E;&#x679C;&#x3002;</p>
-<p>&#x9020;&#x6210;alter table&#x4EA7;&#x751F;Waiting for table metadata lock&#x7684;&#x539F;&#x56E0;&#x5176;&#x5B9E;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x4E00;&#x822C;&#x662F;&#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x573A;&#x666F;&#xFF1A;</p>
-<p>&#x573A;&#x666F;&#x4E00;&#xFF1A;&#x957F;&#x4E8B;&#x7269;&#x8FD0;&#x884C;&#xFF0C;&#x963B;&#x585E;DDL&#xFF0C;&#x7EE7;&#x800C;&#x963B;&#x585E;&#x6240;&#x6709;&#x540C;&#x8868;&#x7684;&#x540E;&#x7EED;&#x64CD;&#x4F5C;</p>
-<p>&#x901A;&#x8FC7;show processlist&#x53EF;&#x4EE5;&#x770B;&#x5230;TableA&#x4E0A;&#x6709;&#x6B63;&#x5728;&#x8FDB;&#x884C;&#x7684;&#x64CD;&#x4F5C;&#xFF08;&#x5305;&#x62EC;&#x8BFB;&#xFF09;&#xFF0C;&#x6B64;&#x65F6;alter table&#x8BED;&#x53E5;&#x65E0;&#x6CD5;&#x83B7;&#x53D6;&#x5230;metadata &#x72EC;&#x5360;&#x9501;&#xFF0C;&#x4F1A;&#x8FDB;&#x884C;&#x7B49;&#x5F85;&#x3002;</p>
-<p>&#x8FD9;&#x662F;&#x6700;&#x57FA;&#x672C;&#x7684;&#x4E00;&#x79CD;&#x60C5;&#x5F62;&#xFF0C;&#x8FD9;&#x4E2A;&#x548C;mysql 5.6&#x4E2D;&#x7684;online ddl&#x5E76;&#x4E0D;&#x51B2;&#x7A81;&#x3002;&#x4E00;&#x822C;alter table&#x7684;&#x64CD;&#x4F5C;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF08;&#x89C1;&#x4E0B;&#x56FE;&#xFF09;&#xFF0C;&#x5728;after create&#x6B65;&#x9AA4;&#x4F1A;&#x83B7;&#x53D6;metadata &#x72EC;&#x5360;&#x9501;&#xFF0C;&#x5F53;&#x8FDB;&#x884C;&#x5230;altering table&#x7684;&#x8FC7;&#x7A0B;&#x65F6;&#xFF08;&#x901A;&#x5E38;&#x662F;&#x6700;&#x82B1;&#x65F6;&#x95F4;&#x7684;&#x6B65;&#x9AA4;&#xFF09;&#xFF0C;&#x5BF9;&#x8BE5;&#x8868;&#x7684;&#x8BFB;&#x5199;&#x90FD;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x8FDB;&#x884C;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;online ddl&#x7684;&#x8868;&#x73B0;&#xFF0C;&#x5E76;&#x4E0D;&#x4F1A;&#x50CF;&#x4E4B;&#x524D;&#x5728;&#x6574;&#x4E2A;alter table&#x8FC7;&#x7A0B;&#x4E2D;&#x963B;&#x585E;&#x5199;&#x5165;&#x3002;&#xFF08;&#x5F53;&#x7136;&#xFF0C;&#x4E5F;&#x5E76;&#x4E0D;&#x662F;&#x6240;&#x6709;&#x7C7B;&#x578B;&#x7684;alter&#x64CD;&#x4F5C;&#x90FD;&#x80FD;online&#x7684;&#xFF0C;&#x5177;&#x4F53;&#x53EF;&#x4EE5;&#x53C2;&#x89C1;&#x5B98;&#x65B9;&#x624B;&#x518C;&#xFF1A;<a href="http://dev.mysql.com/doc/refman/5.6/en/innodb-create-index-overview.html&#xFF09;" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.6/en/innodb-create-index-overview.html&#xFF09;</a><br>&#x5904;&#x7406;&#x65B9;&#x6CD5;&#xFF1A; kill &#x6389; DDL&#x6240;&#x5728;&#x7684;session.</p>
-<p>&#x573A;&#x666F;&#x4E8C;&#xFF1A;&#x672A;&#x63D0;&#x4EA4;&#x4E8B;&#x7269;&#xFF0C;&#x963B;&#x585E;DDL&#xFF0C;&#x7EE7;&#x800C;&#x963B;&#x585E;&#x6240;&#x6709;&#x540C;&#x8868;&#x7684;&#x540E;&#x7EED;&#x64CD;&#x4F5C;</p>
-<p>&#x901A;&#x8FC7;show processlist&#x770B;&#x4E0D;&#x5230;TableA&#x4E0A;&#x6709;&#x4EFB;&#x4F55;&#x64CD;&#x4F5C;&#xFF0C;&#x4F46;&#x5B9E;&#x9645;&#x4E0A;&#x5B58;&#x5728;&#x6709;&#x672A;&#x63D0;&#x4EA4;&#x7684;&#x4E8B;&#x52A1;&#xFF0C;&#x53EF;&#x4EE5;&#x5728; information_schema.innodb_trx&#x4E2D;&#x67E5;&#x770B;&#x5230;&#x3002;&#x5728;&#x4E8B;&#x52A1;&#x6CA1;&#x6709;&#x5B8C;&#x6210;&#x4E4B;&#x524D;&#xFF0C;TableA&#x4E0A;&#x7684;&#x9501;&#x4E0D;&#x4F1A;&#x91CA;&#x653E;&#xFF0C;alter table&#x540C;&#x6837;&#x83B7;&#x53D6;&#x4E0D;&#x5230;metadata&#x7684;&#x72EC;&#x5360;&#x9501;&#x3002;</p>
-<p>&#x5904;&#x7406;&#x65B9;&#x6CD5;&#xFF1A;&#x901A;&#x8FC7; select * from information_schema.innodb_trx\G, &#x627E;&#x5230;&#x672A;&#x63D0;&#x4EA4;&#x4E8B;&#x7269;&#x7684;sid, &#x7136;&#x540E; kill &#x6389;&#xFF0C;&#x8BA9;&#x5176;&#x56DE;&#x6EDA;&#x3002;</p>
-<p>&#x573A;&#x666F;&#x4E09;&#xFF1A;</p>
-<p>&#x901A;&#x8FC7;show processlist&#x770B;&#x4E0D;&#x5230;TableA&#x4E0A;&#x6709;&#x4EFB;&#x4F55;&#x64CD;&#x4F5C;&#xFF0C;&#x5728;information_schema.innodb_trx&#x4E2D;&#x4E5F;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x8FDB;&#x884C;&#x4E2D;&#x7684;&#x4E8B;&#x52A1;&#x3002;&#x8FD9;&#x5F88;&#x53EF;&#x80FD;&#x662F;&#x56E0;&#x4E3A;&#x5728;&#x4E00;&#x4E2A;&#x663E;&#x5F0F;&#x7684;&#x4E8B;&#x52A1;&#x4E2D;&#xFF0C;&#x5BF9;TableA&#x8FDB;&#x884C;&#x4E86;&#x4E00;&#x4E2A;&#x5931;&#x8D25;&#x7684;&#x64CD;&#x4F5C;&#xFF08;&#x6BD4;&#x5982;&#x67E5;&#x8BE2;&#x4E86;&#x4E00;&#x4E2A;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x5B57;&#x6BB5;&#xFF09;&#xFF0C;&#x8FD9;&#x65F6;&#x4E8B;&#x52A1;&#x6CA1;&#x6709;&#x5F00;&#x59CB;&#xFF0C;&#x4F46;&#x662F;&#x5931;&#x8D25;&#x8BED;&#x53E5;&#x83B7;&#x53D6;&#x5230;&#x7684;&#x9501;&#x4F9D;&#x7136;&#x6709;&#x6548;&#xFF0C;&#x6CA1;&#x6709;&#x91CA;&#x653E;&#x3002;&#x4ECE;performance_schema.events_statements_current&#x8868;&#x4E2D;&#x53EF;&#x4EE5;&#x67E5;&#x5230;&#x5931;&#x8D25;&#x7684;&#x8BED;&#x53E5;&#x3002;</p>
-<p>&#x5B98;&#x65B9;&#x624B;&#x518C;&#x4E0A;&#x5BF9;&#x6B64;&#x7684;&#x8BF4;&#x660E;&#x5982;&#x4E0B;&#xFF1A;</p>
-<p>If the server acquires metadata locks for a statement that is syntactically valid but fails during execution, it does not release the locks early. Lock release is still deferred to the end of the transaction because the failed statement is written to the binary log and the locks protect log consistency.</p>
-<p>&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x9664;&#x4E86;&#x8BED;&#x6CD5;&#x9519;&#x8BEF;&#xFF0C;&#x5176;&#x4ED6;&#x9519;&#x8BEF;&#x8BED;&#x53E5;&#x83B7;&#x53D6;&#x5230;&#x7684;&#x9501;&#x5728;&#x8FD9;&#x4E2A;&#x4E8B;&#x52A1;&#x63D0;&#x4EA4;&#x6216;&#x56DE;&#x6EDA;&#x4E4B;&#x524D;&#xFF0C;&#x4ECD;&#x7136;&#x4E0D;&#x4F1A;&#x91CA;&#x653E;&#x6389;&#x3002;because the failed statement is written to the binary log and the locks protect log consistency &#x4F46;&#x662F;&#x89E3;&#x91CA;&#x8FD9;&#x4E00;&#x884C;&#x4E3A;&#x7684;&#x539F;&#x56E0;&#x5F88;&#x96BE;&#x7406;&#x89E3;&#xFF0C;&#x56E0;&#x4E3A;&#x9519;&#x8BEF;&#x7684;&#x8BED;&#x53E5;&#x6839;&#x672C;&#x4E0D;&#x4F1A;&#x88AB;&#x8BB0;&#x5F55;&#x5230;&#x4E8C;&#x8FDB;&#x5236;&#x65E5;&#x5FD7;&#x3002;</p>
-<p>&#x5904;&#x7406;&#x65B9;&#x6CD5;&#xFF1A;&#x901A;&#x8FC7;performance_schema.events_statements_current&#x627E;&#x5230;&#x5176;sid, kill &#x6389;&#x8BE5;session. &#x4E5F;&#x53EF;&#x4EE5; kill &#x6389;DDL&#x6240;&#x5728;&#x7684;session.</p>
-<p>&#x603B;&#x4E4B;&#xFF0C;alter table&#x7684;&#x8BED;&#x53E5;&#x662F;&#x5F88;&#x5371;&#x9669;&#x7684;(&#x5176;&#x5B9E;&#x4ED6;&#x7684;&#x5371;&#x9669;&#x5176;&#x5B9E;&#x662F;&#x672A;&#x63D0;&#x4EA4;&#x4E8B;&#x7269;&#x6216;&#x8005;&#x957F;&#x4E8B;&#x52A1;&#x5BFC;&#x81F4;&#x7684;)&#xFF0C;&#x5728;&#x64CD;&#x4F5C;&#x4E4B;&#x524D;&#x6700;&#x597D;&#x786E;&#x8BA4;&#x5BF9;&#x8981;&#x64CD;&#x4F5C;&#x7684;&#x8868;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x8FDB;&#x884C;&#x4E2D;&#x7684;&#x64CD;&#x4F5C;&#x3001;&#x6CA1;&#x6709;&#x672A;&#x63D0;&#x4EA4;&#x4E8B;&#x52A1;&#x3001;&#x4E5F;&#x6CA1;&#x6709;&#x663E;&#x5F0F;&#x4E8B;&#x52A1;&#x4E2D;&#x7684;&#x62A5;&#x9519;&#x8BED;&#x53E5;&#x3002;&#x5982;&#x679C;&#x6709;alter table&#x7684;&#x7EF4;&#x62A4;&#x4EFB;&#x52A1;&#xFF0C;&#x5728;&#x65E0;&#x4EBA;&#x76D1;&#x7BA1;&#x7684;&#x65F6;&#x5019;&#x8FD0;&#x884C;&#xFF0C;&#x6700;&#x597D;&#x901A;&#x8FC7;lock_wait_timeout&#x8BBE;&#x7F6E;&#x597D;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#xFF0C;&#x907F;&#x514D;&#x957F;&#x65F6;&#x95F4;&#x7684;metedata&#x9501;&#x7B49;&#x5F85;&#x3002;</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-pilosa2" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -924,6 +868,97 @@
       
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/go/">go</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-bitauth" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/25/bitauth/" class="article-date">
+  	<time datetime="2016-10-25T06:04:54.000Z" itemprop="datePublished">2016-10-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/25/bitauth/">Linux的文件权限设计思想</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[lavenderuni@~]<span class="comment"># ls -l bitauth.md</span></div><div class="line">-rw-r--r--  1 lavenderuni  staff  1137 10 25 14:43 bitauth.md</div></pre></td></tr></table></figure>
+<ul>
+<li>0 &#x2014;  &#x8868;&#x793A;&#x6CA1;&#x6709;&#x6743;&#x9650;&#xFF0C;&#x4E8C;&#x8FDB;&#x5236;&#x4E3A;000</li>
+<li>1 &#x2013;x  &#x8868;&#x793A;&#x6709;&#x6267;&#x884C;&#x6743;&#x9650;&#xFF0C;&#x4E8C;&#x8FDB;&#x5236;&#x4E3A;001</li>
+<li>2 -w-  &#x8868;&#x793A;&#x6709;&#x5199;&#x6743;&#x9650;&#xFF0C;&#x4E8C;&#x8FDB;&#x5236;&#x4E3A;010</li>
+<li>3 -wx  &#x8868;&#x793A;&#x6709;&#x5199;&#x548C;&#x6267;&#x884C;&#x6743;&#x9650;&#xFF0C;&#x4E8C;&#x8FDB;&#x5236;&#x4E3A;011</li>
+<li>4 r&#x2013;  &#x8868;&#x793A;&#x6709;&#x8BFB;&#x6743;&#x9650;&#xFF0C;&#x4E8C;&#x8FDB;&#x5236;&#x4E3A;100</li>
+<li>5 r-x  &#x8868;&#x793A;&#x6709;&#x8BFB;&#x548C;&#x6267;&#x884C;&#x6743;&#x9650;&#xFF0C;&#x4E8C;&#x8FDB;&#x5236;&#x4E3A;101</li>
+<li>6 rw-  &#x8868;&#x793A;&#x6709;&#x8BFB;&#x548C;&#x5199;&#x6743;&#x9650;&#xFF0C;&#x4E8C;&#x8FDB;&#x5236;&#x4E3A;110</li>
+<li>7 rwx  &#x8868;&#x793A;&#x6709;&#x8BFB;&#x3001;&#x5199;&#x548C;&#x6267;&#x884C;&#x6743;&#x9650;&#xFF0C;&#x4E8C;&#x8FDB;&#x5236;&#x4E3A;111</li>
+</ul>
+<p>&#x5047;&#x5982;&#x7ED9;&#x5B9A;&#x4E00;&#x4E2A;&#x6570;&#x5B57;6&#xFF0C;3&#xFF0C;4&#xFF0C;&#x5982;&#x4F55;&#x5224;&#x5B9A;&#x5728;&#x8FD9;&#x4E2A;&#x6570;&#x5B57;&#x91CC;&#x9762;&#x5305;&#x542B;&#x67D0;&#x4E00;&#x79CD;&#x6743;&#x9650;&#x5462;&#xFF1F;</p>
+<h2 id="bit&#x8FD0;&#x7B97;"><a href="#bit&#x8FD0;&#x7B97;" class="headerlink" title="bit&#x8FD0;&#x7B97;"></a>bit&#x8FD0;&#x7B97;</h2><ul>
+<li>&#x8BFB;&#x6743;&#x9650; r=4&#xFF0C;&#x4E8C;&#x8FDB;&#x5236;&#x8868;&#x793A;&#x4E3A;100</li>
+<li>&#x5199;&#x6743;&#x9650; w=2&#xFF0C;&#x4E8C;&#x8FDB;&#x5236;&#x8868;&#x793A;&#x4E3A;010</li>
+<li>&#x6267;&#x884C;&#x6743;&#x9650;x=1&#xFF0C;&#x4E8C;&#x8FDB;&#x5236;&#x8868;&#x793A;&#x4E3A;001</li>
+</ul>
+<p>6&#x8868;&#x793A;&#x4E3A;110<br>110 &amp; 100 = 100 = 4 !=0 &#x6709;&#x8BFB;&#x6743;&#x9650;<br>110 &amp; 010 = 010 = 2 !=0 &#x6709;&#x5199;&#x6743;&#x9650;<br>110 &amp; 001 = 000 = 0 ==0 &#x6CA1;&#x6709;&#x6267;&#x884C;&#x6743;&#x9650;</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># coding:utf-8</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">bit_judge</span><span class="params">(auth_num)</span>:</span></div><div class="line">    auth_r = <span class="number">4</span></div><div class="line">    auth_w = <span class="number">2</span></div><div class="line">    auth_x = <span class="number">1</span></div><div class="line">    </div><div class="line">    auth_str = <span class="string">&apos;&apos;</span></div><div class="line"></div><div class="line">    <span class="keyword">if</span> auth_num &amp; auth_r == <span class="number">0</span>:</div><div class="line">        auth_str += <span class="string">&apos;-&apos;</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        auth_str += <span class="string">&apos;r&apos;</span></div><div class="line"></div><div class="line">    <span class="keyword">if</span> auth_num &amp; auth_w == <span class="number">0</span>:</div><div class="line">        auth_str += <span class="string">&apos;-&apos;</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        auth_str += <span class="string">&apos;w&apos;</span></div><div class="line">    </div><div class="line">    <span class="keyword">if</span> auth_num &amp; auth_x == <span class="number">0</span>:</div><div class="line">        auth_str += <span class="string">&apos;-&apos;</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        auth_str += <span class="string">&apos;x&apos;</span></div><div class="line"></div><div class="line">    <span class="keyword">return</span> auth_str</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">&apos;__main__&apos;</span>:</div><div class="line">    <span class="keyword">print</span> bit_judge(<span class="number">4</span>)</div><div class="line">    <span class="keyword">print</span> bit_judge(<span class="number">6</span>)</div></pre></td></tr></table></figure>
+<h2 id="&#x76F8;&#x9664;&#x6C42;&#x4F59;"><a href="#&#x76F8;&#x9664;&#x6C42;&#x4F59;" class="headerlink" title="&#x76F8;&#x9664;&#x6C42;&#x4F59;"></a>&#x76F8;&#x9664;&#x6C42;&#x4F59;</h2><p>6&#x8868;&#x793A;&#x4E3A;110<br>(6 / 4) % 2 ==1 &#x6709;&#x8BFB;&#x6743;&#x9650;<br>(6 / 2) % 2 ==1 &#x6709;&#x5199;&#x6743;&#x9650;<br>(6 / 1) % 2 ==0 &#x6CA1;&#x6709;&#x6267;&#x884C;&#x6743;&#x9650;</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># coding:utf-8</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">dividemod_judge</span><span class="params">(auth_num)</span>:</span></div><div class="line">    auth_r = <span class="number">4</span></div><div class="line">    auth_w = <span class="number">2</span></div><div class="line">    auth_x = <span class="number">1</span></div><div class="line">    </div><div class="line">    auth_str = <span class="string">&apos;&apos;</span></div><div class="line"></div><div class="line">    <span class="keyword">if</span> (auth_num / auth_r) % <span class="number">2</span> == <span class="number">1</span>:</div><div class="line">        auth_str += <span class="string">&apos;r&apos;</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        auth_str += <span class="string">&apos;-&apos;</span></div><div class="line"></div><div class="line">    <span class="keyword">if</span> (auth_num / auth_w) % <span class="number">2</span> == <span class="number">1</span>:</div><div class="line">        auth_str += <span class="string">&apos;w&apos;</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        auth_str += <span class="string">&apos;-&apos;</span></div><div class="line">    </div><div class="line">    <span class="keyword">if</span> (auth_num / auth_x) % <span class="number">2</span> == <span class="number">1</span>:</div><div class="line">        auth_str += <span class="string">&apos;x&apos;</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        auth_str += <span class="string">&apos;-&apos;</span></div><div class="line"></div><div class="line">    <span class="keyword">return</span> auth_str</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">&apos;__main__&apos;</span>:</div><div class="line">    <span class="keyword">print</span> dividemod_judge(<span class="number">6</span>)</div><div class="line">    <span class="keyword">print</span> dividemod_judge(<span class="number">4</span>)</div></pre></td></tr></table></figure>
+<h1 id="&#x601D;&#x8003;"><a href="#&#x601D;&#x8003;" class="headerlink" title="&#x601D;&#x8003;"></a>&#x601D;&#x8003;</h1><p>mysql&#x4E2D;&#x6570;&#x636E;&#x8BBE;&#x8BA1;&#x7C7B;&#x4F3C;&#x6743;&#x9650;&#x6570;&#x636E;&#xFF0C;&#x6216;&#x8005;&#x52A8;&#x6001;tag&#x6570;&#x636E;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x7528;&#x591A;&#x4E2A;bit&#x4F4D;&#x8868;&#x793A;&#xFF0C;&#x662F;&#x4E0D;&#x662F;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x5173;&#x8054;&#x8868;&#xFF0C;&#x5C06;&#x6570;&#x636E;&#x964D;&#x7EF4;&#xFF0C;&#x653E;&#x5728;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#x5B58;&#x50A8;&#x5462;</p>
+<p>&#x516C;&#x5F00; = 1<br>&#x52A0;&#x5BC6; = 2<br>&#x5C01;&#x9501; = 4<br>&#x7F6E;&#x9876; = 8</p>
+<ul>
+<li>&#x516C;&#x5F00;blog  &#x7ED9;status&#x8FDB;&#x884C;&#x6216;&#x8FD0;&#x7B97;<br>update blog set status = status | 1; </li>
+<li>&#x52A0;&#x5BC6;blog &#x7ED9;status&#x8FDB;&#x884C;&#x6216;&#x8FD0;&#x7B97;<br>update blog set status = status | 2;</li>
+<li>&#x5C01;&#x9501;blog<br>update blog set status = status | 4;</li>
+<li>&#x89E3;&#x9501;blog<br>update blog set status = status ^ 4;</li>
+<li>&#x67E5;&#x8BE2;&#x6240;&#x6709;&#x88AB;&#x7F6E;&#x9876;&#x7684;blog<br>select <em> from blog where status &amp; 8;<br>&#x7B49;&#x4EF7;&#x4E8E;select </em> from blog where (status &amp; 8) != 0;</li>
+</ul>
+<p>&#x7F3A;&#x70B9;&#x662F;&#x67E5;&#x8BE2;&#x7684;&#x65F6;&#x5019;&#x6CA1;&#x6709;&#x529E;&#x6CD5;&#x4F7F;&#x7528;&#x7D22;&#x5F15;&#xFF0C;&#x56E0;&#x4E3A;&#x4F4D;&#x8FD0;&#x7B97;&#x65E0;&#x6CD5;&#x79FB;&#x52A8;&#x5230;=&#x53F7;&#x7684;&#x53F3;&#x8FB9;&#x3002;</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/authority/">authority</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bit/">bit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/include/">include</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/judge/">judge</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rwx/">rwx</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/algorithm/">algorithm</a>
 	</div>
 
 
