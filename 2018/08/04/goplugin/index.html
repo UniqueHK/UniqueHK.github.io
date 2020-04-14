@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>golang插件化方案 | 宽视角</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Go是静态编译语言，在具体的动态场景该如何实现应用级别的持续交付呢？">
+<meta name="keywords" content="热加载,rpc通信,mq通信,嵌入式脚本">
 <meta property="og:type" content="article">
 <meta property="og:title" content="golang插件化方案">
 <meta property="og:url" content="http://yoursite.com/2018/08/04/goplugin/index.html">
 <meta property="og:site_name" content="宽视角">
 <meta property="og:description" content="Go是静态编译语言，在具体的动态场景该如何实现应用级别的持续交付呢？">
+<meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2018/08/04/goplugin/1529650772.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/04/goplugin/1529650927.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/04/goplugin/1529651104.png">
@@ -29,7 +31,7 @@
   
   <link rel="stylesheet" href="/css/style.css">
 </head>
-
+</html>
 <body>
   <div id="container">
     <div class="left-col">
@@ -119,7 +121,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/" style="font-size: 10px;">==</a> <a href="/tags/DAG/" style="font-size: 10px;">DAG</a> <a href="/tags/FP/" style="font-size: 10px;">FP</a> <a href="/tags/LRU-cache/" style="font-size: 10px;">LRU cache</a> <a href="/tags/Newton-iteration/" style="font-size: 10px;">Newton iteration</a> <a href="/tags/OOP/" style="font-size: 10px;">OOP</a> <a href="/tags/Slice分布式/" style="font-size: 10px;">Slice分布式</a> <a href="/tags/Time-Quantum/" style="font-size: 10px;">Time Quantum</a> <a href="/tags/async-task/" style="font-size: 10px;">async task</a> <a href="/tags/asynchronous/" style="font-size: 10px;">asynchronous</a> <a href="/tags/asyncio/" style="font-size: 10px;">asyncio</a> <a href="/tags/authority/" style="font-size: 10px;">authority</a> <a href="/tags/background/" style="font-size: 10px;">background</a> <a href="/tags/beanstalkd/" style="font-size: 10px;">beanstalkd</a> <a href="/tags/binary-search/" style="font-size: 10px;">binary search</a> <a href="/tags/bit/" style="font-size: 10px;">bit</a> <a href="/tags/bitmap/" style="font-size: 20px;">bitmap</a> <a href="/tags/brpop/" style="font-size: 10px;">brpop</a> <a href="/tags/cache-algorithm/" style="font-size: 10px;">cache algorithm</a> <a href="/tags/cell/" style="font-size: 10px;">cell</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/comet-streaming/" style="font-size: 10px;">comet streaming</a> <a href="/tags/context/" style="font-size: 10px;">context</a> <a href="/tags/coroutine/" style="font-size: 10px;">coroutine</a> <a href="/tags/csrf/" style="font-size: 10px;">csrf</a> <a href="/tags/data-pipeline/" style="font-size: 10px;">data pipeline</a> <a href="/tags/datamodel/" style="font-size: 10px;">datamodel</a> <a href="/tags/distributed/" style="font-size: 10px;">distributed</a> <a href="/tags/extract/" style="font-size: 10px;">extract</a> <a href="/tags/frame/" style="font-size: 10px;">frame</a> <a href="/tags/gen-coroutine/" style="font-size: 10px;">gen.coroutine</a> <a href="/tags/goroutine/" style="font-size: 10px;">goroutine</a> <a href="/tags/greenlet/" style="font-size: 10px;">greenlet</a> <a href="/tags/gunicorn/" style="font-size: 10px;">gunicorn</a> <a href="/tags/hashtable/" style="font-size: 10px;">hashtable</a> <a href="/tags/hash优化/" style="font-size: 10px;">hash优化</a> <a href="/tags/hash制度/" style="font-size: 10px;">hash制度</a> <a href="/tags/header/" style="font-size: 10px;">header</a> <a href="/tags/http1-0/" style="font-size: 10px;">http1.0</a> <a href="/tags/http1-1/" style="font-size: 10px;">http1.1</a> <a href="/tags/http2-0/" style="font-size: 10px;">http2.0</a> <a href="/tags/include/" style="font-size: 10px;">include</a> <a href="/tags/index/" style="font-size: 20px;">index</a> <a href="/tags/interface/" style="font-size: 10px;">interface</a> <a href="/tags/ioloop/" style="font-size: 10px;">ioloop</a> <a href="/tags/is/" style="font-size: 10px;">is</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/judge/" style="font-size: 10px;">judge</a> <a href="/tags/keyexpired/" style="font-size: 10px;">keyexpired</a> <a href="/tags/learning/" style="font-size: 10px;">learning</a> <a href="/tags/level/" style="font-size: 20px;">level</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/long-polling/" style="font-size: 10px;">long polling</a> <a href="/tags/lpush/" style="font-size: 10px;">lpush</a> <a href="/tags/lxml/" style="font-size: 10px;">lxml</a> <a href="/tags/mergelist/" style="font-size: 10px;">mergelist</a> <a href="/tags/method/" style="font-size: 10px;">method</a> <a href="/tags/mongo/" style="font-size: 10px;">mongo</a> <a href="/tags/mongo-id/" style="font-size: 10px;">mongo_id</a> <a href="/tags/monitor/" style="font-size: 10px;">monitor</a> <a href="/tags/mq通信/" style="font-size: 10px;">mq通信</a> <a href="/tags/multi-process/" style="font-size: 10px;">multi process</a> <a href="/tags/nosql/" style="font-size: 10px;">nosql</a> <a href="/tags/object-oriented/" style="font-size: 10px;">object-oriented</a> <a href="/tags/package/" style="font-size: 10px;">package</a> <a href="/tags/parallel/" style="font-size: 10px;">parallel</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/phantomjs/" style="font-size: 10px;">phantomjs</a> <a href="/tags/pointer/" style="font-size: 10px;">pointer</a> <a href="/tags/pointerarray/" style="font-size: 10px;">pointerarray</a> <a href="/tags/powerful/" style="font-size: 10px;">powerful</a> <a href="/tags/priority/" style="font-size: 20px;">priority</a> <a href="/tags/procedure-oriented/" style="font-size: 10px;">procedure-oriented</a> <a href="/tags/property/" style="font-size: 10px;">property</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/recursive-struct/" style="font-size: 10px;">recursive struct</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/row/" style="font-size: 10px;">row</a> <a href="/tags/rpc通信/" style="font-size: 10px;">rpc通信</a> <a href="/tags/rwx/" style="font-size: 10px;">rwx</a> <a href="/tags/setter-getter/" style="font-size: 10px;">setter/getter</a> <a href="/tags/shell-script/" style="font-size: 10px;">shell script</a> <a href="/tags/signatures/" style="font-size: 10px;">signatures</a> <a href="/tags/specific-type/" style="font-size: 10px;">specific type</a> <a href="/tags/sqrt/" style="font-size: 10px;">sqrt</a> <a href="/tags/task-flow/" style="font-size: 10px;">task flow</a> <a href="/tags/threading/" style="font-size: 10px;">threading</a> <a href="/tags/type-assert/" style="font-size: 10px;">type assert</a> <a href="/tags/urlparameter/" style="font-size: 10px;">urlparameter</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/weight/" style="font-size: 10px;">weight</a> <a href="/tags/worthy/" style="font-size: 10px;">worthy</a> <a href="/tags/上/" style="font-size: 10px;">上</a> <a href="/tags/两小无猜/" style="font-size: 10px;">两小无猜</a> <a href="/tags/乌托邦/" style="font-size: 10px;">乌托邦</a> <a href="/tags/人生半坡/" style="font-size: 10px;">人生半坡</a> <a href="/tags/优先级/" style="font-size: 10px;">优先级</a> <a href="/tags/使用场景/" style="font-size: 10px;">使用场景</a> <a href="/tags/先验概率/" style="font-size: 10px;">先验概率</a> <a href="/tags/全概率/" style="font-size: 10px;">全概率</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/减法/" style="font-size: 10px;">减法</a> <a href="/tags/分布式/" style="font-size: 10px;">分布式</a> <a href="/tags/分支限界/" style="font-size: 10px;">分支限界</a> <a href="/tags/分治/" style="font-size: 10px;">分治</a> <a href="/tags/分类/" style="font-size: 10px;">分类</a> <a href="/tags/动态规划/" style="font-size: 10px;">动态规划</a> <a href="/tags/努力/" style="font-size: 10px;">努力</a> <a href="/tags/匿名变量/" style="font-size: 10px;">匿名变量</a> <a href="/tags/单线程/" style="font-size: 10px;">单线程</a> <a href="/tags/后验概率/" style="font-size: 10px;">后验概率</a> <a href="/tags/周星驰/" style="font-size: 10px;">周星驰</a> <a href="/tags/哈希/" style="font-size: 10px;">哈希</a> <a href="/tags/回溯/" style="font-size: 10px;">回溯</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/富类hash/" style="font-size: 10px;">富类hash</a> <a href="/tags/小巧/" style="font-size: 10px;">小巧</a> <a href="/tags/嵌入式脚本/" style="font-size: 10px;">嵌入式脚本</a> <a href="/tags/异步IO/" style="font-size: 10px;">异步IO</a> <a href="/tags/张小凡/" style="font-size: 10px;">张小凡</a> <a href="/tags/性能/" style="font-size: 10px;">性能</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/新年快乐/" style="font-size: 10px;">新年快乐</a> <a href="/tags/条件查询/" style="font-size: 10px;">条件查询</a> <a href="/tags/条件概率/" style="font-size: 10px;">条件概率</a> <a href="/tags/浮夸/" style="font-size: 10px;">浮夸</a> <a href="/tags/混沌hash/" style="font-size: 10px;">混沌hash</a> <a href="/tags/热加载/" style="font-size: 10px;">热加载</a> <a href="/tags/父类方法调用子类方法/" style="font-size: 10px;">父类方法调用子类方法</a> <a href="/tags/状态/" style="font-size: 10px;">状态</a> <a href="/tags/田灵儿/" style="font-size: 10px;">田灵儿</a> <a href="/tags/自省自乐/" style="font-size: 10px;">自省自乐</a> <a href="/tags/自虐/" style="font-size: 10px;">自虐</a> <a href="/tags/贪心/" style="font-size: 10px;">贪心</a> <a href="/tags/转码/" style="font-size: 10px;">转码</a> <a href="/tags/阻塞完成/" style="font-size: 10px;">阻塞完成</a> <a href="/tags/随心随性/" style="font-size: 10px;">随心随性</a>
+						<a href="/tags/" style="font-size: 10px;">==</a> <a href="/tags/DAG/" style="font-size: 10px;">DAG</a> <a href="/tags/FP/" style="font-size: 10px;">FP</a> <a href="/tags/LRU-cache/" style="font-size: 10px;">LRU cache</a> <a href="/tags/Newton-iteration/" style="font-size: 10px;">Newton iteration</a> <a href="/tags/OOP/" style="font-size: 10px;">OOP</a> <a href="/tags/Slice分布式/" style="font-size: 10px;">Slice分布式</a> <a href="/tags/Time-Quantum/" style="font-size: 10px;">Time Quantum</a> <a href="/tags/async-task/" style="font-size: 10px;">async task</a> <a href="/tags/asynchronous/" style="font-size: 10px;">asynchronous</a> <a href="/tags/asyncio/" style="font-size: 10px;">asyncio</a> <a href="/tags/authority/" style="font-size: 10px;">authority</a> <a href="/tags/background/" style="font-size: 10px;">background</a> <a href="/tags/beanstalkd/" style="font-size: 10px;">beanstalkd</a> <a href="/tags/binary-search/" style="font-size: 10px;">binary search</a> <a href="/tags/bit/" style="font-size: 10px;">bit</a> <a href="/tags/bitmap/" style="font-size: 20px;">bitmap</a> <a href="/tags/brpop/" style="font-size: 10px;">brpop</a> <a href="/tags/cache-algorithm/" style="font-size: 10px;">cache algorithm</a> <a href="/tags/cell/" style="font-size: 10px;">cell</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/comet-streaming/" style="font-size: 10px;">comet streaming</a> <a href="/tags/complicated/" style="font-size: 10px;">complicated</a> <a href="/tags/concurrently/" style="font-size: 10px;">concurrently</a> <a href="/tags/context/" style="font-size: 10px;">context</a> <a href="/tags/coroutine/" style="font-size: 10px;">coroutine</a> <a href="/tags/csrf/" style="font-size: 10px;">csrf</a> <a href="/tags/data-pipeline/" style="font-size: 10px;">data pipeline</a> <a href="/tags/datamodel/" style="font-size: 10px;">datamodel</a> <a href="/tags/distributed/" style="font-size: 10px;">distributed</a> <a href="/tags/dynamic/" style="font-size: 10px;">dynamic</a> <a href="/tags/extract/" style="font-size: 10px;">extract</a> <a href="/tags/flexible/" style="font-size: 10px;">flexible</a> <a href="/tags/frame/" style="font-size: 10px;">frame</a> <a href="/tags/gen-coroutine/" style="font-size: 10px;">gen.coroutine</a> <a href="/tags/goroutine/" style="font-size: 10px;">goroutine</a> <a href="/tags/greenlet/" style="font-size: 10px;">greenlet</a> <a href="/tags/gunicorn/" style="font-size: 10px;">gunicorn</a> <a href="/tags/hashtable/" style="font-size: 10px;">hashtable</a> <a href="/tags/hash优化/" style="font-size: 10px;">hash优化</a> <a href="/tags/hash制度/" style="font-size: 10px;">hash制度</a> <a href="/tags/header/" style="font-size: 10px;">header</a> <a href="/tags/http1-0/" style="font-size: 10px;">http1.0</a> <a href="/tags/http1-1/" style="font-size: 10px;">http1.1</a> <a href="/tags/http2-0/" style="font-size: 10px;">http2.0</a> <a href="/tags/include/" style="font-size: 10px;">include</a> <a href="/tags/index/" style="font-size: 20px;">index</a> <a href="/tags/interface/" style="font-size: 10px;">interface</a> <a href="/tags/ioloop/" style="font-size: 10px;">ioloop</a> <a href="/tags/is/" style="font-size: 10px;">is</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/judge/" style="font-size: 10px;">judge</a> <a href="/tags/keyexpired/" style="font-size: 10px;">keyexpired</a> <a href="/tags/learning/" style="font-size: 10px;">learning</a> <a href="/tags/level/" style="font-size: 20px;">level</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/long-polling/" style="font-size: 10px;">long polling</a> <a href="/tags/lpush/" style="font-size: 10px;">lpush</a> <a href="/tags/lxml/" style="font-size: 10px;">lxml</a> <a href="/tags/mergelist/" style="font-size: 10px;">mergelist</a> <a href="/tags/method/" style="font-size: 10px;">method</a> <a href="/tags/mongo/" style="font-size: 10px;">mongo</a> <a href="/tags/mongo-id/" style="font-size: 10px;">mongo_id</a> <a href="/tags/monitor/" style="font-size: 10px;">monitor</a> <a href="/tags/mq通信/" style="font-size: 10px;">mq通信</a> <a href="/tags/multi-process/" style="font-size: 10px;">multi process</a> <a href="/tags/nosql/" style="font-size: 10px;">nosql</a> <a href="/tags/object-oriented/" style="font-size: 10px;">object-oriented</a> <a href="/tags/off-schedule/" style="font-size: 10px;">off-schedule</a> <a href="/tags/package/" style="font-size: 10px;">package</a> <a href="/tags/parallel/" style="font-size: 10px;">parallel</a> <a href="/tags/parametrized/" style="font-size: 10px;">parametrized</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/phantomjs/" style="font-size: 10px;">phantomjs</a> <a href="/tags/pointer/" style="font-size: 10px;">pointer</a> <a href="/tags/pointerarray/" style="font-size: 10px;">pointerarray</a> <a href="/tags/powerful/" style="font-size: 10px;">powerful</a> <a href="/tags/priority/" style="font-size: 20px;">priority</a> <a href="/tags/procedure-oriented/" style="font-size: 10px;">procedure-oriented</a> <a href="/tags/property/" style="font-size: 10px;">property</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/recursive-struct/" style="font-size: 10px;">recursive struct</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/row/" style="font-size: 10px;">row</a> <a href="/tags/rpc通信/" style="font-size: 10px;">rpc通信</a> <a href="/tags/rwx/" style="font-size: 10px;">rwx</a> <a href="/tags/setter-getter/" style="font-size: 10px;">setter/getter</a> <a href="/tags/shell-script/" style="font-size: 10px;">shell script</a> <a href="/tags/signatures/" style="font-size: 10px;">signatures</a> <a href="/tags/specific-type/" style="font-size: 10px;">specific type</a> <a href="/tags/sqrt/" style="font-size: 10px;">sqrt</a> <a href="/tags/task-flow/" style="font-size: 10px;">task flow</a> <a href="/tags/threading/" style="font-size: 10px;">threading</a> <a href="/tags/type-assert/" style="font-size: 10px;">type assert</a> <a href="/tags/urlparameter/" style="font-size: 10px;">urlparameter</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/weight/" style="font-size: 10px;">weight</a> <a href="/tags/worthy/" style="font-size: 10px;">worthy</a> <a href="/tags/上/" style="font-size: 10px;">上</a> <a href="/tags/两小无猜/" style="font-size: 10px;">两小无猜</a> <a href="/tags/乌托邦/" style="font-size: 10px;">乌托邦</a> <a href="/tags/人生半坡/" style="font-size: 10px;">人生半坡</a> <a href="/tags/优先级/" style="font-size: 10px;">优先级</a> <a href="/tags/使用场景/" style="font-size: 10px;">使用场景</a> <a href="/tags/先验概率/" style="font-size: 10px;">先验概率</a> <a href="/tags/全概率/" style="font-size: 10px;">全概率</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/减法/" style="font-size: 10px;">减法</a> <a href="/tags/分布式/" style="font-size: 10px;">分布式</a> <a href="/tags/分支限界/" style="font-size: 10px;">分支限界</a> <a href="/tags/分治/" style="font-size: 10px;">分治</a> <a href="/tags/分类/" style="font-size: 10px;">分类</a> <a href="/tags/动态规划/" style="font-size: 10px;">动态规划</a> <a href="/tags/努力/" style="font-size: 10px;">努力</a> <a href="/tags/匿名变量/" style="font-size: 10px;">匿名变量</a> <a href="/tags/单线程/" style="font-size: 10px;">单线程</a> <a href="/tags/后验概率/" style="font-size: 10px;">后验概率</a> <a href="/tags/周星驰/" style="font-size: 10px;">周星驰</a> <a href="/tags/哈希/" style="font-size: 10px;">哈希</a> <a href="/tags/回溯/" style="font-size: 10px;">回溯</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/富类hash/" style="font-size: 10px;">富类hash</a> <a href="/tags/小巧/" style="font-size: 10px;">小巧</a> <a href="/tags/嵌入式脚本/" style="font-size: 10px;">嵌入式脚本</a> <a href="/tags/异步IO/" style="font-size: 10px;">异步IO</a> <a href="/tags/张小凡/" style="font-size: 10px;">张小凡</a> <a href="/tags/性能/" style="font-size: 10px;">性能</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/新年快乐/" style="font-size: 10px;">新年快乐</a> <a href="/tags/条件查询/" style="font-size: 10px;">条件查询</a> <a href="/tags/条件概率/" style="font-size: 10px;">条件概率</a> <a href="/tags/浮夸/" style="font-size: 10px;">浮夸</a> <a href="/tags/混沌hash/" style="font-size: 10px;">混沌hash</a> <a href="/tags/热加载/" style="font-size: 10px;">热加载</a> <a href="/tags/父类方法调用子类方法/" style="font-size: 10px;">父类方法调用子类方法</a> <a href="/tags/状态/" style="font-size: 10px;">状态</a> <a href="/tags/田灵儿/" style="font-size: 10px;">田灵儿</a> <a href="/tags/自省自乐/" style="font-size: 10px;">自省自乐</a> <a href="/tags/自虐/" style="font-size: 10px;">自虐</a> <a href="/tags/贪心/" style="font-size: 10px;">贪心</a> <a href="/tags/转码/" style="font-size: 10px;">转码</a> <a href="/tags/阻塞完成/" style="font-size: 10px;">阻塞完成</a> <a href="/tags/随心随性/" style="font-size: 10px;">随心随性</a>
 					</div>
 				</section>
 				
@@ -224,113 +226,112 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-&#x80CC;&#x666F;"><a href="#1-&#x80CC;&#x666F;" class="headerlink" title="1. &#x80CC;&#x666F;"></a>1. &#x80CC;&#x666F;</h2><p>&#x4E1A;&#x52A1;&#x7EBF;&#x7684;&#x6D3B;&#x52A8;&#xFF0C;&#x6BCF;&#x4E00;&#x6B21;&#x65B0;&#x6D3B;&#x52A8;&#x90FD;&#x505A;&#x72EC;&#x7ACB;&#x9879;&#x76EE;&#x5F00;&#x53D1;&#xFF0C;&#x6709;&#x5927;&#x91CF;&#x91CD;&#x590D;&#x4EE3;&#x7801;&#xFF0C;&#x5E76;&#x4E14;&#x6D6A;&#x8D39;&#x6570;&#x636E;&#x670D;&#x52A1;&#x7684;&#x8FDE;&#x63A5;&#x8D44;&#x6E90;&#xFF1B;&#x6392;&#x5E8F;&#x670D;&#x52A1;&#x4E5F;&#x8BB8;&#x8981;&#x7ECF;&#x5E38;&#x6DFB;&#x52A0;&#x4E1A;&#x52A1;&#x4EE3;&#x7801;&#xFF0C;&#x76EE;&#x524D;&#x662F;&#x505C;&#x670D;&#x52A1;&#x53D1;&#x5E03;&#x2026;&#x2026;&#x8FD9;&#x4E9B;&#x573A;&#x666F;&#x4E3A;&#x4E86;&#x5F00;&#x53D1;&#x7EF4;&#x62A4;&#x6548;&#x7387;&#x3001;&#x7A33;&#x5B9A;&#x6027;&#x3001;&#x5B89;&#x5168;&#x6027;&#x548C;&#x6027;&#x80FD;&#x90FD;&#x4F7F;&#x7528;&#x4E86;Go&#x8BED;&#x8A00;&#x3002;Go&#x662F;&#x9759;&#x6001;&#x7F16;&#x8BD1;&#x8BED;&#x8A00;&#xFF0C;&#x5728;&#x5177;&#x4F53;&#x7684;&#x52A8;&#x6001;&#x573A;&#x666F;&#x8BE5;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x5E94;&#x7528;&#x7EA7;&#x522B;&#x7684;&#x6301;&#x7EED;&#x4EA4;&#x4ED8;&#x5462;&#xFF1F;</p>
-<p>&#x57FA;&#x4E8E;k8s&#xFF0C;nginx&#x7F51;&#x5173;&#xFF0C;&#x961F;&#x5217;&#x56DE;&#x6EAF;&#x6D88;&#x8D39;&#x7B49;&#x5DE5;&#x5177;&#x7684;&#x5B9E;&#x73B0;&#x4E5F;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x4E0D;&#x540C;&#x7A0B;&#x5EA6;&#x7684;&#x6301;&#x7EED;&#x4EA4;&#x4ED8;&#xFF0C;&#x4F46;&#x662F;&#x6301;&#x7EED;&#x4EA4;&#x4ED8;&#x7684;&#x8981;&#x6C42;&#x8D8A;&#x9AD8;&#xFF0C;&#x642D;&#x5EFA;&#x5E73;&#x53F0;&#x548C;&#x7EF4;&#x62A4;&#x7684;&#x6210;&#x672C;&#x4E5F;&#x8D8A;&#x9AD8;&#x3002;</p>
-<p>&#x4ECE;&#x5E94;&#x7528;&#x5F00;&#x53D1;&#x672C;&#x8EAB;&#x51FA;&#x53D1;&#xFF0C;&#x53EF;&#x4EE5;&#x8003;&#x8651;<strong>&#x63D2;&#x4EF6;&#x5316;</strong>&#x3002;</p>
-<h3 id="&#x63D2;&#x4EF6;&#x4F7F;&#x7528;&#x573A;&#x666F;&#x7279;&#x70B9;"><a href="#&#x63D2;&#x4EF6;&#x4F7F;&#x7528;&#x573A;&#x666F;&#x7279;&#x70B9;" class="headerlink" title="&#x63D2;&#x4EF6;&#x4F7F;&#x7528;&#x573A;&#x666F;&#x7279;&#x70B9;"></a>&#x63D2;&#x4EF6;&#x4F7F;&#x7528;&#x573A;&#x666F;&#x7279;&#x70B9;</h3><ol>
-<li>&#x53EF;&#x4EE5;&#x70ED;&#x66F4;&#x65B0;&#x5F0F;&#x6269;&#x5C55;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x529F;&#x80FD;&#x5217;&#x8868;</li>
-<li>&#x5E94;&#x5BF9;&#x591A;&#x53D8;&#x7684;&#x4E1A;&#x52A1;&#x9700;&#x6C42;&#xFF0C;&#x65B9;&#x4FBF;&#x529F;&#x80FD;&#x4E0A;&#x4E0B;&#x7EBF;</li>
-<li>&#x5BF9;&#x4E8E;&#x4EFB;&#x610F;&#x7684;go&#x5E94;&#x7528;&#xFF0C;&#x80FD;&#x8FDB;&#x884C;&#x589E;&#x91CF;&#x67B6;&#x6784;&#x3001;&#x4EE3;&#x7801;&#x5206;&#x53D1;&#x4EE5;&#x53CA;&#x4EE3;&#x7801;&#x4E0A;&#x4E0B;&#x7EBF;</li>
+        <h2 id="1-背景"><a href="#1-背景" class="headerlink" title="1. 背景"></a>1. 背景</h2><p>业务线的活动，每一次新活动都做独立项目开发，有大量重复代码，并且浪费数据服务的连接资源；排序服务也许要经常添加业务代码，目前是停服务发布……这些场景为了开发维护效率、稳定性、安全性和性能都使用了Go语言。Go是静态编译语言，在具体的动态场景该如何实现应用级别的持续交付呢？</p>
+<p>基于k8s，nginx网关，队列回溯消费等工具的实现也可以实现不同程度的持续交付，但是持续交付的要求越高，搭建平台和维护的成本也越高。</p>
+<p>从应用开发本身出发，可以考虑<strong>插件化</strong>。</p>
+<h3 id="插件使用场景特点"><a href="#插件使用场景特点" class="headerlink" title="插件使用场景特点"></a>插件使用场景特点</h3><ol>
+<li>可以热更新式扩展应用程序的功能列表</li>
+<li>应对多变的业务需求，方便功能上下线</li>
+<li>对于任意的go应用，能进行增量架构、代码分发以及代码上下线</li>
 </ol>
-<h3 id="&#x63D2;&#x4EF6;&#x8BBE;&#x8BA1;&#x6807;&#x51C6;"><a href="#&#x63D2;&#x4EF6;&#x8BBE;&#x8BA1;&#x6807;&#x51C6;" class="headerlink" title="&#x63D2;&#x4EF6;&#x8BBE;&#x8BA1;&#x6807;&#x51C6;"></a>&#x63D2;&#x4EF6;&#x8BBE;&#x8BA1;&#x6807;&#x51C6;</h3><ul>
-<li>&#x6027;&#x80FD;&#xFF1A;&#x8C03;&#x7528;&#x63D2;&#x4EF6;&#x8981;&#x5C3D;&#x53EF;&#x80FD;&#x7684;&#x5FEB;&#xFF1B;&#x5BF9;&#x4E8E;&#x4EFB;&#x52A1;&#x63D2;&#x4EF6;&#xFF0C;&#x4F7F;&#x7528;&#x5355;&#x72EC;&#x7684;&#x5DE5;&#x4F5C;&#x7A7A;&#x95F4;&#xFF08;&#x534F;&#x7A0B;&#x3001;&#x7EBF;&#x7A0B;&#x3001;&#x8FDB;&#x7A0B;&#x7684;&#x6C60;&#x5B50;&#x5316;&#x5904;&#x7406;&#xFF09;&#xFF0C;&#x5927;&#x7684;&#x3001;&#x6162;&#x7684;&#x3001;&#x957F;&#x671F;&#x8FD0;&#x884C;&#x7684;&#x63D2;&#x4EF6;&#xFF0C;&#x8981;&#x5C11;&#x8C03;&#x7528;</li>
-<li>&#x7A33;&#x5B9A;&#x6027;&#xFF1A;&#x63D2;&#x4EF6;&#x4F9D;&#x8D56;&#x7684;&#x53D1;&#x5E03;&#x5E73;&#x53F0;&#x8981;&#x5C11;&#x53D1;&#x5E03;&#xFF0C;&#x4EA4;&#x4E92;API&#x7684;&#x8BBE;&#x8BA1;&#x8981;&#x505A;&#x597D;&#x62BD;&#x8C61;&#xFF0C;&#x4E0A;&#x4E0B;&#x6587;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x975E;&#x5FC5;&#x987B;&#x4E0D;&#x6DFB;&#x52A0;&#xFF0C;&#x51CF;&#x5C11;&#x5347;&#x7EA7;&#x9700;&#x6C42;&#xFF0C;&#x751A;&#x81F3;&#x80FD;&#x652F;&#x6301;&#x591A;&#x4E2A;&#x5B9E;&#x4F8B;&#x4E92;&#x5907;&#x70ED;&#x5347;&#x7EA7;</li>
-<li>&#x53EF;&#x9760;&#x6027;&#xFF1A;&#x5982;&#x679C;&#x6709;&#x5931;&#x6548;&#x3001;&#x5D29;&#x6E83;&#x7684;&#x53EF;&#x80FD;&#xFF0C;&#x5FC5;&#x987B;&#x6709;&#x5FEB;&#x901F;&#x3001;&#x7B80;&#x5355;&#x3001;&#x5B8C;&#x6574;&#x7684;&#x6062;&#x590D;&#x673A;&#x5236;&#xFF1B;&#x4E1A;&#x52A1;&#x63D2;&#x4EF6;&#x7684;&#x6267;&#x884C;&#x4E0D;&#x80FD;&#x5F71;&#x54CD;&#x4F9D;&#x8D56;&#x7684;&#x53D1;&#x5E03;&#x5E73;&#x53F0;&#x7684;&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;&#x6216;&#x8005;&#x7EBF;&#x7A0B;&#x7684;&#x7A33;&#x5B9A;</li>
-<li>&#x5B89;&#x5168;&#x6027;&#xFF1A;&#x5E94;&#x8BE5;&#x901A;&#x8FC7;&#x4EE3;&#x7801;&#x7B7E;&#x540D;&#x4E4B;&#x7C7B;&#x7684;&#x624B;&#x6BB5;&#x9632;&#x7BE1;&#x6539;</li>
-<li>&#x6269;&#x5C55;&#x6027;&#xFF1A;&#x652F;&#x6301;&#x63D2;&#x4EF6;&#x70ED;&#x66F4;&#x65B0;&#x548C;&#x4E0A;&#x4E0B;&#x7EBF;&#xFF0C;&#x4E0B;&#x7EBF;&#x9700;&#x8981;&#x5065;&#x5EB7;&#x68C0;&#x67E5;&#xFF0C;&#x516C;&#x5171;&#x5E93;&#x63D2;&#x4EF6;&#x81F3;&#x5C11;&#x80FD;&#x70ED;&#x52A0;&#x8F7D;</li>
-<li>&#x590D;&#x7528;&#x6027;&#xFF1A;&#x4E1A;&#x52A1;&#x63D2;&#x4EF6;&#x4E0D;&#x8981;&#x592A;&#x591A;&#x4E00;&#x6B21;&#x6027;&#x7684;&#x4E0A;&#x4E0B;&#x7EBF;</li>
-<li>&#x6613;&#x7528;&#x6027;&#xFF1A;&#x63D0;&#x4F9B;&#x4F7F;&#x7528;&#x7B80;&#x5355;&#x3001;&#x529F;&#x80FD;&#x6B63;&#x4EA4;&#x7684;API&#xFF0C;&#x4E1A;&#x52A1;&#x63D2;&#x4EF6;&#x80FD;&#x591F;&#x83B7;&#x53D6;&#x4F9D;&#x8D56;&#x7684;&#x53D1;&#x5E03;&#x5E73;&#x53F0;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x548C;&#x8C03;&#x7528;&#x516C;&#x5171;&#x5E93;</li>
+<h3 id="插件设计标准"><a href="#插件设计标准" class="headerlink" title="插件设计标准"></a>插件设计标准</h3><ul>
+<li>性能：调用插件要尽可能的快；对于任务插件，使用单独的工作空间（协程、线程、进程的池子化处理），大的、慢的、长期运行的插件，要少调用</li>
+<li>稳定性：插件依赖的发布平台要少发布，交互API的设计要做好抽象，上下文的环境变量非必须不添加，减少升级需求，甚至能支持多个实例互备热升级</li>
+<li>可靠性：如果有失效、崩溃的可能，必须有快速、简单、完整的恢复机制；业务插件的执行不能影响依赖的发布平台的守护进程或者线程的稳定</li>
+<li>安全性：应该通过代码签名之类的手段防篡改</li>
+<li>扩展性：支持插件热更新和上下线，下线需要健康检查，公共库插件至少能热加载</li>
+<li>复用性：业务插件不要太多一次性的上下线</li>
+<li>易用性：提供使用简单、功能正交的API，业务插件能够获取依赖的发布平台的上下文和调用公共库</li>
 </ul>
-<h2 id="2-Go&#x7684;&#x63D2;&#x4EF6;&#x65B9;&#x5F0F;"><a href="#2-Go&#x7684;&#x63D2;&#x4EF6;&#x65B9;&#x5F0F;" class="headerlink" title="2. Go&#x7684;&#x63D2;&#x4EF6;&#x65B9;&#x5F0F;"></a>2. Go&#x7684;&#x63D2;&#x4EF6;&#x65B9;&#x5F0F;</h2><h3 id="&#x52A8;&#x6001;&#x94FE;&#x63A5;&#x5E93;plugin&#xFF0C;&#x5B98;&#x65B9;&#x6587;&#x6863;"><a href="#&#x52A8;&#x6001;&#x94FE;&#x63A5;&#x5E93;plugin&#xFF0C;&#x5B98;&#x65B9;&#x6587;&#x6863;" class="headerlink" title="&#x52A8;&#x6001;&#x94FE;&#x63A5;&#x5E93;plugin&#xFF0C;&#x5B98;&#x65B9;&#x6587;&#x6863;"></a>&#x52A8;&#x6001;&#x94FE;&#x63A5;&#x5E93;plugin&#xFF0C;<a href="https://golang.org/pkg/plugin/" target="_blank" rel="external">&#x5B98;&#x65B9;&#x6587;&#x6863;</a></h3><p>&#x8BED;&#x8A00;&#x672C;&#x8EAB;&#x652F;&#x6301;&#xFF0C;&#x63D2;&#x4EF6;&#x548C;&#x4E3B;&#x7A0B;&#x5E8F;&#x539F;&#x751F;&#x8BED;&#x6CD5;&#x4EA4;&#x4E92;</p>
+<h2 id="2-Go的插件方式"><a href="#2-Go的插件方式" class="headerlink" title="2. Go的插件方式"></a>2. Go的插件方式</h2><h3 id="动态链接库plugin，官方文档"><a href="#动态链接库plugin，官方文档" class="headerlink" title="动态链接库plugin，官方文档"></a>动态链接库plugin，<a href="https://golang.org/pkg/plugin/" target="_blank" rel="noopener">官方文档</a></h3><p>语言本身支持，插件和主程序原生语法交互</p>
 <ul>
-<li>&#x8FDB;&#x7A0B;&#x9694;&#x79BB;&#xFF1A;&#x65E0;&#xFF0C;&#x5355;&#x8FDB;&#x7A0B;</li>
-<li>&#x4E3B;&#x7A0B;&#x5E8F;&#x8C03;&#x7528;&#x63D2;&#x4EF6;&#xFF1A;&#x4E00;&#x5207;&#x9884;&#x534F;&#x5B9A;object&#xFF08;&#x5305;&#x62EC;function&#x3001;channel&#xFF09;</li>
-<li>&#x63D2;&#x4EF6;&#x611F;&#x77E5;&#x4E3B;&#x7A0B;&#x5E8F;&#x4E0A;&#x4E0B;&#x6587;&#xFF1A;&#x4E3B;&#x7A0B;&#x5E8F;&#x9884;&#x5B9A;&#x4E49;&#x7C7B;&#x578B;&#x53C2;&#x6570;object&#xFF08;&#x5305;&#x62EC;function&#x3001;channel&#xFF09;</li>
-<li>stream&#x652F;&#x6301;&#xFF1A;&#x5355;&#x5411;&#xFF0C;&#x57FA;&#x4E8E;channel</li>
-<li>&#x63D2;&#x4EF6;&#x53D1;&#x73B0;&#xFF1A;&#x4E3B;&#x7A0B;&#x5E8F;&#x5FAA;&#x73AF;&#x626B;&#x63CF;&#x63D2;&#x4EF6;&#x76EE;&#x5F55;&#x5E76;&#x7EF4;&#x62A4;&#x72B6;&#x6001;&#xFF1B;&#x901A;&#x8FC7;&#x7B2C;&#x4E09;&#x65B9;&#x6587;&#x4EF6;diff&#x5DE5;&#x5177;&#x7EF4;&#x62A4;&#xFF0C;&#x4F8B;&#x5982;git</li>
-<li>&#x4E0A;&#x7EBF;&#xFF1A;&#x80FD;</li>
-<li>&#x4E0B;&#x7EBF;&#xFF1A;&#x4E0D;&#x80FD;</li>
-<li>&#x66F4;&#x65B0;&#xFF1A;&#x4E0D;&#x80FD;</li>
-<li>&#x901A;&#x4FE1;&#xFF1A;&#x8FDB;&#x7A0B;&#x5185;</li>
-<li>&#x5E8F;&#x5217;&#x5316;&#xFF1A;&#x4E0D;&#x9700;&#x8981;</li>
-<li>&#x6027;&#x80FD;&#xFF1A;&#x9AD8;</li>
+<li>进程隔离：无，单进程</li>
+<li>主程序调用插件：一切预协定object（包括function、channel）</li>
+<li>插件感知主程序上下文：主程序预定义类型参数object（包括function、channel）</li>
+<li>stream支持：单向，基于channel</li>
+<li>插件发现：主程序循环扫描插件目录并维护状态；通过第三方文件diff工具维护，例如git</li>
+<li>上线：能</li>
+<li>下线：不能</li>
+<li>更新：不能</li>
+<li>通信：进程内</li>
+<li>序列化：不需要</li>
+<li>性能：高</li>
 </ul>
 <hr>
-<p>Go plugin&#x5224;&#x65AD;&#x4E24;&#x4E2A;&#x63D2;&#x4EF6;&#x662F;&#x5426;&#x76F8;&#x540C;&#x662F;&#x901A;&#x8FC7;&#x6BD4;&#x8F83;pluginpath&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6307;&#x5B9A;pluginpath&#xFF0C;&#x5219;&#x7531;&#x5185;&#x90E8;&#x7684;&#x7B97;&#x6CD5;&#x751F;&#x6210;, &#x751F;&#x6210;&#x7684;&#x683C;&#x5F0F;&#x4E3A;plugin/unnamed-&#x201C; + root.Package.Internal.BuildID &#x3002;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5982;&#x679C;&#x4E24;&#x4E2A;&#x63D2;&#x4EF6;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x4E0D;&#x540C;&#xFF0C;&#x5F15;&#x7528;&#x5305;&#x4E0D;&#x540C;&#xFF0C;&#x6216;&#x8005;&#x5F15;&#x7528;&#x7684;cgo&#x4E0D;&#x540C;&#xFF0C;&#x5219;&#x4F1A;&#x751F;&#x6210;&#x4E0D;&#x540C;&#x7684;&#x63D2;&#x4EF6;&#xFF0C;&#x540C;&#x65F6;&#x52A0;&#x8F7D;&#x4E0D;&#x4F1A;&#x6709;&#x95EE;&#x9898;&#x3002;&#x4F46;&#x662F;&#x5982;&#x679C;&#x4E24;&#x4E2A;&#x63D2;&#x4EF6;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x76F8;&#x540C;&#xFF0C;&#x76F8;&#x5173;&#x7684;&#x5F15;&#x7528;&#x5305;&#x4E5F;&#x76F8;&#x540C;&#xFF0C;&#x5219;&#x53EF;&#x80FD;&#x751F;&#x6210;&#x76F8;&#x540C;&#x7684;&#x63D2;&#x4EF6;&#xFF0C;&#x5373;&#x4F7F;&#x63D2;&#x4EF6;&#x5185;&#x5305;&#x542B;&#x7684;&#x65B9;&#x6CD5;&#x548C;&#x53D8;&#x91CF;&#x4E0D;&#x540C;&#xFF0C;&#x5B9E;&#x73B0;&#x4E5F;&#x4E0D;&#x540C;&#x3002;&#x5224;&#x65AD;&#x63D2;&#x4EF6;&#x76F8;&#x540C;&#xFF0C;&#x70ED;&#x52A0;&#x8F7D;&#x4E0D;&#x4F1A;&#x6210;&#x529F;&#xFF0C;&#x4E5F;&#x5C31;&#x610F;&#x5473;&#x7740;&#x8001;&#x63D2;&#x4EF6;&#x4E0D;&#x652F;&#x6301;&#x8986;&#x76D6;&#x66F4;&#x65B0;&#x3002;</p>
-<p>&#x6700;&#x597D;&#x5728;&#x7F16;&#x8BD1;&#x7684;&#x6307;&#x5B9A;pluginpath&#xFF0C;&#x540C;&#x65F6;&#x65B9;&#x4FBF;&#x7248;&#x672C;&#x8DDF;&#x8E2A;&#x3002;&#x76EE;&#x524D;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x5EFA;&#x8BAE;&#x4E00;&#x4E9B;&#x516C;&#x5171;&#x5E93;&#x65E0;&#x670D;&#x52A1;&#x4F9D;&#x8D56;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x4F8B;&#x5982;&#x7B97;&#x6CD5;&#x5E93;&#x4E4B;&#x7C7B;&#x7684;&#x3002;</p>
-<pre><code>go build -ldflags &quot;-pluginpath=plugin/hot-$(date +%s)&quot; -buildmode=plugin -o so/Eng.so eng/greeter.go
-</code></pre><h3 id="&#x901A;&#x4FE1;-&#x5E8F;&#x5217;&#x5316;"><a href="#&#x901A;&#x4FE1;-&#x5E8F;&#x5217;&#x5316;" class="headerlink" title="&#x901A;&#x4FE1;+&#x5E8F;&#x5217;&#x5316;"></a>&#x901A;&#x4FE1;+&#x5E8F;&#x5217;&#x5316;</h3><h4 id="natefinch-pie&#xFF0C;github&#x4ED3;&#x5E93;"><a href="#natefinch-pie&#xFF0C;github&#x4ED3;&#x5E93;" class="headerlink" title="natefinch/pie&#xFF0C;github&#x4ED3;&#x5E93;"></a>natefinch/pie&#xFF0C;<a href="https://github.com/natefinch/pie" target="_blank" rel="external">github&#x4ED3;&#x5E93;</a></h4><ul>
-<li>&#x8FDB;&#x7A0B;&#x9694;&#x79BB;&#xFF1A;&#x6709;&#xFF0C;&#x591A;&#x8FDB;&#x7A0B;&#xFF0C;provider+comsumer</li>
-<li>&#x4E3B;&#x7A0B;&#x5E8F;&#x8C03;&#x7528;&#x63D2;&#x4EF6;&#xFF1A;provider&#x6A21;&#x5F0F;&#x8C03;&#x7528;&#x63D2;&#x4EF6;&#x8FDB;&#x7A0B;&#x4E2D;&#x9884;&#x534F;&#x5B9A;method&#xFF1B;consumer&#x6A21;&#x5F0F;&#x6D88;&#x8D39;&#x63D2;&#x4EF6;&#x8FDB;&#x7A0B;&#x4E2D;&#x7684;&#x9884;&#x534F;&#x5B9A;&#x53C2;&#x6570;object&#xFF08;&#x5305;&#x62EC;function&#x3001;&#x9664;&#x4E86;channel&#xFF09;</li>
-<li>&#x63D2;&#x4EF6;&#x611F;&#x77E5;&#x4E3B;&#x7A0B;&#x5E8F;&#x4E0A;&#x4E0B;&#x6587;&#xFF1A;provider&#x6A21;&#x5F0F;&#x6D88;&#x8D39;&#x4E3B;&#x7A0B;&#x5E8F;&#x7684;&#x9884;&#x5B9A;&#x4E49;&#x53C2;&#x6570;object&#xFF08;&#x5305;&#x62EC;function&#x3001;&#x9664;&#x4E86;channel&#xFF09;&#xFF1B;consumer&#x6A21;&#x5F0F;&#x8C03;&#x7528;&#x4E3B;&#x7A0B;&#x5E8F;&#x4E2D;&#x9884;&#x5B9A;&#x4E49;method</li>
-<li>stream&#x652F;&#x6301;&#xFF1A;&#x4E0D;&#x652F;&#x6301;</li>
-<li>&#x63D2;&#x4EF6;&#x53D1;&#x73B0;&#xFF1A;&#x4E3B;&#x7A0B;&#x5E8F;&#x5FAA;&#x73AF;&#x626B;&#x63CF;&#x63D2;&#x4EF6;&#x76EE;&#x5F55;&#x5E76;&#x7EF4;&#x62A4;&#x72B6;&#x6001;&#xFF1B;&#x901A;&#x8FC7;&#x7B2C;&#x4E09;&#x65B9;&#x6587;&#x4EF6;diff&#x5DE5;&#x5177;&#x7EF4;&#x62A4;&#xFF0C;&#x4F8B;&#x5982;git</li>
-<li>&#x4E0A;&#x7EBF;&#xFF1A;&#x80FD;</li>
-<li>&#x4E0B;&#x7EBF;&#xFF1A;&#x80FD;</li>
-<li>&#x66F4;&#x65B0;&#xFF1A;&#x80FD;</li>
-<li>&#x901A;&#x4FE1;&#xFF1A;&#x652F;&#x6301;stdin/stdout&#x3001;pipe&#x3001;unix socket&#x3001;tcp&#x3001;http&#x3001;jsonrpc</li>
-<li>&#x5E8F;&#x5217;&#x5316;&#xFF1A;gob&#xFF0C;protobuf, json, xml</li>
-<li>&#x6027;&#x80FD;&#xFF1A;&#x4E2D;/&#x504F;&#x9AD8;</li>
+<p>Go plugin判断两个插件是否相同是通过比较pluginpath实现的，如果没有指定pluginpath，则由内部的算法生成, 生成的格式为plugin/unnamed-“ + root.Package.Internal.BuildID 。这种情况下，如果两个插件的文件名不同，引用包不同，或者引用的cgo不同，则会生成不同的插件，同时加载不会有问题。但是如果两个插件的文件名相同，相关的引用包也相同，则可能生成相同的插件，即使插件内包含的方法和变量不同，实现也不同。判断插件相同，热加载不会成功，也就意味着老插件不支持覆盖更新。</p>
+<p>最好在编译的指定pluginpath，同时方便版本跟踪。目前生产环境建议一些公共库无服务依赖的函数，例如算法库之类的。</p>
+<pre><code>go build -ldflags &quot;-pluginpath=plugin/hot-$(date +%s)&quot; -buildmode=plugin -o so/Eng.so eng/greeter.go </code></pre><h3 id="通信-序列化"><a href="#通信-序列化" class="headerlink" title="通信+序列化"></a>通信+序列化</h3><h4 id="natefinch-pie，github仓库"><a href="#natefinch-pie，github仓库" class="headerlink" title="natefinch/pie，github仓库"></a>natefinch/pie，<a href="https://github.com/natefinch/pie" target="_blank" rel="noopener">github仓库</a></h4><ul>
+<li>进程隔离：有，多进程，provider+comsumer</li>
+<li>主程序调用插件：provider模式调用插件进程中预协定method；consumer模式消费插件进程中的预协定参数object（包括function、除了channel）</li>
+<li>插件感知主程序上下文：provider模式消费主程序的预定义参数object（包括function、除了channel）；consumer模式调用主程序中预定义method</li>
+<li>stream支持：不支持</li>
+<li>插件发现：主程序循环扫描插件目录并维护状态；通过第三方文件diff工具维护，例如git</li>
+<li>上线：能</li>
+<li>下线：能</li>
+<li>更新：能</li>
+<li>通信：支持stdin/stdout、pipe、unix socket、tcp、http、jsonrpc</li>
+<li>序列化：gob，protobuf, json, xml</li>
+<li>性能：中/偏高</li>
 </ul>
 <hr>
-<p>&#x57FA;&#x4E8E;Go&#x7684;net/rpc&#x5E93;&#xFF0C;&#x65E0;&#x6CD5;&#x652F;&#x6301;&#x4E3B;&#x7A0B;&#x5E8F;&#x548C;&#x63D2;&#x4EF6;&#x4E4B;&#x95F4;&#x7684;streaming&#x6570;&#x636E;&#x4EA4;&#x4E92;&#xFF0C;&#x6709;golang&#x7684;&#x5B98;&#x65B9;&#x5305;[<a href="https://github.com/golang/go/issues/6569" target="_blank" rel="external">issue1</a>]&#x548C;[<a href="https://github.com/golang/go/issues/14140" target="_blank" rel="external">issue2</a>]&#x76F4;&#x63A5;&#x5EFA;&#x8BAE;&#x3002;&#x53E6;&#x5916;&#xFF0C;&#x6BCF;&#x4E00;&#x4E2A;&#x63D2;&#x4EF6;&#x90FD;&#x8981;&#x5F00;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#xFF0C;&#x56E0;&#x6B64;&#x8981;&#x6CE8;&#x610F;&#x901A;&#x4FE1;&#x5E8F;&#x5217;&#x5316;&#x7684;&#x6027;&#x80FD;&#x6D88;&#x8017;&#x548C;&#x8FDB;&#x7A0B;&#x7BA1;&#x7406;&#xFF0C;&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;stdin/stdout&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#xFF0C;&#x4E00;&#x4E2A;plugin&#x548C;&#x4E3B;&#x7A0B;&#x5E8F;&#x4E4B;&#x95F4;&#x6709;&#x4E24;&#x6761;&#x5355;&#x5411;&#x8FDE;&#x63A5;&#x3002;</p>
-<p>&#x53EF;&#x4EE5;&#x4E0A;&#x6210;&#x4EA7;&#x73AF;&#x5883;&#xFF0C;&#x8981;&#x505A;&#x597D;&#x8D44;&#x6E90;&#x7BA1;&#x7406;&#x3002;</p>
+<p>基于Go的net/rpc库，无法支持主程序和插件之间的streaming数据交互，有golang的官方包[<a href="https://github.com/golang/go/issues/6569" target="_blank" rel="noopener">issue1</a>]和[<a href="https://github.com/golang/go/issues/14140" target="_blank" rel="noopener">issue2</a>]直接建议。另外，每一个插件都要开一个进程，因此要注意通信序列化的性能消耗和进程管理，默认使用stdin/stdout建立连接，如下图，一个plugin和主程序之间有两条单向连接。</p>
+<p>可以上成产环境，要做好资源管理。</p>
 <p><img src="/2018/08/04/goplugin/1529650772.png" alt="plugin"></p>
-<h4 id="hashicorp-go-plugin&#xFF0C;github&#x4ED3;&#x5E93;"><a href="#hashicorp-go-plugin&#xFF0C;github&#x4ED3;&#x5E93;" class="headerlink" title="hashicorp/go-plugin&#xFF0C;github&#x4ED3;&#x5E93;"></a>hashicorp/go-plugin&#xFF0C;<a href="https://github.com/hashicorp/go-plugin" target="_blank" rel="external">github&#x4ED3;&#x5E93;</a></h4><ul>
-<li>&#x8FDB;&#x7A0B;&#x9694;&#x79BB;&#xFF1A;&#x6709;&#xFF0C;&#x591A;&#x8FDB;&#x7A0B;&#xFF0C;server+client</li>
-<li>&#x4E3B;&#x7A0B;&#x5E8F;&#x8C03;&#x7528;&#x63D2;&#x4EF6;&#xFF1A;&#x4E00;&#x5207;&#x534F;&#x8BAE;&#x9884;&#x534F;&#x5B9A;object</li>
-<li>&#x63D2;&#x4EF6;&#x611F;&#x77E5;&#x4E3B;&#x7A0B;&#x5E8F;&#x4E0A;&#x4E0B;&#x6587;&#xFF1A;&#x4E00;&#x5207;&#x534F;&#x8BAE;&#x9884;&#x534F;&#x5B9A;object</li>
-<li>stream&#x652F;&#x6301;&#xFF1A;&#x5355;&#x5411;&#x548C;&#x53CC;&#x5411;&#xFF0C;&#x57FA;&#x4E8E;http/2</li>
-<li>&#x63D2;&#x4EF6;&#x53D1;&#x73B0;&#xFF1A;&#x4E3B;&#x7A0B;&#x5E8F;&#x5FAA;&#x73AF;&#x626B;&#x63CF;&#x63D2;&#x4EF6;&#x76EE;&#x5F55;&#x5E76;&#x7EF4;&#x62A4;&#x72B6;&#x6001;&#xFF1B;&#x901A;&#x8FC7;&#x7B2C;&#x4E09;&#x65B9;&#x6587;&#x4EF6;diff&#x5DE5;&#x5177;&#x7EF4;&#x62A4;&#xFF0C;&#x4F8B;&#x5982;git</li>
-<li>&#x4E0A;&#x7EBF;&#xFF1A;&#x80FD;</li>
-<li>&#x4E0B;&#x7EBF;&#xFF1A;&#x80FD;</li>
-<li>&#x66F4;&#x65B0;&#xFF1A;&#x80FD;</li>
-<li>&#x901A;&#x4FE1;&#xFF1A;&#x652F;&#x6301;grpc</li>
-<li>&#x5E8F;&#x5217;&#x5316;&#xFF1A;protobuf</li>
-<li>&#x6027;&#x80FD;&#xFF1A;&#x4E2D;/&#x504F;&#x9AD8;</li>
+<h4 id="hashicorp-go-plugin，github仓库"><a href="#hashicorp-go-plugin，github仓库" class="headerlink" title="hashicorp/go-plugin，github仓库"></a>hashicorp/go-plugin，<a href="https://github.com/hashicorp/go-plugin" target="_blank" rel="noopener">github仓库</a></h4><ul>
+<li>进程隔离：有，多进程，server+client</li>
+<li>主程序调用插件：一切协议预协定object</li>
+<li>插件感知主程序上下文：一切协议预协定object</li>
+<li>stream支持：单向和双向，基于http/2</li>
+<li>插件发现：主程序循环扫描插件目录并维护状态；通过第三方文件diff工具维护，例如git</li>
+<li>上线：能</li>
+<li>下线：能</li>
+<li>更新：能</li>
+<li>通信：支持grpc</li>
+<li>序列化：protobuf</li>
+<li>性能：中/偏高</li>
 </ul>
 <hr>
-<p>&#x57FA;&#x4E8E;Google&#x7684;grpc&#x5E93;&#xFF0C;&#x6309;&#x7167;&#x5FAE;&#x670D;&#x52A1;&#x7684;&#x6D41;&#x7A0B;&#x5B9A;&#x4E49;proto&#x6587;&#x4EF6;&#xFF0C;&#x80FD;&#x901A;&#x4FE1;&#x5C31;&#x80FD;&#x4E92;&#x76F8;&#x8C03;&#x7528;&#x3002;&#x77E5;&#x540D;&#x56E2;&#x961F;&#x51FA;&#x54C1;&#x3002;&#x53EF;&#x4EE5;&#x4E0A;&#x6210;&#x4EA7;&#x73AF;&#x5883;&#xFF0C;&#x8981;&#x505A;&#x597D;&#x8D44;&#x6E90;&#x7BA1;&#x7406;&#x3002;</p>
+<p>基于Google的grpc库，按照微服务的流程定义proto文件，能通信就能互相调用。知名团队出品。可以上成产环境，要做好资源管理。</p>
 <p><img src="/2018/08/04/goplugin/1529650927.png" alt="grpc"></p>
-<h4 id="go-mangos-mangos&#xFF0C;github&#x4ED3;&#x5E93;"><a href="#go-mangos-mangos&#xFF0C;github&#x4ED3;&#x5E93;" class="headerlink" title="go-mangos/mangos&#xFF0C;github&#x4ED3;&#x5E93;"></a>go-mangos/mangos&#xFF0C;<a href="https://github.com/go-mangos/mangos" target="_blank" rel="external">github&#x4ED3;&#x5E93;</a></h4><ul>
-<li>&#x8FDB;&#x7A0B;&#x9694;&#x79BB;&#xFF1A;&#x6709;&#xFF0C;&#x591A;&#x8FDB;&#x7A0B;&#xFF0C;provider+comsumer</li>
-<li>&#x4E3B;&#x7A0B;&#x5E8F;&#x8C03;&#x7528;&#x63D2;&#x4EF6;&#xFF1A;&#x4E00;&#x5207;&#x9884;&#x534F;&#x5B9A;object</li>
-<li>&#x63D2;&#x4EF6;&#x611F;&#x77E5;&#x4E3B;&#x7A0B;&#x5E8F;&#x4E0A;&#x4E0B;&#x6587;&#xFF1A;&#x4E00;&#x5207;&#x9884;&#x534F;&#x5B9A;object</li>
-<li>stream&#x652F;&#x6301;&#xFF1A;&#x5355;&#x5411;&#xFF0C;&#x57FA;&#x4E8E;mq</li>
-<li>&#x63D2;&#x4EF6;&#x53D1;&#x73B0;&#xFF1A;&#x4E3B;&#x7A0B;&#x5E8F;&#x5FAA;&#x73AF;&#x626B;&#x63CF;&#x63D2;&#x4EF6;&#x76EE;&#x5F55;&#x5E76;&#x7EF4;&#x62A4;&#x72B6;&#x6001;&#xFF1B;&#x901A;&#x8FC7;&#x7B2C;&#x4E09;&#x65B9;&#x6587;&#x4EF6;diff&#x5DE5;&#x5177;&#x7EF4;&#x62A4;&#xFF0C;&#x4F8B;&#x5982;git</li>
-<li>&#x4E0A;&#x7EBF;&#xFF1A;&#x80FD;</li>
-<li>&#x4E0B;&#x7EBF;&#xFF1A;&#x80FD;</li>
-<li>&#x66F4;&#x65B0;&#xFF1A;&#x80FD;</li>
-<li>&#x901A;&#x4FE1;&#xFF1A;&#x652F;&#x6301;mq</li>
-<li>&#x5E8F;&#x5217;&#x5316;&#xFF1A;&#x672A;&#x77E5;</li>
-<li>&#x6027;&#x80FD;&#xFF1A;&#x4E2D;/&#x504F;&#x9AD8;</li>
+<h4 id="go-mangos-mangos，github仓库"><a href="#go-mangos-mangos，github仓库" class="headerlink" title="go-mangos/mangos，github仓库"></a>go-mangos/mangos，<a href="https://github.com/go-mangos/mangos" target="_blank" rel="noopener">github仓库</a></h4><ul>
+<li>进程隔离：有，多进程，provider+comsumer</li>
+<li>主程序调用插件：一切预协定object</li>
+<li>插件感知主程序上下文：一切预协定object</li>
+<li>stream支持：单向，基于mq</li>
+<li>插件发现：主程序循环扫描插件目录并维护状态；通过第三方文件diff工具维护，例如git</li>
+<li>上线：能</li>
+<li>下线：能</li>
+<li>更新：能</li>
+<li>通信：支持mq</li>
+<li>序列化：未知</li>
+<li>性能：中/偏高</li>
 </ul>
 <hr>
-<p>&#x57FA;&#x4E8E;&#x6D88;&#x606F;&#x961F;&#x5217;&#x534F;&#x8BAE;&#x901A;&#x4FE1;&#xFF0C;nanomsg&#x548C;ZeroMQ&#x4E00;&#x7C7B;&#x7684;&#x89C4;&#x8303;&#x5305;&#x542B;&#x4E00;&#x7EC4;&#x9884;&#x5B9A;&#x4E49;&#x7684;&#x901A;&#x4FE1;&#x62D3;&#x6251;&#xFF08;&#x79F0;&#x4E3A;&#x201C;&#x53EF;&#x6269;&#x5C55;&#x6027;&#x534F;&#x8BAE;&#x201D;&#xFF09;&#xFF0C;&#x6DB5;&#x76D6;&#x8BB8;&#x591A;&#x4E0D;&#x540C;&#x7684;&#x573A;&#x666F;&#xFF1A;Pair&#xFF0C;PubSub&#xFF0C;Bus&#xFF0C;Survey&#xFF0C;Pipeline&#x548C;ReqRep&#x3002;Mangos&#x662F;&#x8BE5;&#x534F;&#x8BAE;&#x7684;golang&#x5B9E;&#x73B0;&#xFF0C;&#x80FD;&#x591F;&#x7075;&#x6D3B;&#x65B9;&#x4FBF;&#x652F;&#x5730;&#x6301;&#x4E24;&#x4E2A;&#x63D2;&#x4EF6;&#x4EA4;&#x6D41;&#x3002;</p>
-<p>&#x53EF;&#x4EE5;&#x4E0A;&#x6210;&#x4EA7;&#x73AF;&#x5883;&#xFF0C;&#x8981;&#x8D70;&#x5927;&#x91CF;&#x7684;&#x57FA;&#x7840;&#x5EFA;&#x8BBE;&#x5F00;&#x53D1;&#x3002;</p>
+<p>基于消息队列协议通信，nanomsg和ZeroMQ一类的规范包含一组预定义的通信拓扑（称为“可扩展性协议”），涵盖许多不同的场景：Pair，PubSub，Bus，Survey，Pipeline和ReqRep。Mangos是该协议的golang实现，能够灵活方便支地持两个插件交流。</p>
+<p>可以上成产环境，要走大量的基础建设开发。</p>
 <p><img src="/2018/08/04/goplugin/1529651104.png" alt="mq"></p>
-<h3 id="&#x5D4C;&#x5165;&#x5F0F;&#x811A;&#x672C;&#x8BED;&#x8A00;"><a href="#&#x5D4C;&#x5165;&#x5F0F;&#x811A;&#x672C;&#x8BED;&#x8A00;" class="headerlink" title="&#x5D4C;&#x5165;&#x5F0F;&#x811A;&#x672C;&#x8BED;&#x8A00;"></a>&#x5D4C;&#x5165;&#x5F0F;&#x811A;&#x672C;&#x8BED;&#x8A00;</h3><p>&#x4E00;&#x822C;&#x90FD;&#x662F;&#x8FDB;&#x7A0B;&#x5185;&#x5185;&#x5D4C;&#x7B2C;&#x4E09;&#x65B9;&#x8BED;&#x8A00;&#x7684;&#x89E3;&#x91CA;&#x5668;&#xFF0C;&#x9700;&#x8981;&#x8003;&#x8651;&#x89E3;&#x91CA;&#x5668;&#x7684;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x8D44;&#x6E90;&#x7684;&#x91CD;&#x590D;&#x5229;&#x7528;&#x3002;</p>
+<h3 id="嵌入式脚本语言"><a href="#嵌入式脚本语言" class="headerlink" title="嵌入式脚本语言"></a>嵌入式脚本语言</h3><p>一般都是进程内内嵌第三方语言的解释器，需要考虑解释器的工作线程资源的重复利用。</p>
 <p><img src="/2018/08/04/goplugin/1529651501.png" alt="embedscript"></p>
 <ul>
-<li>&#x8FDB;&#x7A0B;&#x9694;&#x79BB;&#xFF1A;&#x65E0;&#xFF0C;&#x5355;&#x8FDB;&#x7A0B;&#xFF0C;&#x89E3;&#x91CA;&#x5668;&#x6709;goroutine&#x5F00;&#x9500;</li>
-<li>&#x4E3B;&#x7A0B;&#x5E8F;&#x8C03;&#x7528;&#x63D2;&#x4EF6;&#xFF1A;&#x4E00;&#x5207;&#x8BED;&#x8A00;&#x534F;&#x5B9A;object</li>
-<li>&#x63D2;&#x4EF6;&#x611F;&#x77E5;&#x4E3B;&#x7A0B;&#x5E8F;&#x4E0A;&#x4E0B;&#x6587;&#xFF1A;&#x4E00;&#x5207;&#x8BED;&#x8A00;&#x534F;&#x5B9A;object</li>
-<li>stream&#x652F;&#x6301;&#xFF1A;&#x770B;&#x8BED;&#x8A00;&#x662F;&#x5426;&#x652F;&#x6301;channel&#x4E92;&#x901A;</li>
-<li>&#x63D2;&#x4EF6;&#x53D1;&#x73B0;&#xFF1A;&#x4E3B;&#x7A0B;&#x5E8F;&#x5FAA;&#x73AF;&#x626B;&#x63CF;&#x63D2;&#x4EF6;&#x76EE;&#x5F55;&#x5E76;&#x7EF4;&#x62A4;&#x72B6;&#x6001;&#xFF1B;&#x901A;&#x8FC7;&#x7B2C;&#x4E09;&#x65B9;&#x6587;&#x4EF6;diff&#x5DE5;&#x5177;&#x7EF4;&#x62A4;&#xFF0C;&#x4F8B;&#x5982;git</li>
-<li>&#x4E0A;&#x7EBF;&#xFF1A;&#x80FD;</li>
-<li>&#x4E0B;&#x7EBF;&#xFF1A;&#x80FD;</li>
-<li>&#x66F4;&#x65B0;&#xFF1A;&#x80FD;</li>
-<li>&#x901A;&#x4FE1;&#xFF1A;&#x65E0;</li>
-<li>&#x5E8F;&#x5217;&#x5316;&#xFF1A;&#x65E0;</li>
-<li>&#x6027;&#x80FD;&#xFF1A;&#x4E2D;</li>
+<li>进程隔离：无，单进程，解释器有goroutine开销</li>
+<li>主程序调用插件：一切语言协定object</li>
+<li>插件感知主程序上下文：一切语言协定object</li>
+<li>stream支持：看语言是否支持channel互通</li>
+<li>插件发现：主程序循环扫描插件目录并维护状态；通过第三方文件diff工具维护，例如git</li>
+<li>上线：能</li>
+<li>下线：能</li>
+<li>更新：能</li>
+<li>通信：无</li>
+<li>序列化：无</li>
+<li>性能：中</li>
 </ul>
-<h4 id="go-like&#x811A;&#x672C;&#x8BED;&#x8A00;&#xFF0C;agora&#x548C;&#x4E03;&#x725B;qlang"><a href="#go-like&#x811A;&#x672C;&#x8BED;&#x8A00;&#xFF0C;agora&#x548C;&#x4E03;&#x725B;qlang" class="headerlink" title="go-like&#x811A;&#x672C;&#x8BED;&#x8A00;&#xFF0C;agora&#x548C;&#x4E03;&#x725B;qlang"></a>go-like&#x811A;&#x672C;&#x8BED;&#x8A00;&#xFF0C;<a href="https://github.com/mna/agora" target="_blank" rel="external">agora</a>&#x548C;<a href="https://github.com/qiniu/qlang" target="_blank" rel="external">&#x4E03;&#x725B;qlang</a></h4><p>agora&#x548C;qlang&#x90FD;&#x662F;go&#x8BED;&#x6CD5;&#x7684;&#x52A8;&#x6001;&#x811A;&#x672C;&#x8BED;&#x8A00;&#xFF0C;&#x90FD;&#x597D;&#x51E0;&#x5E74;&#x6CA1;&#x7EF4;&#x62A4;&#x4E86;&#xFF0C;&#x5EFA;&#x8BAE;&#x4E0D;&#x8981;&#x7528;&#x5728;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#xFF0C;&#x5176;&#x4E2D;Qlang&#x8FD8;&#x6709;&#x7528;&#x6237;&#x63D0;[<a href="https://github.com/qiniu/qlang/issues/153" target="_blank" rel="external">issue</a>]&#x89C9;&#x5F97;&#x4E0D;&#x7A33;&#x5B9A;&#x3002;</p>
-<h4 id="&#x5176;&#x4ED6;&#x811A;&#x672C;&#x8BED;&#x8A00;&#xFF0C;js-otto&#x3001;go-lua5-1&#x3001;go-lua5-2"><a href="#&#x5176;&#x4ED6;&#x811A;&#x672C;&#x8BED;&#x8A00;&#xFF0C;js-otto&#x3001;go-lua5-1&#x3001;go-lua5-2" class="headerlink" title="&#x5176;&#x4ED6;&#x811A;&#x672C;&#x8BED;&#x8A00;&#xFF0C;js-otto&#x3001;go-lua5.1&#x3001;go-lua5.2"></a>&#x5176;&#x4ED6;&#x811A;&#x672C;&#x8BED;&#x8A00;&#xFF0C;<a href="https://github.com/robertkrimen/otto" target="_blank" rel="external">js-otto</a>&#x3001;<a href="https://github.com/yuin/gopher-lua" target="_blank" rel="external">go-lua5.1</a>&#x3001;<a href="https://github.com/yuin/https://github.com/Shopify/go-lua" target="_blank" rel="external">go-lua5.2</a></h4><p>otta&#x652F;&#x6301;&#x76EE;&#x524D;&#x53D7;&#x6B22;&#x8FCE;&#x7684;js&#x8BED;&#x6CD5;&#xFF0C;star&#x6BD4;&#x8F83;&#x591A;&#xFF0C;&#x534F;&#x5B9A;&#x4E86;&#x5927;&#x90E8;&#x5206;go&#x539F;&#x751F;&#x652F;&#x6301;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x4E0D;&#x5305;&#x62EC;channel&#x548C;goroutine&#xFF0C;&#x6CA1;&#x6709;&#x63D0;&#x4F9B;&#x89E3;&#x91CA;&#x5668;&#x7684;&#x5DE5;&#x4F5C;&#x7A7A;&#x95F4;&#x6C60;&#x5B50;&#x5316;&#x7BA1;&#x7406;&#xFF0C;&#x9700;&#x8981;&#x5F00;&#x53D1;&#x8005;&#x4F7F;&#x7528;goroutine&#x548C;&#x89E3;&#x91CA;&#x5668;&#x7684;interrupt&#x63A5;&#x53E3;&#x81EA;&#x884C;&#x5B9E;&#x73B0;&#xFF0C;&#x4F46;&#x662F;&#x4ECE;issue&#x548C;TODO&#x6765;&#x770B;&#xFF0C;&#x4E5F;&#x4E0D;&#x9002;&#x5408;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x3002;</p>
-<p>gopher-lua&#x652F;&#x6301;lua5.1&#x8BED;&#x6CD5;&#xFF0C;&#x548C;go&#x4EA4;&#x4E92;&#x7684;object&#x7C7B;&#x578B;&#x6BD4;&#x8F83;&#x5B8C;&#x5907;&#xFF0C;&#x534F;&#x5B9A;&#x4E86;&#x5927;&#x90E8;&#x5206;go&#x539F;&#x751F;&#x652F;&#x6301;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x5305;&#x62EC;channel&#x548C;goroutine&#xFF0C;&#x6709;&#x63D0;&#x4F9B;&#x89E3;&#x91CA;&#x5668;&#x7684;&#x5DE5;&#x4F5C;&#x7A7A;&#x95F4;&#x6C60;&#x5B50;&#x5316;&#x7BA1;&#x7406;&#xFF0C;&#x53EF;&#x4EE5;&#x4E0A;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x3002;</p>
-<p>go-lua&#x652F;&#x6301;lua5.2&#x8BED;&#x6CD5;&#xFF0C;&#x76EE;&#x524D;&#x4E0D;&#x5EFA;&#x8BAE;&#x4E0A;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x3002;</p>
-<h2 id="3-&#x601D;&#x8003;"><a href="#3-&#x601D;&#x8003;" class="headerlink" title="3. &#x601D;&#x8003;"></a>3. &#x601D;&#x8003;</h2><ol>
-<li>&#x4E3B;&#x7A0B;&#x5E8F;&#x9700;&#x8981;&#x600E;&#x6837;&#x8BBE;&#x8BA1;&#x624D;&#x80FD;&#x7ED9;&#x4E1A;&#x52A1;&#x63D2;&#x4EF6;&#x9884;&#x5B9A;&#x4E49;&#x5B8C;&#x7F8E;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x5462;&#xFF1F;&#x4F8B;&#x5982;&#x7EBF;&#x7A0B;&#x6C60;&#x3001;redis&#x8FDE;&#x63A5;&#x6C60;&#x3001;mysql&#x8FDE;&#x63A5;&#x6C60;&#x3001;rocketmq&#x3001;&#x5916;&#x90E8;&#x670D;&#x52A1;&#x4F9D;&#x8D56;&#x7B49;&#x7B49;</li>
-<li>&#x516C;&#x5171;&#x5E93;&#x63D2;&#x4EF6;&#x548C;&#x4E1A;&#x52A1;&#x63D2;&#x4EF6;&#x662F;&#x5426;&#x9002;&#x5408;&#x4E0D;&#x540C;&#x7684;&#x63D2;&#x4EF6;&#x65B9;&#x5F0F;&#xFF1F;&#x516C;&#x5171;&#x5E93;&#x63D2;&#x4EF6;&#x65B9;&#x4FBF;&#x4E3A;&#x4E1A;&#x52A1;&#x63D2;&#x4EF6;&#x589E;&#x52A0;&#x63D0;&#x4F9B;&#x4E0A;&#x4E0B;&#x6587;&#x5417;&#xFF1F;</li>
+<h4 id="go-like脚本语言，agora和七牛qlang"><a href="#go-like脚本语言，agora和七牛qlang" class="headerlink" title="go-like脚本语言，agora和七牛qlang"></a>go-like脚本语言，<a href="https://github.com/mna/agora" target="_blank" rel="noopener">agora</a>和<a href="https://github.com/qiniu/qlang" target="_blank" rel="noopener">七牛qlang</a></h4><p>agora和qlang都是go语法的动态脚本语言，都好几年没维护了，建议不要用在生产环境，其中Qlang还有用户提[<a href="https://github.com/qiniu/qlang/issues/153" target="_blank" rel="noopener">issue</a>]觉得不稳定。</p>
+<h4 id="其他脚本语言，js-otto、go-lua5-1、go-lua5-2"><a href="#其他脚本语言，js-otto、go-lua5-1、go-lua5-2" class="headerlink" title="其他脚本语言，js-otto、go-lua5.1、go-lua5.2"></a>其他脚本语言，<a href="https://github.com/robertkrimen/otto" target="_blank" rel="noopener">js-otto</a>、<a href="https://github.com/yuin/gopher-lua" target="_blank" rel="noopener">go-lua5.1</a>、<a href="https://github.com/yuin/https://github.com/Shopify/go-lua" target="_blank" rel="noopener">go-lua5.2</a></h4><p>otta支持目前受欢迎的js语法，star比较多，协定了大部分go原生支持的类型，不包括channel和goroutine，没有提供解释器的工作空间池子化管理，需要开发者使用goroutine和解释器的interrupt接口自行实现，但是从issue和TODO来看，也不适合生产环境。</p>
+<p>gopher-lua支持lua5.1语法，和go交互的object类型比较完备，协定了大部分go原生支持的类型，包括channel和goroutine，有提供解释器的工作空间池子化管理，可以上生产环境。</p>
+<p>go-lua支持lua5.2语法，目前不建议上生产环境。</p>
+<h2 id="3-思考"><a href="#3-思考" class="headerlink" title="3. 思考"></a>3. 思考</h2><ol>
+<li>主程序需要怎样设计才能给业务插件预定义完美的上下文呢？例如线程池、redis连接池、mysql连接池、rocketmq、外部服务依赖等等</li>
+<li>公共库插件和业务插件是否适合不同的插件方式？公共库插件方便为业务插件增加提供上下文吗？</li>
 </ol>
 
       
@@ -340,6 +341,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2020/04/12/airflow2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          【译】Airflow的挑战者Prefect
+        
+      </div>
+    </a>
   
   
     <a href="/2017/12/31/sum2017/" id="article-nav-older" class="article-nav-link-wrap">
@@ -413,7 +423,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 listen
+    		&copy; 2020 listen
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
