@@ -6,20 +6,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>【译】Airflow的挑战者Prefect | 宽视角</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="airflow是一个python的DAG任务管理工具，来自airb&amp;b，适合跨平台部署，调度器是相对静态批处理的。Prefect解决了诸多新时代应用场景问题，成为airflow的有力挑战者。">
-<meta name="keywords" content="off-schedule,concurrently,complicated,flexible,parametrized,dynamic">
+  <meta name="description" content="airflow是一个Python的DAG任务管理工具，来自airb&amp;b，适合跨平台部署，调度器是相对静态批处理的。Prefect解决了诸多新时代应用场景问题，成为airflow的有力挑战者。">
+<meta name="keywords" content="off-schedule,concurrently,complicated,flexible,parametrized,dynamic,task,dag,workflow">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【译】Airflow的挑战者Prefect">
 <meta property="og:url" content="http://yoursite.com/2020/04/12/airflow2/index.html">
 <meta property="og:site_name" content="宽视角">
-<meta property="og:description" content="airflow是一个python的DAG任务管理工具，来自airb&amp;b，适合跨平台部署，调度器是相对静态批处理的。Prefect解决了诸多新时代应用场景问题，成为airflow的有力挑战者。">
+<meta property="og:description" content="airflow是一个Python的DAG任务管理工具，来自airb&amp;b，适合跨平台部署，调度器是相对静态批处理的。Prefect解决了诸多新时代应用场景问题，成为airflow的有力挑战者。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2020/04/12/airflow2/airflow.png">
-<meta property="og:updated_time" content="2020-04-14T08:51:33.000Z">
+<meta property="og:image" content="http://yoursite.com/2020/04/12/airflow2/prefect-ui.gif">
+<meta property="og:updated_time" content="2020-04-15T09:47:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【译】Airflow的挑战者Prefect">
-<meta name="twitter:description" content="airflow是一个python的DAG任务管理工具，来自airb&amp;b，适合跨平台部署，调度器是相对静态批处理的。Prefect解决了诸多新时代应用场景问题，成为airflow的有力挑战者。">
-<meta name="twitter:image" content="http://yoursite.com/2020/04/12/airflow2/airflow.png">
+<meta name="twitter:description" content="airflow是一个Python的DAG任务管理工具，来自airb&amp;b，适合跨平台部署，调度器是相对静态批处理的。Prefect解决了诸多新时代应用场景问题，成为airflow的有力挑战者。">
+<meta name="twitter:image" content="http://yoursite.com/2020/04/12/airflow2/prefect-ui.gif">
   
     <link rel="alternative" href="/atom.xml" title="宽视角" type="application/atom+xml">
   
@@ -118,7 +118,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/" style="font-size: 10px;">==</a> <a href="/tags/DAG/" style="font-size: 10px;">DAG</a> <a href="/tags/FP/" style="font-size: 10px;">FP</a> <a href="/tags/LRU-cache/" style="font-size: 10px;">LRU cache</a> <a href="/tags/Newton-iteration/" style="font-size: 10px;">Newton iteration</a> <a href="/tags/OOP/" style="font-size: 10px;">OOP</a> <a href="/tags/Slice分布式/" style="font-size: 10px;">Slice分布式</a> <a href="/tags/Time-Quantum/" style="font-size: 10px;">Time Quantum</a> <a href="/tags/async-task/" style="font-size: 10px;">async task</a> <a href="/tags/asynchronous/" style="font-size: 10px;">asynchronous</a> <a href="/tags/asyncio/" style="font-size: 10px;">asyncio</a> <a href="/tags/authority/" style="font-size: 10px;">authority</a> <a href="/tags/background/" style="font-size: 10px;">background</a> <a href="/tags/beanstalkd/" style="font-size: 10px;">beanstalkd</a> <a href="/tags/binary-search/" style="font-size: 10px;">binary search</a> <a href="/tags/bit/" style="font-size: 10px;">bit</a> <a href="/tags/bitmap/" style="font-size: 20px;">bitmap</a> <a href="/tags/brpop/" style="font-size: 10px;">brpop</a> <a href="/tags/cache-algorithm/" style="font-size: 10px;">cache algorithm</a> <a href="/tags/cell/" style="font-size: 10px;">cell</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/comet-streaming/" style="font-size: 10px;">comet streaming</a> <a href="/tags/complicated/" style="font-size: 10px;">complicated</a> <a href="/tags/concurrently/" style="font-size: 10px;">concurrently</a> <a href="/tags/context/" style="font-size: 10px;">context</a> <a href="/tags/coroutine/" style="font-size: 10px;">coroutine</a> <a href="/tags/csrf/" style="font-size: 10px;">csrf</a> <a href="/tags/data-pipeline/" style="font-size: 10px;">data pipeline</a> <a href="/tags/datamodel/" style="font-size: 10px;">datamodel</a> <a href="/tags/distributed/" style="font-size: 10px;">distributed</a> <a href="/tags/dynamic/" style="font-size: 10px;">dynamic</a> <a href="/tags/extract/" style="font-size: 10px;">extract</a> <a href="/tags/flexible/" style="font-size: 10px;">flexible</a> <a href="/tags/frame/" style="font-size: 10px;">frame</a> <a href="/tags/gen-coroutine/" style="font-size: 10px;">gen.coroutine</a> <a href="/tags/goroutine/" style="font-size: 10px;">goroutine</a> <a href="/tags/greenlet/" style="font-size: 10px;">greenlet</a> <a href="/tags/gunicorn/" style="font-size: 10px;">gunicorn</a> <a href="/tags/hashtable/" style="font-size: 10px;">hashtable</a> <a href="/tags/hash优化/" style="font-size: 10px;">hash优化</a> <a href="/tags/hash制度/" style="font-size: 10px;">hash制度</a> <a href="/tags/header/" style="font-size: 10px;">header</a> <a href="/tags/http1-0/" style="font-size: 10px;">http1.0</a> <a href="/tags/http1-1/" style="font-size: 10px;">http1.1</a> <a href="/tags/http2-0/" style="font-size: 10px;">http2.0</a> <a href="/tags/include/" style="font-size: 10px;">include</a> <a href="/tags/index/" style="font-size: 20px;">index</a> <a href="/tags/interface/" style="font-size: 10px;">interface</a> <a href="/tags/ioloop/" style="font-size: 10px;">ioloop</a> <a href="/tags/is/" style="font-size: 10px;">is</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/judge/" style="font-size: 10px;">judge</a> <a href="/tags/keyexpired/" style="font-size: 10px;">keyexpired</a> <a href="/tags/learning/" style="font-size: 10px;">learning</a> <a href="/tags/level/" style="font-size: 20px;">level</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/long-polling/" style="font-size: 10px;">long polling</a> <a href="/tags/lpush/" style="font-size: 10px;">lpush</a> <a href="/tags/lxml/" style="font-size: 10px;">lxml</a> <a href="/tags/mergelist/" style="font-size: 10px;">mergelist</a> <a href="/tags/method/" style="font-size: 10px;">method</a> <a href="/tags/mongo/" style="font-size: 10px;">mongo</a> <a href="/tags/mongo-id/" style="font-size: 10px;">mongo_id</a> <a href="/tags/monitor/" style="font-size: 10px;">monitor</a> <a href="/tags/mq通信/" style="font-size: 10px;">mq通信</a> <a href="/tags/multi-process/" style="font-size: 10px;">multi process</a> <a href="/tags/nosql/" style="font-size: 10px;">nosql</a> <a href="/tags/object-oriented/" style="font-size: 10px;">object-oriented</a> <a href="/tags/off-schedule/" style="font-size: 10px;">off-schedule</a> <a href="/tags/package/" style="font-size: 10px;">package</a> <a href="/tags/parallel/" style="font-size: 10px;">parallel</a> <a href="/tags/parametrized/" style="font-size: 10px;">parametrized</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/phantomjs/" style="font-size: 10px;">phantomjs</a> <a href="/tags/pointer/" style="font-size: 10px;">pointer</a> <a href="/tags/pointerarray/" style="font-size: 10px;">pointerarray</a> <a href="/tags/powerful/" style="font-size: 10px;">powerful</a> <a href="/tags/priority/" style="font-size: 20px;">priority</a> <a href="/tags/procedure-oriented/" style="font-size: 10px;">procedure-oriented</a> <a href="/tags/property/" style="font-size: 10px;">property</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/recursive-struct/" style="font-size: 10px;">recursive struct</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/row/" style="font-size: 10px;">row</a> <a href="/tags/rpc通信/" style="font-size: 10px;">rpc通信</a> <a href="/tags/rwx/" style="font-size: 10px;">rwx</a> <a href="/tags/setter-getter/" style="font-size: 10px;">setter/getter</a> <a href="/tags/shell-script/" style="font-size: 10px;">shell script</a> <a href="/tags/signatures/" style="font-size: 10px;">signatures</a> <a href="/tags/specific-type/" style="font-size: 10px;">specific type</a> <a href="/tags/sqrt/" style="font-size: 10px;">sqrt</a> <a href="/tags/task-flow/" style="font-size: 10px;">task flow</a> <a href="/tags/threading/" style="font-size: 10px;">threading</a> <a href="/tags/type-assert/" style="font-size: 10px;">type assert</a> <a href="/tags/urlparameter/" style="font-size: 10px;">urlparameter</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/weight/" style="font-size: 10px;">weight</a> <a href="/tags/worthy/" style="font-size: 10px;">worthy</a> <a href="/tags/上/" style="font-size: 10px;">上</a> <a href="/tags/两小无猜/" style="font-size: 10px;">两小无猜</a> <a href="/tags/乌托邦/" style="font-size: 10px;">乌托邦</a> <a href="/tags/人生半坡/" style="font-size: 10px;">人生半坡</a> <a href="/tags/优先级/" style="font-size: 10px;">优先级</a> <a href="/tags/使用场景/" style="font-size: 10px;">使用场景</a> <a href="/tags/先验概率/" style="font-size: 10px;">先验概率</a> <a href="/tags/全概率/" style="font-size: 10px;">全概率</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/减法/" style="font-size: 10px;">减法</a> <a href="/tags/分布式/" style="font-size: 10px;">分布式</a> <a href="/tags/分支限界/" style="font-size: 10px;">分支限界</a> <a href="/tags/分治/" style="font-size: 10px;">分治</a> <a href="/tags/分类/" style="font-size: 10px;">分类</a> <a href="/tags/动态规划/" style="font-size: 10px;">动态规划</a> <a href="/tags/努力/" style="font-size: 10px;">努力</a> <a href="/tags/匿名变量/" style="font-size: 10px;">匿名变量</a> <a href="/tags/单线程/" style="font-size: 10px;">单线程</a> <a href="/tags/后验概率/" style="font-size: 10px;">后验概率</a> <a href="/tags/周星驰/" style="font-size: 10px;">周星驰</a> <a href="/tags/哈希/" style="font-size: 10px;">哈希</a> <a href="/tags/回溯/" style="font-size: 10px;">回溯</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/富类hash/" style="font-size: 10px;">富类hash</a> <a href="/tags/小巧/" style="font-size: 10px;">小巧</a> <a href="/tags/嵌入式脚本/" style="font-size: 10px;">嵌入式脚本</a> <a href="/tags/异步IO/" style="font-size: 10px;">异步IO</a> <a href="/tags/张小凡/" style="font-size: 10px;">张小凡</a> <a href="/tags/性能/" style="font-size: 10px;">性能</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/新年快乐/" style="font-size: 10px;">新年快乐</a> <a href="/tags/条件查询/" style="font-size: 10px;">条件查询</a> <a href="/tags/条件概率/" style="font-size: 10px;">条件概率</a> <a href="/tags/浮夸/" style="font-size: 10px;">浮夸</a> <a href="/tags/混沌hash/" style="font-size: 10px;">混沌hash</a> <a href="/tags/热加载/" style="font-size: 10px;">热加载</a> <a href="/tags/父类方法调用子类方法/" style="font-size: 10px;">父类方法调用子类方法</a> <a href="/tags/状态/" style="font-size: 10px;">状态</a> <a href="/tags/田灵儿/" style="font-size: 10px;">田灵儿</a> <a href="/tags/自省自乐/" style="font-size: 10px;">自省自乐</a> <a href="/tags/自虐/" style="font-size: 10px;">自虐</a> <a href="/tags/贪心/" style="font-size: 10px;">贪心</a> <a href="/tags/转码/" style="font-size: 10px;">转码</a> <a href="/tags/阻塞完成/" style="font-size: 10px;">阻塞完成</a> <a href="/tags/随心随性/" style="font-size: 10px;">随心随性</a>
+						<a href="/tags/" style="font-size: 10px;">==</a> <a href="/tags/DAG/" style="font-size: 10px;">DAG</a> <a href="/tags/FP/" style="font-size: 10px;">FP</a> <a href="/tags/LRU-cache/" style="font-size: 10px;">LRU cache</a> <a href="/tags/Newton-iteration/" style="font-size: 10px;">Newton iteration</a> <a href="/tags/OOP/" style="font-size: 10px;">OOP</a> <a href="/tags/Slice分布式/" style="font-size: 10px;">Slice分布式</a> <a href="/tags/Time-Quantum/" style="font-size: 10px;">Time Quantum</a> <a href="/tags/async-task/" style="font-size: 10px;">async task</a> <a href="/tags/asynchronous/" style="font-size: 10px;">asynchronous</a> <a href="/tags/asyncio/" style="font-size: 10px;">asyncio</a> <a href="/tags/authority/" style="font-size: 10px;">authority</a> <a href="/tags/background/" style="font-size: 10px;">background</a> <a href="/tags/beanstalkd/" style="font-size: 10px;">beanstalkd</a> <a href="/tags/binary-search/" style="font-size: 10px;">binary search</a> <a href="/tags/bit/" style="font-size: 10px;">bit</a> <a href="/tags/bitmap/" style="font-size: 20px;">bitmap</a> <a href="/tags/brpop/" style="font-size: 10px;">brpop</a> <a href="/tags/cache-algorithm/" style="font-size: 10px;">cache algorithm</a> <a href="/tags/cell/" style="font-size: 10px;">cell</a> <a href="/tags/column/" style="font-size: 10px;">column</a> <a href="/tags/comet-streaming/" style="font-size: 10px;">comet streaming</a> <a href="/tags/complicated/" style="font-size: 10px;">complicated</a> <a href="/tags/concurrently/" style="font-size: 10px;">concurrently</a> <a href="/tags/context/" style="font-size: 10px;">context</a> <a href="/tags/coroutine/" style="font-size: 10px;">coroutine</a> <a href="/tags/csrf/" style="font-size: 10px;">csrf</a> <a href="/tags/dag/" style="font-size: 10px;">dag</a> <a href="/tags/data-pipeline/" style="font-size: 10px;">data pipeline</a> <a href="/tags/datamodel/" style="font-size: 10px;">datamodel</a> <a href="/tags/distributed/" style="font-size: 10px;">distributed</a> <a href="/tags/dynamic/" style="font-size: 10px;">dynamic</a> <a href="/tags/extract/" style="font-size: 10px;">extract</a> <a href="/tags/flexible/" style="font-size: 10px;">flexible</a> <a href="/tags/frame/" style="font-size: 10px;">frame</a> <a href="/tags/gen-coroutine/" style="font-size: 10px;">gen.coroutine</a> <a href="/tags/goroutine/" style="font-size: 10px;">goroutine</a> <a href="/tags/greenlet/" style="font-size: 10px;">greenlet</a> <a href="/tags/gunicorn/" style="font-size: 10px;">gunicorn</a> <a href="/tags/hashtable/" style="font-size: 10px;">hashtable</a> <a href="/tags/hash优化/" style="font-size: 10px;">hash优化</a> <a href="/tags/hash制度/" style="font-size: 10px;">hash制度</a> <a href="/tags/header/" style="font-size: 10px;">header</a> <a href="/tags/http1-0/" style="font-size: 10px;">http1.0</a> <a href="/tags/http1-1/" style="font-size: 10px;">http1.1</a> <a href="/tags/http2-0/" style="font-size: 10px;">http2.0</a> <a href="/tags/include/" style="font-size: 10px;">include</a> <a href="/tags/index/" style="font-size: 20px;">index</a> <a href="/tags/interface/" style="font-size: 10px;">interface</a> <a href="/tags/ioloop/" style="font-size: 10px;">ioloop</a> <a href="/tags/is/" style="font-size: 10px;">is</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/judge/" style="font-size: 10px;">judge</a> <a href="/tags/keyexpired/" style="font-size: 10px;">keyexpired</a> <a href="/tags/learning/" style="font-size: 10px;">learning</a> <a href="/tags/level/" style="font-size: 20px;">level</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/long-polling/" style="font-size: 10px;">long polling</a> <a href="/tags/lpush/" style="font-size: 10px;">lpush</a> <a href="/tags/lxml/" style="font-size: 10px;">lxml</a> <a href="/tags/mergelist/" style="font-size: 10px;">mergelist</a> <a href="/tags/method/" style="font-size: 10px;">method</a> <a href="/tags/mongo/" style="font-size: 10px;">mongo</a> <a href="/tags/mongo-id/" style="font-size: 10px;">mongo_id</a> <a href="/tags/monitor/" style="font-size: 10px;">monitor</a> <a href="/tags/mq通信/" style="font-size: 10px;">mq通信</a> <a href="/tags/multi-process/" style="font-size: 10px;">multi process</a> <a href="/tags/nosql/" style="font-size: 10px;">nosql</a> <a href="/tags/object-oriented/" style="font-size: 10px;">object-oriented</a> <a href="/tags/off-schedule/" style="font-size: 10px;">off-schedule</a> <a href="/tags/package/" style="font-size: 10px;">package</a> <a href="/tags/parallel/" style="font-size: 10px;">parallel</a> <a href="/tags/parametrized/" style="font-size: 10px;">parametrized</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/phantomjs/" style="font-size: 10px;">phantomjs</a> <a href="/tags/pointer/" style="font-size: 10px;">pointer</a> <a href="/tags/pointerarray/" style="font-size: 10px;">pointerarray</a> <a href="/tags/powerful/" style="font-size: 10px;">powerful</a> <a href="/tags/priority/" style="font-size: 20px;">priority</a> <a href="/tags/procedure-oriented/" style="font-size: 10px;">procedure-oriented</a> <a href="/tags/property/" style="font-size: 10px;">property</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/recursive-struct/" style="font-size: 10px;">recursive struct</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/row/" style="font-size: 10px;">row</a> <a href="/tags/rpc通信/" style="font-size: 10px;">rpc通信</a> <a href="/tags/rwx/" style="font-size: 10px;">rwx</a> <a href="/tags/setter-getter/" style="font-size: 10px;">setter/getter</a> <a href="/tags/shell-script/" style="font-size: 10px;">shell script</a> <a href="/tags/signatures/" style="font-size: 10px;">signatures</a> <a href="/tags/specific-type/" style="font-size: 10px;">specific type</a> <a href="/tags/sqrt/" style="font-size: 10px;">sqrt</a> <a href="/tags/task/" style="font-size: 10px;">task</a> <a href="/tags/task-flow/" style="font-size: 10px;">task flow</a> <a href="/tags/threading/" style="font-size: 10px;">threading</a> <a href="/tags/type-assert/" style="font-size: 10px;">type assert</a> <a href="/tags/urlparameter/" style="font-size: 10px;">urlparameter</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/weight/" style="font-size: 10px;">weight</a> <a href="/tags/workflow/" style="font-size: 10px;">workflow</a> <a href="/tags/worthy/" style="font-size: 10px;">worthy</a> <a href="/tags/上/" style="font-size: 10px;">上</a> <a href="/tags/两小无猜/" style="font-size: 10px;">两小无猜</a> <a href="/tags/乌托邦/" style="font-size: 10px;">乌托邦</a> <a href="/tags/人生半坡/" style="font-size: 10px;">人生半坡</a> <a href="/tags/优先级/" style="font-size: 10px;">优先级</a> <a href="/tags/使用场景/" style="font-size: 10px;">使用场景</a> <a href="/tags/先验概率/" style="font-size: 10px;">先验概率</a> <a href="/tags/全概率/" style="font-size: 10px;">全概率</a> <a href="/tags/冲突/" style="font-size: 10px;">冲突</a> <a href="/tags/减法/" style="font-size: 10px;">减法</a> <a href="/tags/分布式/" style="font-size: 10px;">分布式</a> <a href="/tags/分支限界/" style="font-size: 10px;">分支限界</a> <a href="/tags/分治/" style="font-size: 10px;">分治</a> <a href="/tags/分类/" style="font-size: 10px;">分类</a> <a href="/tags/动态规划/" style="font-size: 10px;">动态规划</a> <a href="/tags/努力/" style="font-size: 10px;">努力</a> <a href="/tags/匿名变量/" style="font-size: 10px;">匿名变量</a> <a href="/tags/单线程/" style="font-size: 10px;">单线程</a> <a href="/tags/后验概率/" style="font-size: 10px;">后验概率</a> <a href="/tags/周星驰/" style="font-size: 10px;">周星驰</a> <a href="/tags/哈希/" style="font-size: 10px;">哈希</a> <a href="/tags/回溯/" style="font-size: 10px;">回溯</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/富类hash/" style="font-size: 10px;">富类hash</a> <a href="/tags/小巧/" style="font-size: 10px;">小巧</a> <a href="/tags/嵌入式脚本/" style="font-size: 10px;">嵌入式脚本</a> <a href="/tags/异步IO/" style="font-size: 10px;">异步IO</a> <a href="/tags/张小凡/" style="font-size: 10px;">张小凡</a> <a href="/tags/性能/" style="font-size: 10px;">性能</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/新年快乐/" style="font-size: 10px;">新年快乐</a> <a href="/tags/条件查询/" style="font-size: 10px;">条件查询</a> <a href="/tags/条件概率/" style="font-size: 10px;">条件概率</a> <a href="/tags/浮夸/" style="font-size: 10px;">浮夸</a> <a href="/tags/混沌hash/" style="font-size: 10px;">混沌hash</a> <a href="/tags/热加载/" style="font-size: 10px;">热加载</a> <a href="/tags/父类方法调用子类方法/" style="font-size: 10px;">父类方法调用子类方法</a> <a href="/tags/状态/" style="font-size: 10px;">状态</a> <a href="/tags/田灵儿/" style="font-size: 10px;">田灵儿</a> <a href="/tags/自省自乐/" style="font-size: 10px;">自省自乐</a> <a href="/tags/自虐/" style="font-size: 10px;">自虐</a> <a href="/tags/贪心/" style="font-size: 10px;">贪心</a> <a href="/tags/转码/" style="font-size: 10px;">转码</a> <a href="/tags/阻塞完成/" style="font-size: 10px;">阻塞完成</a> <a href="/tags/随心随性/" style="font-size: 10px;">随心随性</a>
 					</div>
 				</section>
 				
@@ -208,7 +208,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/complicated/">complicated</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/concurrently/">concurrently</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dynamic/">dynamic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flexible/">flexible</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/off-schedule/">off-schedule</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/parametrized/">parametrized</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/complicated/">complicated</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/concurrently/">concurrently</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dag/">dag</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dynamic/">dynamic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flexible/">flexible</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/off-schedule/">off-schedule</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/parametrized/">parametrized</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/task/">task</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/workflow/">workflow</a></li></ul>
 	</div>
 
         
@@ -223,11 +223,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/2020/04/12/airflow2/airflow.png" alt="airflow"></p>
-<p>在数据工程生态系统，Airflow一直是一个重要的工具，技术工作者也利用它开发了很多业务。它开创性地兼备严格DAG模型和Python的灵活性，从而广泛的适用现实生活中的工作流业务。然而，airflow被当做一个臃肿的批处理调度器来设计，目标使用者是团队原则上招来协调组织其他系统的数据工程师，因此其可用性受到了很大限制。</p>
-<p>今天，许多数据工程师正在与分析人员更直接地合作。计算存储都是便宜的，使得试错成本低，注重实验。业务工作流快速动态变化。Airflow在许多事情上做对了，但是其核心假设从未预料到数据应用会变得如此多样化。很显然，它没有需要的语法接口来实现那些新的业务活动。</p>
-<p>时间追溯到2016年Airflow如何改变来支撑新的多样化数据实践的讨论中，Prefect的第一次全面计划就此埋下种子。令人失望的是，Aiflow并未改进。我们开源了现代化的数据平台Prefect，早期的commit和评论反馈令我们很鼓舞。</p>
-<p>我们知道用户关心关于Prefect与Airflow对比，尤其是考虑到Prefect的血统与Airflow相关。本文就是要强调Prefect引擎是如何用特定步骤解决一些Airflow无法解决的问题，并不是详尽的Prefect特性说明书，而是提供给熟悉Airflow的用户指南，解释Prefect解决问题的类似方法。我们希望对社区有用，尽可能地讨论解决了的问题和方法，对于开源仓库中当前不可用内容试图保持平衡和克制。</p>
+        <p>在数据工程生态系统，Airflow一直是一个重要的工具，技术工作者也利用它开发了很多业务。它开创性地兼备标准DAG模型和Python的灵活性，从而广泛的适用现实生活中的workflow业务。然而，Airflow被当做一个臃肿的批处理调度器来设计，目标使用者是团队打算招来协调组织其他系统的数据工程师，因此其可用性受到了很大限制。</p>
+<p>今天，许多数据工程师正在与分析人员更直接地合作，计算存储都是便宜的，使得试错成本低，实验得到注重。加上业务workflow快速动态变化，尽管Airflow在许多事情上做对了，但是其核心目标从未预料到数据应用会变得如此多样化。很显然，它没有亟需的数据抽象和接口来实现那些日异月新的业务活动。</p>
+<p>时间追溯到2016年如何改变Airflow来支撑新的多样化数据实践的讨论中，Prefect产品的第一次全面计划就此萌芽。令人失望的是，Aiflow在讨论后并未改进。我们才能开源了现代化的数据平台Prefect，早期的commit和评论反馈令我们很鼓舞。</p>
+<p>我们知道用户关心关于Prefect和Airflow的对比，尤其是考虑到Prefect的血统与Airflow相关。本文主要对比阐述Prefect引擎是如何用特性解决一些Airflow无法解决的问题，并不是Prefect详尽的特性说明书，而是给熟悉Airflow的人提供用户指南，指明Prefect解决问题的方法。尽可能地讨论已解决的问题和方法，对于开源仓库中当前不可用内容的介绍试图保持平衡和克制，希望这对社区有益。</p>
 <p>内容提要</p>
 <ul>
 <li>概览</li>
@@ -235,176 +234,176 @@
 <li>调度和时间的关系</li>
 <li>调度服务</li>
 <li>数据流</li>
-<li>参数化工作流</li>
-<li>动态工作流</li>
-<li>多版本工作流</li>
+<li>参数化workflow</li>
+<li>动态workflow</li>
+<li>多版本workflow</li>
 <li>本地测试</li>
 <li>UI操作界面</li>
 <li>总结</li>
 </ul>
-<h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><p>Airflow是为了按照固定的时间调度运行偏静态的、流转缓慢的工作流而设计，Airflow是达到了这个目的的优秀工具。Airflow也是第一个成功实现工作流即代码、灵活有用的范例。事实证明，无需借助配置文件，不使用DAG定义，也可实现工作流。</p>
-<p>然而，从为了能处理的工作流类型来看，Airflow为设计工作流行为提供的语法接口很有限，尤其以现在的标准来看。用户为了实现业务，把业务强制地塞进Airflow模型会遇到麻烦。例如Airflow不能很好地满足以下场景：</p>
+<h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><p>Airflow是用来为按照固定的时间调度运行偏静态的、task流转缓慢的workflow而设计，在这个目标上算是优秀的框架。Airflow也是第一个用代码成功实现强大灵活的workflow的有用榜样。事实证明，无需借助配置文件的定义，也可实现workflow。</p>
+<p>然而，从能处理多样化的workflow业务的角度，尤其以现在的标准来看，Airflow为workflow设计提供的数据抽象和接口很有限。开发者为了实现业务，把业务勉强套进Airflow模型会遇到麻烦。Airflow不能很好地满足以下场景：</p>
 <ul>
 <li>无调度或者脱离调度的DAG</li>
 <li>同一时间多次并发启动的DAG</li>
 <li>复杂分支逻辑的DAG</li>
-<li>实时任务DAG</li>
+<li>实时task执行的DAG</li>
 <li>需要交换数据的DAG</li>
 <li>参数化的DAG</li>
 <li>动态的DAG</li>
 </ul>
-<p>如果你的使用场景与上述任何一种相似，无法直接使用Airflow，你需要在Airflow的抽象设计层面花费大量的工夫。因此，几乎每个中大规模的公司最终都会编写自定义的DSL，或者维护大量专有插件来满足内部多变的业务需求。这使得故障维护和升级困难。</p>
-<p>Prefect是多年从事Airflow相关项目的经验成果。我们的研究覆盖了数百用户和公司，让我们发现了Airflow难以解决的隐患。通过设计支撑适合大多数业务场景的架构抽象，它最终实现了难以置信的友好和轻量的接口。</p>
+<p>如果你的使用场景与上述任何一种相似，将无法直接使用Airflow，除非你在Airflow的抽象设计层面花费大量的工夫。因此，几乎每个中大型规模的公司最终都会编写自定义的DSL，或者维护大量专有插件来满足内部复杂多变的业务需求，又造成升级和故障维护的困难。</p>
+<p>Prefect汲取了多年从事Airflow相关项目的经验。产品的研究覆盖了数百用户和公司，发现了Airflow难以解决的隐患。然后通过支撑适合大多数业务场景的架构抽象设计，它最终实现了难以置信的轻量好用的接口。<strong>注意，本文Airflow DAG和Prefect Flow都是workflow工作流的意思</strong></p>
 <h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><blockquote>
-<p>  当工作流能够定义成代码时，他们变得更加<br>  易于维护，方便多版本追踪，好测试，可协作。</p>
+<p>  当workflow能够定义成代码时，他们变得更加<br>  易于维护，方便多版本追踪，好测试，可协作。</p>
 <p>  – Airflow 官方文档</p>
 </blockquote>
-<p>生产工作流程是对复杂业务非常有益的事物，并且涉及技术范围内多个利益者。因此，让你工作流足够简单明了是很重要的。考虑到工作流在数据处理技术栈处处可用。Python是工作流语言的最优选择。Airflow是第一个认识到这一点的工具，并且用Python实现API。</p>
-<p>但是，Airflow的API是命令式和基于类的。此外，由于Airflow对工作流可以说什么和不能做什么的限制（后面展开讲），编写Airflow DAG代码感觉像是在开发Airflow代码。</p>
-<p>Prefect的基本理念是，如果开发者能够保证编写的业务代码按预期正常运行，可以当工作流系统不存在。只有当bug出现，程序抛异常，工作流管理的作用才显现出来。有鉴于此，工作流系统算是流程风险管理工具，并且设计合理的情况下，应该降低工作流系统代码对业务代码的显示侵入，除非开发者明确需要。无论哪种方式，工作流</p>
-<p>所以Prefect的设计目标是在业务代码正确的情况下，尽量减少工作流系统代码侵入，同时在业务代码出错时，工作流系统工具代码能尽量帮助重回正轨。无论哪种方式，Prefect都可以为工作流提供相同级别的透明度和细节。</p>
-<p>实现上述目标的一种方法是通过Prefect的功能性API。在此模式下，Prefect任务行为类似于函数。你可以添加输入，调用函数，并且使用函数的输出。简单到只用一行Prefect接口代码，就可以将Python函数转换为任务。任务之间的互相调用就像是Python函数一样自然地构建DAG，非常有Python风格。这使得将已有代码和脚本转换成全栈的Prefect工作流是轻车熟路的。</p>
-<p>不用担心，Prefect同时还为Airflow用户提供全栈的过程式风格的API。过程式风格API对于复杂任务依赖的工作流是很有用，可以实现底层抽象控制。用户可以根据需求和倾向，来切换这两种风格。</p>
+<p>生产中应用workflow对复杂业务是非常有利的，并且牵扯到技术分工范围的多个利益协作者。因此考虑到workflow在数据处理技术栈处处可用，让workflow足够清晰简单是很重要的。Python是开发workflow的语言的最优选择。Airflow是第一个认识到这一点的框架，并且用Python实现API。</p>
+<p>但是，Airflow的API是命令式（imperative）和面向对象（基于类）的。此外，由于Airflow对DAG的代码开发的诸多限制（后面展开讲），编写Airflow DAG代码就像是在开发Airflow特定风格的代码。</p>
+<p>Prefect的基本理念是，如果开发者能够保证编写的业务函数按预期正常运行，对workflow框架是无感知的。只有当bug出现，程序抛异常，workflow框架的管理作用才显现出来。这么看，workflow框架可算是流程风险管理工具，并且设计良好的情况下，应该降低workflow框架对业务代码的显式侵入，除非开发者明确需要，否则workflow框架不要让用户在开发路上觉得碍眼。</p>
+<p>所以Prefect的设计目标是在业务代码正确的情况下是几乎零侵入透明的，同时在出错时，workflow框架能尽量协助业务重回正轨。无论哪种方式，Prefect都可以为业务提供相应级别的透明度和细节。</p>
+<p>实现上述目标的基本方法是使用Prefect的功能API。在此模式下，Prefect的task行为类似于Python函数，可以直接定义输入输出和调用它。简单到只用一行Prefect装饰器代码，就将Python函数转换为task。像是Python函数一样自然，task之间的互相调用就地构建workflow，非常具有Python风格。这使得通常将已有业务代码和脚本转换成全栈Prefect的workflow是轻车熟路的。</p>
+<p>不用担心，Prefect同时还为Airflow用户提供Airflow风格的API，这种过程式风格对于构建复杂task依赖的workflow很有用，可以实现底层抽象控制。用户可以根据需求和倾向，来切换这两种风格使用。</p>
 <h2 id="调度和时间的关系"><a href="#调度和时间的关系" class="headerlink" title="调度和时间的关系"></a>调度和时间的关系</h2><blockquote>
-<p>  时间是一种幻想。午餐时间加倍。</p>
+<p>  时间是一种幻想，就像午餐时间的加倍。</p>
 <p>  – 银河系漫游指南</p>
 </blockquote>
-<p>对于Airflow的新手来说，可能最常见的困惑是时间的使用。如果你运行Airflow教程例子，你会发现一直要纠结所有这些时间定义是什么意思呢？</p>
-<p>Airflow严格依赖execution_date的时间定义。DAG要设置execution_date才可以运行，同一个execution_date的同一个DAG也不可能运行2次。你有没有一个DAG需要同时开始执行两次的呢？Airflow无法支持。你需要创建两个除了DAG ID之外完全相同的DAG，或者相隔1ms启动，或者使用有创造性的Hack方式使它起作用。</p>
-<p>更令人困惑的是，execution_date并不是Airflow DAG的start_time，start_time=execution_date+一个周期间隔。这最初是由于ELT编排要求所致，execution_date为5月2日时间点的数据作业将在5月3日的同一时间点真正开始运行。时至今日，这都是用户尤其是新用户的最大困惑。</p>
-<p>下一个时间点再运行产生的间隔设计起源于Airflow严格要求DAG有良好的执行计划。直到最近，它不可能运行脱离调度的DAG，因为调度器无法给这类DAG安排正确的start_time。临时运行也是可能的，只要这些临时运行的DAG_RUN不与同一个DAG下面的其他DAG_RUN有相同的start_time。</p>
-<p>这意味着如果你有以下需求：</p>
+<p>对于Airflow的新手来说，可能最常见的困惑是不同的时间概念的用途。如果你运行Airflow教程例子，你会发现要一直纠结这些不同的时间定义是什么意思呢？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">airflow <span class="built_in">test</span> tutorial print_date 2015–06–01</span><br><span class="line"></span><br><span class="line"><span class="comment">## Output</span></span><br><span class="line">AIRFLOW_CTX_EXECUTION_DATE=2015–06–01T00:00:00+00:00</span><br><span class="line">[2019–04–17 15:54:45,679] &#123;bash_operator.py:110&#125; INFO - Running <span class="built_in">command</span>: date</span><br><span class="line">[2019–04–17 15:54:45,685] &#123;bash_operator.py:119&#125; INFO - Output:</span><br><span class="line">[2019–04–17 15:54:45,695] &#123;bash_operator.py:123&#125; INFO - Wed Apr 17 15:54:45 PDT 2019</span><br></pre></td></tr></table></figure>
+
+<p>Airflow严格依赖execution_date的时间定义。DAG要设置execution_date才可以运行，同一个DAG不可能生成2个运行execution_date相同的实例。当一个DAG需要同时开始执行两次的呢？Airflow就无法支持。这需要创建2个DAG ID不同业务逻辑完全相同的DAG来生成各自的可执行实例，或者同一个DAG生成execution_date相隔1ms的2个可执行实例，或者使用Hack方式达到目的。</p>
+<p>更令人困惑的是，execution_date并不是Airflow DAG可执行实例的start_time，start_time=execution_date+一个周期间隔。这最初是由于ELT编排业务要求所致，execution_date为5月2日时间点的数据作业将在5月3日的同一时间点真正开始运行。时至今日，这都是用户尤其是新用户的最大阻碍。</p>
+<p>下一个时间点才开始运行可执行实例产生的间隔设计来源于Airflow严格要求DAG有良好的执行计划。直到现在，它都不可能运行脱离计划调度的DAG，因为调度器无法正确地给这类DAG可执行实例安排start_time。其实临时可执行实例也是可以产生的，只要该临时的可执行实例不与同一个DAG下面其他的可执行实例有同一个start_time。</p>
+<p>这意味对于以下需求，Airflow会是一个错误的选择：</p>
 <ul>
-<li>不规则调度或者无调度的工作流</li>
-<li>同一个工作流同时开始的多份运行</li>
-<li>维护一个仅仅手工触发运行的工作流</li>
+<li>不规则调度或者无调度的DAG</li>
+<li>同一个DAG生成多份同时开始的可执行实例</li>
+<li>维护经常手工触发产生可执行实例的DAG</li>
 </ul>
-<p>那么Airflow会是一个错误的工具。</p>
 <blockquote>
-<p>作为对比，Prefect将工作流当作可以任何时候执行、任意并发的对象。<br>调度计划只不过是一组预定义好的start_time，可以根据需求很灵活的定义简单或者复杂的调度计划。<br>如果确实需要工作流依赖于时间计划，只需要简单地将时间添加为工作流的参数</p>
+<p>作为对比，Prefect将workflow的可执行实例当作可以任何时候执行、任意并发的对象。<br>调度计划是一组预定义好start_time的可执行实例的编排，可以根据需求很灵活的定义简单或者复杂的调度计划。<br>如果workflow的可执行实例确实要严格遵守时间计划，只需要简单地将时间添加为workflow可执行实例的参数。</p>
 </blockquote>
 <h2 id="调度服务"><a href="#调度服务" class="headerlink" title="调度服务"></a>调度服务</h2><blockquote>
 <p>R2-D2（星球大战的宇航技工机器人），你比起你作为一台奇怪的计算机器了解的更好。</p>
 <p>–C-3PO（星球大战的礼仪机器人）</p>
 </blockquote>
-<p>Airflow的调度器是Airflow的核心骨架，对Airflow有性能影响。主要负责如下：</p>
+<p>Airflow的调度器是Airflow的核心部分，对Airflow使用有性能影响。主要负责如下：</p>
 <ul>
-<li>每隔几秒钟重新分析一次DAG文件夹</li>
-<li>检查DAG计划以确定DAG是否准备就绪</li>
-<li>检查所有任务依赖项，以确定是否有任何任务可以运行</li>
-<li>在数据库设置最终的DAG运行状态</li>
+<li>每隔几秒钟重新分析一次DAG文件夹，生成DAG计划</li>
+<li>检查DAG计划以确定是否生成DAG可执行实例来准备就绪</li>
+<li>检查所有task依赖项，以确定是否有后续的task可以运行</li>
+<li>在数据库设置最终的DAG运行实例和task运行实例的状态</li>
 </ul>
-<p>相反地，Prefect将这许多架构逻辑解耦到不同独立的模块中。</p>
-<h3 id="Prefect-Flow-Scheduling"><a href="#Prefect-Flow-Scheduling" class="headerlink" title="Prefect Flow Scheduling"></a>Prefect Flow Scheduling</h3><p>Prefect工作流调度是很轻量的，我们只需要简单地创建一个新的工作流执行，并且设置成Scheduled状态。这就是Prefect的实际的唯一的责任，调度器绝对不会参与任何业务逻辑或者执行。</p>
-<h3 id="Prefect-Flow-logic"><a href="#Prefect-Flow-logic" class="headerlink" title="Prefect Flow logic"></a>Prefect Flow logic</h3><p>Prefect流的逻辑是工作流里面的独立单元，调度程序绝不解析业务部分，也不会工作流相关的状态掺杂到业务里面。作为证据，你可以在本地对比运行业务代码添加工作流和未添加工作流的情况，发现添加工作流情况对业务执行几乎没有额外资源开销。</p>
-<h3 id="Prefect-Task-scheduling"><a href="#Prefect-Task-scheduling" class="headerlink" title="Prefect Task scheduling"></a>Prefect Task scheduling</h3><p>当Prefect工作流在运行期间，只管调度属于自己的task，这非常重要：</p>
+<p>相对的，Prefect将这么多架构设计解耦到不同的独立模块中。</p>
+<h3 id="Prefect-Flow-Scheduling"><a href="#Prefect-Flow-Scheduling" class="headerlink" title="Prefect Flow Scheduling"></a>Prefect Flow Scheduling</h3><p>Prefect Flow Scheduling（workflow可执行实例调度）是很轻量的，只需要简单创建一个新的可执行实例，并且设置成Scheduled状态。这就是Prefect Flow Scheduling实际的唯一责任，调度器绝对不会干涉任何workflow的依赖逻辑。</p>
+<h3 id="Prefect-Flow-Logic"><a href="#Prefect-Flow-Logic" class="headerlink" title="Prefect Flow Logic"></a>Prefect Flow Logic</h3><p>Prefect Flow Logic（workflow的依赖设置）是独立的编码部分，依赖逻辑绝不侵入业务，也不会把workflow相关的状态管理掺杂到业务里面。作为证据，你可以在本地运行空的workflow的情况，发现workflow进程几乎没有资源开销。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># run your first Prefect flow from the command line</span></span><br><span class="line"></span><br><span class="line">python -c <span class="string">"from prefect import Flow; f = Flow('empty'); f.run()"</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Prefect-Task-Scheduling"><a href="#Prefect-Task-Scheduling" class="headerlink" title="Prefect Task Scheduling"></a>Prefect Task Scheduling</h3><p>当Prefect Flow的可执行实例在运行期间，只管调度属于自己的task，这非常重要：</p>
 <ul>
-<li>从工作流的架构抽象看，流对象是唯一一个适合承载这个责任的</li>
-<li>减轻了中枢调度器的负担</li>
-<li>针对各种独特场景做决策，例如动态生成任务</li>
+<li>从workflow的架构抽象看，workflow的可执行实例对象是唯一适合接管这个责任的</li>
+<li>减轻中枢调度器（Prefect Flow Scheduling）的负担</li>
+<li>针对各种独特场景做决策，例如动态生成task</li>
 <li>将执行细节交给Dask等外部系统负责</li>
 </ul>
-<p>最后一点很重要，尽管Airflow已经丰富地支持了多种执行环境，包括本地进程执行器、Celery执行器、Dask执行器、Kubernetes执行器，调度器仍然是Airflow工作流的瓶颈，调度器执行任何task都需要额外时间至少10s，5s用来标记已经就绪，5s用来提交执行。不管外部执行系统例如Dask集群有多大，Airflow会每隔10s调用task执行。</p>
-<p>相比而言，Prefect采用了更现代化的方式。例如当Prefect在Dask上面执行的时候，我们利用Dask的毫秒级延迟任务调度器来尽快运行所有task，并且能充分利用Dask集群的并行度。实际上Prefect Cloud的默认部署规范是在Kubernetes中使用Dask集群，这也是可定制化的。</p>
-<p>除性能外，这对于工作流的设计很有意义。Airflow鼓励设计庞大的task，Prefect倾向设计微型的模块化task，也保留了处理大型task的能力。</p>
-<p>另外，当使用Prefect Clound运行带数据连接的task时，Task和工作流的执行者负责维护数据库连接的状态，而不是由调度器维护。</p>
-<p>总结</p>
-<ul>
-<li><p>中心化的Airflow调度循环使得当任务启动遇到任务依赖处理时，会产生不小的延迟。如果使用场景只涉及到少数几个长时间运行的task，这完全没问题，但是如果你想执行一个包含有时间要求的大量task的DAG，这可能成为瓶颈。</p>
-</li>
-<li><p>Airflow将时间计划和工作流紧密耦合一起，这意味着你即使在本地运行DAG，也需要初始化数据库和调度服务。这当然是生产环境必要的步骤，但是对于业务代码的快速迭代和测试是很麻烦的。</p>
-</li>
-<li><p>Airflow调度器的集中特性形成了系统的单点故障。</p>
-</li>
-<li><p>循环重新解析DAG会造成严重的不一致，很有可能调度器将要执行的task，发现对应的DAG不存在。</p>
-</li>
-<li><p>集中调度意味着多个task之间无法通信（没有通信依赖关系解决方案）。</p>
-</li>
-</ul>
+<p>最后一点很重要，尽管Airflow已经丰富地支持了多种执行器，包括本地进程执行器、Celery执行器、Dask执行器、Kubernetes执行器，调度器仍然是Airflow使用的瓶颈，调度器执行任何task都需要至少10s的额外时间，5s用来标记已经就绪，5s用来提交执行。不管外部执行系统例如Dask集群有多大，Airflow会每隔10s生成准备和执行task。</p>
+<p>相比而言，Prefect采用了更现代化的模式。例如当Prefect在Dask上面执行的时候，可以利用Dask的毫秒级延迟task调度器来尽快运行所有task，并且能充分利用Dask集群的并行度。实际上Prefect Cloud的默认部署模式是在Kubernetes中使用可定制化的Dask集群。</p>
+<p>除性能外，如何设计workflow影响很大。Airflow鼓励设计庞大的task，Prefect倾向设计微型的模块化task，也保留了实现大型task的能力。</p>
+<p>另外，当在Prefect Clound运行task且数据库是自定义的，task和workflow的可执行实例负责维护更新数据库的数据状态，而不是由调度器维护。</p>
+<blockquote>
+<p>作为对比，强中心化（管理所有设计抽象的调度业务）的Airflow调度循环使得当task启动遇到task依赖处理时，会产生不小的延迟。如果使用场景只涉及到少数几个长时间运行的task，这完全没问题，但是如果你想执行一个包含有大量的时间要求的task的DAG，这可能成为瓶颈。<br>Airflow将时间计划和workflow紧密耦合一起，这意味着你即使在本地运行DAG，也需要初始化数据库和调度服务。对于生产环境无可厚非，但是对于业务代码的快速迭代和测试是很麻烦的。<br>Airflow调度器的强中心化特性形成了系统的单点故障。<br>循环重新解析DAG会造成代码逻辑的严重不一致，很有可能调度器将要执行的task，发现不存在对应的DAG。<br>强中心化调度意味着多个task之间无法通信（没有通信依赖关系解决方案）。</p>
+</blockquote>
 <h2 id="数据流"><a href="#数据流" class="headerlink" title="数据流"></a>数据流</h2><blockquote>
 <p>  它是一个陷阱。</p>
 <p>  – 《星球大战》贾尔·阿克巴上将</p>
 </blockquote>
-<p>Airflow最常见的用途之一建立某种数据管道，但是讽刺的是，Airflow并没有支持最好的方式实现它。</p>
-<p>Airflow提供XCom，一个被设计用来task之间交换少量数据的工具。如果你希望task A告诉task B大量的数据写到云端的某个可见的位置，这是有用的。但是，当用户视图使用它建立数据管道，它成为Airflow的使用bug的主来源。</p>
-<p>XCom使用管理员权限将可执行的序列化数据写到元数据的数据库，这有安全隐患。即使采用json格式，也还是有隐私问题。这个数据没有过期时间或者有效期限制，会造成性能和存储成本问题。更重要的是，使用XComs会在Airflow调度器不知情的情况，在task之间创建严格的上下游关系依赖。如果用户再不增加额外的人工关注，Airflow实际可能会用错误的顺序执行这些任务。考虑一下情况：</p>
-<p>Airflow工具是无法确定某个任务明确依赖于另一个推类型任务的行为。如果用户没有明确向Airflow说明，调度器还是会无序运行这些任务。即使用户跟Airflow说明关系，Airflow也无法理解基于通信数据的依赖关系，而且当XCom推送失败，Airflow也不知道怎么响应。这是最常见的玄奥难解的Airflow bug之一。</p>
-<p>不幸的是，经常有这种情况，Airflow新手过度使用XCom堵死了元数据库，我们看到过有人创建了10GB规模的数据，并用XCom传递给各种任务。DAG要是有10个task，一共会写100GB的数据到Airflow的元数据数据库。</p>
-<p>Prefect将数据流设计为一等公民。task可以输入返回，Prefect用透明方式管理这些输入输出依赖。另外，Prefect永远不会将这些数据写入元数据数据库，相反的，阶段task在需要结果存储的时候，可以轻松配置安全的结果处理程序来管理。这样提供了许多好处：</p>
+<p>Airflow最常见的用途之一建立某种数据管道，但讽刺的是，Airflow并没有最好的方式实现它。</p>
+<p>Airflow提供XCom，一个被设计用来在task之间交换少量数据的工具。如果你希望task A告诉task B大量的数据写到云端的某个可见的位置，这是鼓励的的。但当用户试图使用它建立数据管道，就会产生很多Airflow的使用bug。</p>
+<p>XCom使用管理员权限将可执行的序列化数据写到元信息的数据库，有安全隐患。即使采用json格式，也还是有问题。这种数据没有过期时间或者有效期限制，会造成性能和存储成本问题。更重要的是，使用XComs会在Airflow调度器不知情的情况，在task之间创建严格的上下游依赖关系。如果用户不增加额外的编码定义，Airflow实际可能会用错误的顺序执行这些task。考虑以下情况：</p>
+<p>Airflow框架是无法明确确定某个task依赖于另一个推类型task的行为。如果开发者没有通过代码明确向Airflow说明，调度器还是会无序编排运行这些task实例。即使开发者代码指定输入输出数据关系，Airflow也无法理解基于通信数据的依赖关系，而且当XCom推送数据失败，Airflow又不知道怎么响应。这是最常见的玄奥难解的Airflow bug之一。</p>
+<p>不幸的是，常常怕什么来什么，Airflow新手过度使用XCom堵死了元信息的数据库，我们看到过有人创建了10GB规模的数据，并用XCom传递给各种task。一个DAG实例要是有10个task实例，一共会写100GB的数据到Airflow的元信息的数据库。</p>
+<blockquote>
+<p>作为对比，Prefect将数据流抽象当做一等公民。task可以输入返回，Prefect用透明方式管理这些输入输出依赖。另外，Prefect永远不会将这些数据写入元信息的数据库，相应的，task实例的阶段结果在需要存储的时候，可以轻松配置安全的结果处理器。这样有许多好处：</p>
 <ul>
-<li>用户可以使用熟悉的Python风格编码</li>
-<li>引擎知道依赖关系，这提供了更加透明的调试体验</li>
-<li>因为Prefect允许使用数据流，并不意味着只能用它，所以仍然支持无依赖的Airflow风格，有时候鼓励使用它。</li>
-<li>因为task可以交换数据，Prefect能支持更复杂的分支逻辑、丰富的task状态，并且在flow中task和runner之间执行更严格的约定</li>
+<li>开发者可以使用熟悉的Python函数风格编码</li>
+<li>引擎知道依赖关系，能提供更加透明流畅的调试体验</li>
+<li>尽管Prefect允许使用数据流，并不意味着只能这么用，所以仍然支持无依赖的Airflow风格，有时候鼓励使用无数据依赖风格</li>
+<li>因为task可以交换数据，Prefect能支持更复杂的毛细分支逻辑和更丰富的task状态，并且在workflow实例中的task实例之间有更严格的执行约束（例如，一个tas不能在数据库更新下游的task的状态）</li>
 </ul>
-<h2 id="参数化工作流"><a href="#参数化工作流" class="headerlink" title="参数化工作流"></a>参数化工作流</h2><blockquote>
+</blockquote>
+<h2 id="参数化workflow"><a href="#参数化workflow" class="headerlink" title="参数化workflow"></a>参数化workflow</h2><blockquote>
 <p>  很抱歉Dave，恐怕我做不到。</p>
 <p>  – 《2001太空漫游》超级电脑HAL9000</p>
 </blockquote>
-<p>有能力处理响应不同的输入是很方便的。例如，一个工作流可能就是一系列的步骤，可以重复处理不同API、数据库或者ID的信息，这些不同的数据需要复用相同的处理逻辑。甚至，你可能想用输入参数来影响工作流本身。</p>
-<p>因为Airflow DAG要按固定的调度计划来执行，并且不接收输入调用参数，这不是Airflow能很好支持的模式。当然也可以解决这个限制，但是解决方案涉及到改造Airflow调度器持续重复解析DAG文件和动态响应DAG变量。如果你的业务需要利用调度程序的内部细节，你可能做错了。</p>
-<p>Prefect为此类情况提供了方便的抽象。Prefect工作流的参数是一种特殊的task，它的值在运行期是可覆盖的。例如，我们在Prefect Cloud部署中运行时，可以通过简单的GraphQL调用或者Prefect的Python客户端来提供参数。</p>
+<p>有能力处理响应不同的输入是很方便的。例如，一个workflow可能就是一系列的操作步骤，可以重复处理不同外部数据（API、数据库或者ID）的信息，这些不同的数据需要复用相同的处理逻辑。甚至，你可能想用输入参数来控制影响workflow本身。</p>
+<p>因为Airflow DAG要按固定的调度计划来执行，并且不接收调用的输入参数，Airflow不能很好的支持更多。当然也可以突破这个限制，但是解决方案涉及到围绕着Airflow调度器持续重复解析DAG文件和动态响应Airflow Variable对象开展工作。如果业务需要利用调度程序的内部实现细节，可能是落地方案错了。</p>
+<p>Prefect为参数化workflow提供了方便的抽象。Prefect workflow的Parameter对象是一种支持可选参数的特殊task，它有配置的默认值，在运行期调用是可覆盖的。例如，我们在Prefect Cloud部署中运行时，Parameter对象的值可以通过简单的GraphQL调用或者Prefect的Python客户端来设置。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> prefect <span class="keyword">import</span> task, Parameter, Flow</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@task</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">return_param</span><span class="params">(p)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> p</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> Flow(<span class="string">"parameter-example"</span>) <span class="keyword">as</span> flow:</span><br><span class="line">    p = Parameter(<span class="string">"p"</span>, default=<span class="number">42</span>)</span><br><span class="line">    result = return_param(p)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">flow.run() <span class="comment"># uses the value 42</span></span><br><span class="line">flow.run(p=<span class="number">99</span>) <span class="comment"># uses the value 99</span></span><br></pre></td></tr></table></figure>
+
 <p>这提供了许多好处：</p>
 <ul>
-<li>当问题出现，数据的来龙去脉是透明的</li>
-<li>你不需要为不同的参数输入创建新的工作流，只需要启动新的工作流执行。</li>
-<li>允许设置响应事件的工作流，工作流可以根据不同的类型内容的事件来执行不同的分支</li>
+<li>出问题时，数据的来龙去脉是透明的</li>
+<li>不需要为不同的起始参数输入创建新的workflow，只需要根据参数生成新的workflow可执行实例</li>
+<li>允许设计响应事件的workflow，workflow可执行实例是根据不同的类型内容的事件来选择执行某个分支</li>
 </ul>
-<p>早些时候，我们注意到Airflow甚至都没有同时运行一个工作流多个实例的概念。这有部分原因是Airflow工作流没有参数概念。当工作流无法响应输入，同时运行多个实例就没有意义。</p>
-<p>但是，有了一等公民的参数化，我们就容易理解为什么我可能希望同时运行工作流的多个实例，例如发送多封电子邮件，或者更新多个数据源，或者任何其他系列活动等工作流逻辑相同和输入值可能不同的场景。</p>
-<h2 id="动态化工作流"><a href="#动态化工作流" class="headerlink" title="动态化工作流"></a>动态化工作流</h2><blockquote>
+<p>早些时候，我们就注意到Airflow没有同时开始运行一个DAG多个可执行实例的抽象。这有部分原因是Airflow DAG没有参数概念。当DAG无法响应输入，同时运行多个实例就没有意义。</p>
+<p>但是，有了一等公民的参数抽象，就容易理解为什么我可能希望同时运行workflow的多个可执行实例，例如发送多封电子邮件，或者更新多个数据源，或者任何其他系列活动等workflow业务逻辑相同和起始参数不同的场景。</p>
+<h2 id="动态化workflow"><a href="#动态化workflow" class="headerlink" title="动态化workflow"></a>动态化workflow</h2><blockquote>
 <p>  你将需要更大的船。</p>
 <p>  – 电影《大白鲨》</p>
 </blockquote>
-<p>除了参数化的工作流之外，经常遇到工作流内部有task的逻辑需要被重复运行几次的场景。假设task A需要从数据库查询所有的新客户列表。从这儿开始每一个客户ID都要交给另一个task做一些处理。在Airflow中，只有一个选择，实现一个下游task B，该task B接收客户ID列表，并循环一一处理。这种方式有以下缺点：</p>
+<p>除了参数化的workflow之外，经常遇到workflow内部有task的逻辑需要被重复运行几次的场景。假设task A从数据库查询所有的新客户列表，需要把里面的每一个客户ID交给另一个task做一些事务处理。在Airflow中，只有一个选择，实现一个下游task B，该task B使用客户ID列表，并循环一一处理。这种方式有以下缺点：</p>
 <ul>
-<li>UI操作界面无法体现task内部的循环造成的动态负载，执行过程难以监控</li>
-<li>如果任何一条数据记录执行失败，则整个任务失败或者被丢弃形成黑洞</li>
-<li>相应的，你要自己实现考虑规模和幂等逻辑，因为如果失败中途重试，系统很难理解哪些数据已经处理过，需要重试跳过。</li>
+<li>UI操作界面无法可视化task内部循环造成的动态负载，执行过程不可见</li>
+<li>如果任何一条数据记录执行失败，则整个任务失败或者被丢弃形成业务黑洞</li>
+<li>重试的话，还要考虑规模和实现幂等逻辑，因为失败中途重试，系统很难理解哪些数据已经处理过，需要跳过不处理</li>
 </ul>
-<p>由于这是一种常见场景，因此Prefect将其专门抽象成我们称之为task mapping的功能。task mapping是指能够运行时根据上游task的输出结果来动态生成不同数量的下游task的能力。映射尤其强大，因为你可以在映射过的任务继续映射，从而轻松创建并行管道。归纳收集结果就像将映射的task作为输入输入到非映射任务一样简单。考虑一个简单例子，生成一个list，遍历每一个item两次做+1处理，然后计算liste的item之和。</p>
-<p>工作流执行包括10个确认的的Prefect task，1个是list创建，4个是两次+1映射中的每一个，还有一个求和规约。任务映射提供许多好处：</p>
+<p>由于这是一种常见场景，因此Prefect将其专门抽象成称之为task mapping的功能。task mapping是指能够运行时根据上游task的输出结果来动态生成不同数量的下游task的能力。映射强大到可以在映射过的任务继续映射，从而轻松创建并行管道。而归纳收集结果就是将mapped task作为Parameter输入到non-mapped task这么简单。考虑一个简单例子，生成一个4项item的list，遍历每一项item两次做+1处理并设置item，然后计算list的item之和。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> prefect <span class="keyword">import</span> task, Flow</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@task</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_list</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> [<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="meta">@task</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_one</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x + <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@task</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_sum</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> sum(x)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> Flow(<span class="string">"simple-map"</span>) <span class="keyword">as</span> f:</span><br><span class="line">    plus_one = add_one.map(create_list)</span><br><span class="line">    plus_two = add_one.map(plus_one)</span><br><span class="line">    result = get_sum(plus_two)</span><br><span class="line"></span><br><span class="line">f.run()</span><br></pre></td></tr></table></figure>
+
+<p>该workflow运行实例明确有10个Prefect task，1个是list创建，8个是4项item X 2次+1映射处理，还有一个求和规约。任务映射提供许多好处：</p>
 <ul>
-<li>映射模式容易在工作流中表达</li>
-<li>每一个task都是单独实例，意味着可以独立于其他单独重试告警</li>
-<li>工作流的每一个执行都动态生成不同数量的task</li>
-<li>作为一等公民功能，UI操作界面也能准确展示报告映射任务</li>
+<li>mapping模式易于在workflow中表达</li>
+<li>每一个动态产生的task都是单独实例，意味着可以独立于其他task单独重试告警</li>
+<li>workflow的每一个task实例都能触发动态生成不同数量的下游task实例</li>
+<li>作为一等公民的task mapping抽象，UI操作界面也能准确可视化映射关系</li>
 </ul>
-<h2 id="多版本工作流"><a href="#多版本工作流" class="headerlink" title="多版本工作流"></a>多版本工作流</h2><blockquote>
+<h2 id="多版本workflow"><a href="#多版本workflow" class="headerlink" title="多版本workflow"></a>多版本workflow</h2><blockquote>
 <p>  为了通过编码解决工作问题，这还不够。</p>
 <p>  – 《代码整洁之道》的作者[美]Robert C. Martin</p>
 </blockquote>
-<p>基于代码的系统的一个重要能力是能够对代码进行版本控制。</p>
-<p>回想一下在Airflow里面，DAG是中枢调度器在检测指定的DAG目录包含的Python文件，并执行代码文件来发现DAG定义。这意味着，如果你更新给定的DAG，Airflow将会重新加载盲目执行，而并不会感知到代码的部分改变。如果你的DAG定义代码定期更新，这会引起一些麻烦。</p>
+<p>任何涉及代码的系统的都需要一个重要能力，是能够对代码进行版本控制。</p>
+<p>回想一下在Airflow里面，DAG是中枢调度器在检测指定的DAG目录包含的Python文件，并执行代码文件来发现DAG定义。这意味着，如果你更新某个DAG，Airflow将会重新加载盲目执行，而并不会感知代码的迭代改变。如果你的DAG定义代码定期更新，这会引起一些麻烦。</p>
 <ul>
-<li>能够重新访问甚至运行旧的DAG的能力要求你存储旧的版本，并且还需要你在Airflow生态系统中抽象出单独的实体</li>
-<li>UI操作界面对版本系统一无所知，也无法为多版本工作流提供有效的信息。</li>
+<li>能够重新访问甚至运行旧的DAG的能力要求你存储旧版本代码，并且需要在Airflow生态系统中抽象出单独的实体</li>
+<li>UI操作界面对版本系统一无所知，就无法可视化DAG有效的多版本信息</li>
 </ul>
-<p>在实践中，这意味着团队倾向使用GitHub控制版本，并将版本信息附加到文件名中。再者如果你的工作流代码变化缓慢，也不算负担。但是，由于数据工程日益成为快节奏的科学，包括实验和频繁更新，仅仅部署新的模型和参数，这种方式很快会失败。</p>
-<p>在Prefect Cloud中，我们已经版本化的工作提升为一等公民。任何工作流都是版本集的一部分，以轻松追踪维护历史记录。与往常一样，我们有合理的默认值。</p>
+<p>在实践中，团队只能借助第三方版本工具GitHub控制版本，并将版本信息附加到文件名中实现部分业务目标。这种设计实现，如果你的workflow代码变化缓慢，也不会有负担。但是，由于数据工程日益成为快节奏的科学，包括实验和频繁更新，仅仅支持部署新的代码模型参数，这种方式很快会失败。</p>
+<p>在Prefect Cloud中，我们已将版本化数据提升为一等公民。任何workflow都是版本化数据的一部分，以轻松追踪维护历史记录。我们照常有合理的默认值。</p>
 <ul>
-<li>当在一个项目部署一个同名工作流，版本系统会自动记录追踪</li>
-<li>当一个工作流被版本化，会获得递增的版本号，并且对之前的老版本关闭自动调度和进行存档。</li>
+<li>一个项目下部署一个同名的workflow，版本系统会自动追踪记录为版本数据</li>
+<li>当一个workflow被版本化，会获得递增的版本号，并且对之前的老版本workflow关闭自动调度和进行存档</li>
 </ul>
-<p>如果你有更复杂的版本需求，这些都是有配置，可自定义的。例如，绕开项目和工作流名称规则，你可以直接指定某一个工作流是另外一个工作流的不同版本。你可以覆盖自动版本升级，来取消存档并启用旧版本（例如，用于A/B测试）。或者，你只是简单使用版本系统来维护工作流历史，而不会污染UI操作界面。</p>
+<p>如果你有更复杂的版本需求，这些都是有可配置自定义的。例如，绕开项目下workflow同名追踪规则，你可以直接指定某一个workflow是另外一个workflow的不同版本。你可以覆盖自动版本升级，来取消存档并留用旧版本（例如，用于A/B测试）。或者，你只是简单使用版本系统来维护workflow历史，而不会复杂化UI操作界面。</p>
 <h2 id="本地测试"><a href="#本地测试" class="headerlink" title="本地测试"></a>本地测试</h2><blockquote>
-<p>  可能出错的事物和不可能出错的事物之间最大的区别是，<br>  当不可能出错的事物出错时，<br>  通常发现根本无法修理。</p>
-<p>  – 《Mostly Harmless》</p>
+<p>  可能出错的事物和不可能出错的事物之间最大的区别是，<br>  当不可能出错的事物出错时，<br>  通常发现根本无法调试。</p>
+<p>  – 工具书《Mostly Harmless》</p>
 </blockquote>
-<p>因为Airflow和Prefect都是用Python编写的，因此可以按照标准的Python模式来对独立的task逻辑进行单元测试。例如，在Airflow中，您可以导入DagBag提取单个DAG并对其结构或其中包含的任务进行各种声明。同样，在Prefect中，你可以轻松导入和检查工作流。此外，在Airflow和Prefect中，对于独立的task逻辑，都可以像其他Python代码一样进行单元测试。</p>
-<p>然而，在Airflow中测试工作流要比Prefect复杂的多。这是由于多种原因：</p>
+<p>因为Airflow和Prefect都是用Python编写的，因此可以按照标准的Python模式来对独立的task/operator逻辑进行单元测试。例如，在Airflow中，您可以导入DagBag提取单个DAG，并对其结构或包含的task进行各种断言测试。同样，在Prefect中，你可以轻松导入和测试workflow。此外，在Airflow和Prefect中，对于独立的task逻辑，都可以进行Python风格的单元测试。</p>
+<p>然而，在Airflow中测试DAG要比Prefect的workflow复杂的多。这是由于以下多种原因：</p>
 <ul>
-<li>Airflow中的DAG级别执行是由中央调度器来控制协调的。这意味模拟数据来执行DAG需要初始化准备数据和调度服务。将其纳入CI持续集成流程中测试对很多人来说都是障碍。</li>
-<li>Airflow的状态概念是用字符串描述的，这增加了测试数据传递的复杂性，或者引发什么类型异常，这需要数据库查询确定。</li>
+<li>Airflow中的DAG级别执行是由中枢调度器来控制协调的，意味着模拟数据来执行DAG也需要初始化准备数据和调度服务。将其纳入CI持续集成流程中测试对很多人来说都是个大麻烦</li>
+<li>Airflow的状态类型是字符串，这增加了测试数据传递的复杂性，或者引发什么类型异常，这需要数据库查询来确定</li>
 </ul>
-<p>另一方面，在Prefect中，工作流可以通过FlowRunner直接本地执行。此外，每个接口都提供了大量的额外参数，专门用于帮助测试流程，还贴心的包括一种手动指定上游task任意状态的方法。</p>
-<p>例如，要确保触发器逻辑适用于单个任务，你能通过task_states关键字参数传递所有的上游任务状态，因为Prefect返回信息组合完整的状态对象（包括数据、异常和重试次数等信息），你可以轻松针对任务返回状态的性质做断言。</p>
+<p>另外，在Prefect中，workflow作为参数简单传递给FlowRunner可以直接本地执行。此外，这类接口都提供了丰富的额外参数，专门用于帮助测试流程，还贴心的包括一种手动指定上游task任意状态的方法。</p>
+<p>例如，要确保测试逻辑适用于单个任务。因为Prefect返回上游task的结果是组合完整的状态对象（包括数据、异常状态和重试次数等信息），这样你能通过task_states关键字参数模拟传递所有的上游任务状态，进而你可以只对关心的task返回状态做断言。</p>
 <h2 id="UI操作界面"><a href="#UI操作界面" class="headerlink" title="UI操作界面"></a>UI操作界面</h2><blockquote>
 <p>  我选择相信。</p>
 <p>  – 电影《X档案》Fox Mulder</p>
 </blockquote>
-<p>Airflow最受欢迎的是他的web界面。在UI操作界面上，你可以轻松打开关闭DAG工作流，可视化DAG工作流执行进度，甚至可以对Airflow数据库进行查询。这是访问Airflow元数据的一种非常有用的方法。</p>
-<p>这从设计Prefect的第一天开始，她就支持漂亮的实时的UI操作界面，Prefect并未参照Airflow那样直接裸露数据库数据模型，而是用最佳实践来回应用户使用过程最关心的问题：系统运行状况如何？并且如果出现问题，我如何快速定位？</p>
+<p>Airflow最受欢迎的是web界面。在UI操作界面上，你可以轻松打开关闭DAG，可视化DAG运行实例的进度，甚至可以对Airflow数据库进行查询。这是一种访问Airflow元信息的非常有用的方法。</p>
+<p>因此从设计Prefect的第一天开始，就注重支持漂亮的实时的UI操作界面的理念，但Prefect并没有Airflow那样直接裸露数据库数据模型的操作，而是将最佳实践都制作成可视化界面，来应对用户使用过程最关心的问题：系统运行状况如何？并且如果出现问题，我如何快速定位？</p>
+<p><img src="/2020/04/12/airflow2/prefect-ui.gif" alt="prefect"></p>
 <p>Prefect UI操作界面支持如下：</p>
 <ul>
 <li>系统概况的仪表版</li>
@@ -415,7 +414,7 @@
 <li>完整的交互式的GraphQL API接口</li>
 <li>全局搜索</li>
 <li>代理控制</li>
-<li>组织工作流项目</li>
+<li>项目的workflow组成</li>
 <li>团队管理和权限</li>
 <li>API访问Token生成</li>
 <li>密码管理</li>
@@ -423,7 +422,7 @@
 <li>时区（适合Airflow用户）</li>
 <li>……还有很多</li>
 </ul>
-<p>UI操作界面是Prefect Cloud的一部分，它以能提供生产级工作流管理的基础结构来支持作为支持。但是我们致力于从开源产品的Cloud免费套餐开始，逐渐将完整地其提供给用户。我们正在研究将元素通过UI操作界面交付给开源用户的其他方式。</p>
+<p>UI操作界面是Prefect Cloud的一部分，它以能提供生产级workflow管理的底层结构作为支持。但是我们致力于从开源产品的云端免费套餐开始，逐渐将其完整地提供给用户。我们正在研究将元素抽象通过UI操作界面交付给开源用户的方式。</p>
 <h2 id="Prefect的简单安装使用"><a href="#Prefect的简单安装使用" class="headerlink" title="Prefect的简单安装使用"></a>Prefect的简单安装使用</h2><p>安装</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install prefect</span><br></pre></td></tr></table></figure>
 
@@ -437,11 +436,13 @@
 <p>  如果我比其他人看的更远，是因为我站在巨人的肩上。</p>
 <p>  – 艾萨克·牛顿</p>
 </blockquote>
-<p>Airflow普及了很多今天工程师认为理所当然的抽象概念和语义。不幸的是，随着数据科学工程的发展，它无法满足公司更多的动态需求。</p>
-<p>Prefect是一种工具，它数以百计的工业用户那里收集了很多变化的需求。它是一个引擎，用于启用任意专有的工作流，从而提供适用各种数据应用程序的词汇表。</p>
+<p>Airflow普及了很多今天工程师认为理所当然的框架抽象和语义。不幸的是，随着数据科学工程的发展，它无法满足公司更多的动态业务需求。</p>
+<p>Prefect是一种新的引擎工具，反映了从数以百计的工业用户那里收集的很多变化的需求，可用于启用定制化workflow，为各种数据应用程序提供丰富的数据抽象和接口。</p>
 <p>如果你想了解更多信息，请查看我们的文档或访问我们的<a href="https://github.com/PrefectHQ/prefect.git" target="_blank" rel="noopener">源码仓库</a>。如果你想试用Prefect Cloud，可以注册一个免费账号。</p>
+<hr>
 <ul>
-<li><a href="https://medium.com/the-prefect-blog/why-not-airflow-4cfa423299c4" target="_blank" rel="noopener">英版原文</a></li>
+<li><a href="https://docs.prefect.io/core/getting_started/why-not-airflow.html" target="_blank" rel="noopener">英版原文</a></li>
+<li><a href="https://github.com/PrefectHQ/prefect.git" target="_blank" rel="noopener">开源库</a></li>
 </ul>
 
       
