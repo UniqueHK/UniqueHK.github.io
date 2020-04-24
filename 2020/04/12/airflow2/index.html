@@ -15,7 +15,7 @@
 <meta property="og:description" content="airflow是一个Python的DAG任务管理工具，来自airb&amp;b，适合跨平台部署，调度器是相对静态批处理的。Prefect解决了诸多新时代应用场景问题，成为airflow的有力挑战者。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2020/04/12/airflow2/prefect-ui.gif">
-<meta property="og:updated_time" content="2020-04-15T09:47:36.000Z">
+<meta property="og:updated_time" content="2020-04-24T03:34:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【译】Airflow的挑战者Prefect">
 <meta name="twitter:description" content="airflow是一个Python的DAG任务管理工具，来自airb&amp;b，适合跨平台部署，调度器是相对静态批处理的。Prefect解决了诸多新时代应用场景问题，成为airflow的有力挑战者。">
@@ -253,7 +253,7 @@
 <li>动态的DAG</li>
 </ul>
 <p>如果你的使用场景与上述任何一种相似，将无法直接使用Airflow，除非你在Airflow的抽象设计层面花费大量的工夫。因此，几乎每个中大型规模的公司最终都会编写自定义的DSL，或者维护大量专有插件来满足内部复杂多变的业务需求，又造成升级和故障维护的困难。</p>
-<p>Prefect汲取了多年从事Airflow相关项目的经验。产品的研究覆盖了数百用户和公司，发现了Airflow难以解决的隐患。然后通过支撑适合大多数业务场景的架构抽象设计，它最终实现了难以置信的轻量好用的接口。<strong>注意，本文Airflow DAG和Prefect Flow都是workflow工作流的意思</strong></p>
+<p>Prefect汲取了多年从事Airflow相关项目的经验。产品的研究覆盖了数百用户和公司，发现了Airflow难以解决的隐患。然后通过支撑适合大多数业务场景的架构抽象设计，它最终实现了难以置信的轻量好用的接口。<strong>注意，本文Airflow DAG和Prefect flow都是workflow工作流的意思</strong></p>
 <h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><blockquote>
 <p>  当workflow能够定义成代码时，他们变得更加<br>  易于维护，方便多版本追踪，好测试，可协作。</p>
 <p>  – Airflow 官方文档</p>
@@ -263,7 +263,7 @@
 <p>Prefect的基本理念是，如果开发者能够保证编写的业务函数按预期正常运行，对workflow框架是无感知的。只有当bug出现，程序抛异常，workflow框架的管理作用才显现出来。这么看，workflow框架可算是流程风险管理工具，并且设计良好的情况下，应该降低workflow框架对业务代码的显式侵入，除非开发者明确需要，否则workflow框架不要让用户在开发路上觉得碍眼。</p>
 <p>所以Prefect的设计目标是在业务代码正确的情况下是几乎零侵入透明的，同时在出错时，workflow框架能尽量协助业务重回正轨。无论哪种方式，Prefect都可以为业务提供相应级别的透明度和细节。</p>
 <p>实现上述目标的基本方法是使用Prefect的功能API。在此模式下，Prefect的task行为类似于Python函数，可以直接定义输入输出和调用它。简单到只用一行Prefect装饰器代码，就将Python函数转换为task。像是Python函数一样自然，task之间的互相调用就地构建workflow，非常具有Python风格。这使得通常将已有业务代码和脚本转换成全栈Prefect的workflow是轻车熟路的。</p>
-<p>不用担心，Prefect同时还为Airflow用户提供Airflow风格的API，这种过程式风格对于构建复杂task依赖的workflow很有用，可以实现底层抽象控制。用户可以根据需求和倾向，来切换这两种风格使用。</p>
+<p>不用担心，Prefect同时还为Airflow用户提供Airflow风格的API，这种命令式风格对于构建复杂task依赖的workflow很有用，可以实现底层抽象控制。用户可以根据需求和倾向，来切换这两种风格使用。</p>
 <h2 id="调度和时间的关系"><a href="#调度和时间的关系" class="headerlink" title="调度和时间的关系"></a>调度和时间的关系</h2><blockquote>
 <p>  时间是一种幻想，就像午餐时间的加倍。</p>
 <p>  – 银河系漫游指南</p>
@@ -295,14 +295,14 @@
 <li>在数据库设置最终的DAG运行实例和task运行实例的状态</li>
 </ul>
 <p>相对的，Prefect将这么多架构设计解耦到不同的独立模块中。</p>
-<h3 id="Prefect-Flow-Scheduling"><a href="#Prefect-Flow-Scheduling" class="headerlink" title="Prefect Flow Scheduling"></a>Prefect Flow Scheduling</h3><p>Prefect Flow Scheduling（workflow可执行实例调度）是很轻量的，只需要简单创建一个新的可执行实例，并且设置成Scheduled状态。这就是Prefect Flow Scheduling实际的唯一责任，调度器绝对不会干涉任何workflow的依赖逻辑。</p>
-<h3 id="Prefect-Flow-Logic"><a href="#Prefect-Flow-Logic" class="headerlink" title="Prefect Flow Logic"></a>Prefect Flow Logic</h3><p>Prefect Flow Logic（workflow的依赖设置）是独立的编码部分，依赖逻辑绝不侵入业务，也不会把workflow相关的状态管理掺杂到业务里面。作为证据，你可以在本地运行空的workflow的情况，发现workflow进程几乎没有资源开销。</p>
+<h3 id="Prefect-flow-Scheduling"><a href="#Prefect-flow-Scheduling" class="headerlink" title="Prefect flow Scheduling"></a>Prefect flow Scheduling</h3><p>Prefect flow Scheduling（workflow可执行实例调度）是很轻量的，只需要简单创建一个新的可执行实例，并且设置成Scheduled状态。这就是Prefect flow Scheduling实际的唯一责任，调度器绝对不会干涉任何workflow的依赖逻辑。</p>
+<h3 id="Prefect-flow-Logic"><a href="#Prefect-flow-Logic" class="headerlink" title="Prefect flow Logic"></a>Prefect flow Logic</h3><p>Prefect flow Logic（workflow的依赖设置）是独立的编码部分，依赖逻辑绝不侵入业务，也不会把workflow相关的状态管理掺杂到业务里面。作为证据，你可以在本地运行空的workflow的情况，发现workflow进程几乎没有资源开销。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># run your first Prefect flow from the command line</span></span><br><span class="line"></span><br><span class="line">python -c <span class="string">"from prefect import Flow; f = Flow('empty'); f.run()"</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="Prefect-Task-Scheduling"><a href="#Prefect-Task-Scheduling" class="headerlink" title="Prefect Task Scheduling"></a>Prefect Task Scheduling</h3><p>当Prefect Flow的可执行实例在运行期间，只管调度属于自己的task，这非常重要：</p>
+<h3 id="Prefect-Task-Scheduling"><a href="#Prefect-Task-Scheduling" class="headerlink" title="Prefect Task Scheduling"></a>Prefect Task Scheduling</h3><p>当Prefect flow的可执行实例在运行期间，只管调度属于自己的task，这非常重要：</p>
 <ul>
 <li>从workflow的架构抽象看，workflow的可执行实例对象是唯一适合接管这个责任的</li>
-<li>减轻中枢调度器（Prefect Flow Scheduling）的负担</li>
+<li>减轻中枢调度器（Prefect flow Scheduling）的负担</li>
 <li>针对各种独特场景做决策，例如动态生成task</li>
 <li>将执行细节交给Dask等外部系统负责</li>
 </ul>
@@ -403,7 +403,7 @@
 </blockquote>
 <p>Airflow最受欢迎的是web界面。在UI操作界面上，你可以轻松打开关闭DAG，可视化DAG运行实例的进度，甚至可以对Airflow数据库进行查询。这是一种访问Airflow元信息的非常有用的方法。</p>
 <p>因此从设计Prefect的第一天开始，就注重支持漂亮的实时的UI操作界面的理念，但Prefect并没有Airflow那样直接裸露数据库数据模型的操作，而是将最佳实践都制作成可视化界面，来应对用户使用过程最关心的问题：系统运行状况如何？并且如果出现问题，我如何快速定位？</p>
-<p><img src="/2020/04/12/airflow2/prefect-ui.gif" alt="prefect"></p>
+<p><img src="/2020/04/12/airflow2/prefect-ui.gif" alt="Prefect UI"></p>
 <p>Prefect UI操作界面支持如下：</p>
 <ul>
 <li>系统概况的仪表版</li>
@@ -443,6 +443,7 @@
 <ul>
 <li><a href="https://docs.prefect.io/core/getting_started/why-not-airflow.html" target="_blank" rel="noopener">英版原文</a></li>
 <li><a href="https://github.com/PrefectHQ/prefect.git" target="_blank" rel="noopener">开源库</a></li>
+<li><a href="https://listen-lavender.gitbook.io/prefect-docs" target="_blank" rel="noopener">Prefect官方文档译文</a></li>
 </ul>
 
       
